@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="MuziNLP">
 <meta property="og:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-29T08:29:50.994Z">
+<meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/source/_posts/md/4.png">
+<meta property="og:updated_time" content="2018-09-29T08:31:53.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gated-Attention Readers for MRC">
 <meta name="twitter:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
+<meta name="twitter:image" content="http://yoursite.com/Users/xyqiang/Hexo/source/_posts/md/4.png">
 
 
 
@@ -386,6 +388,7 @@
 <h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><p>训练集用的CNN/Daily Mail 和 who did what，详情如下：</p>
 <h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>在CNN/Daily Mail上，效果比BiDAF提升了一个多点，细粒度的gated-attention取得了一些效果，但是在who did what数据集上并未有多大提升。</p>
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>实验部分给出了一些可视化的attention结果：</p>
+<p><img src="/Users/xyqiang/Hexo/source/_posts/md/4.png" alt="4"></p>
 <p>图中高亮的部分是背景文章针对问题时的最后一层注意力所关注的tokens。</p>
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>本文提出的Gated Attention用更细粒度的attention计算获得answer的定位，收获了一定的效果，并且使用Multi-Hop的结构，带着问题重读文章K次，增量式地重新得到tokens的表示，可以进一步帮助锁定答案。但是可以看出，在CNN/Daily Mail比在who did what数据集上提升的多，这就跟数据集本身有关了。所有的模型也都是建立在数据集的特点上的，仔细研读数据，研究其语言学的特征也是很重要的一个环节。</p>
 
