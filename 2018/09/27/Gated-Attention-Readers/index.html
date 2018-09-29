@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-08-11%2020.47.21.png">
 <meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-08-11%2020.51.57.png">
 <meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-09-21%2019.45.04.png">
-<meta property="og:updated_time" content="2018-09-29T07:36:08.571Z">
+<meta property="og:updated_time" content="2018-09-29T07:51:27.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gated-Attention-Readers">
 <meta name="twitter:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
@@ -375,7 +375,7 @@
 <h2 id="Lookup-layer"><a href="#Lookup-layer" class="headerlink" title="Lookup layer"></a>Lookup layer</h2><p>输入：tokens</p>
 <p>输出：tokens的向量表示</p>
 <p>运算关系：这里就是一个Lookup Table，用全连接训练词向量</p>
-<h2 id="Bi-GRU"><a href="#Bi-GRU" class="headerlink" title="Bi-GRU"></a>Bi-GRU</h2><p>输入：</p>
+<h2 id="Bi-GRU"><a href="#Bi-GRU" class="headerlink" title="Bi-GRU"></a>Bi-GRU</h2><p>输入：$x$</p>
 <p>输出：</p>
 <ul>
 <li>Document每个词项过Bi-GRU后每个隐藏层状态 E</li>
@@ -806,8 +806,6 @@
   
 
   
-  
-
 
   
 
