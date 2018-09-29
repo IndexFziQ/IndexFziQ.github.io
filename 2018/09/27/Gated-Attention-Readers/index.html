@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -87,15 +87,15 @@
 <meta property="og:site_name" content="MuziNLP">
 <meta property="og:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照%202018-09-21%2018.48.15.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照%202018-08-11%2020.47.21.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照%202018-08-11%2020.51.57.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照%202018-09-21%2019.45.04.png">
-<meta property="og:updated_time" content="2018-09-27T05:04:11.384Z">
+<meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-09-21%2018.48.15.png">
+<meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-08-11%2020.47.21.png">
+<meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-08-11%2020.51.57.png">
+<meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-09-21%2019.45.04.png">
+<meta property="og:updated_time" content="2018-09-29T07:36:08.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gated-Attention-Readers">
 <meta name="twitter:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照%202018-09-21%2018.48.15.png">
+<meta name="twitter:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-09-21%2018.48.15.png">
 
 
 
@@ -146,7 +146,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -160,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -369,7 +369,7 @@
 <p>答案是来自构建好的词汇表中的一个词，也就是token。总结一下就是，根据文档-问题对(d,q)，从词汇表中找到最合适的词项作为答案a。</p>
 <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>作者发现，之前的MRC神经网络模型有一个问题——模型会对原文中的某个部分的注意力特别大，以至于对整篇文章的理解不够完整。并且之前的工作把query attention应用到token(Hermann et al., 2015; Chen et al., 2016)和sentence(Weston et al., 2015)两个层次上，本文希望用更细粒度的attention计算方式，获取document和query更多的语义信息。</p>
 <h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h2><p>用Bi-GRU获取document和query每一个词项的信息，两部分词项之间两两做元素相乘，这样的操作做K次，到第K层的时候，document的词向量与query的词向量做内积运算，得到最终的向量表示，然后过soft Max层得到词项的概率分布，选document中概率最大的词项作为answer输出。</p>
-<h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><img src="/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照 2018-09-21 18.48.15.png" alt="屏幕快照 2018-09-21 18.48.15"></p>
+<h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><img src="/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照 2018-09-21 18.48.15.png" alt="屏幕快照 2018-09-21 18.48.15"></p>
 <p>输入：document和query分词后的tokens序列</p>
 <p>输出：概率最大的answer</p>
 <h2 id="Lookup-layer"><a href="#Lookup-layer" class="headerlink" title="Lookup layer"></a>Lookup layer</h2><p>输入：tokens</p>
@@ -390,11 +390,11 @@
 <p>运算关系：</p>
 <p>得到概率最大的answer最为最终的输出。</p>
 <h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><p>训练集用的CNN/Daily Mail 和 who did what，详情如下：</p>
-<p><img src="/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照 2018-08-11 20.47.21.png" alt="屏幕快照 2018-08-11 20.47.21"></p>
-<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照 2018-08-11 20.51.57.png" alt="屏幕快照 2018-08-11 20.51.57"></p>
+<p><img src="/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照 2018-08-11 20.47.21.png" alt="屏幕快照 2018-08-11 20.47.21"></p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照 2018-08-11 20.51.57.png" alt="屏幕快照 2018-08-11 20.51.57"></p>
 <p>在CNN/Daily Mail上，效果比BiDAF提升了一个多点，细粒度的gated-attention取得了一些效果，但是在who did what数据集上并未有多大提升。</p>
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>实验部分给出了一些可视化的attention结果：</p>
-<p><img src="/2018/09/27/Gated-Attention-Readers/Users/xyqiang/Hexo/source/_posts/Gated-Attention-Readers/屏幕快照 2018-09-21 19.45.04.png" alt="屏幕快照 2018-09-21 19.45.04"></p>
+<p><img src="/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照 2018-09-21 19.45.04.png" alt="屏幕快照 2018-09-21 19.45.04"></p>
 <p>图中高亮的部分是背景文章针对问题时的最后一层注意力所关注的tokens。</p>
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>本文提出的Gated Attention用更细粒度的attention计算获得answer的定位，收获了一定的效果，并且使用Multi-Hop的结构，带着问题重读文章K次，增量式地重新得到tokens的表示，可以进一步帮助锁定答案。但是可以看出，在CNN/Daily Mail比在who did what数据集上提升的多，这就跟数据集本身有关了。所有的模型也都是建立在数据集的特点上的，仔细研读数据，研究其语言学的特征也是很重要的一个环节。</p>
 
@@ -736,7 +736,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
@@ -789,6 +806,8 @@
   
 
   
+  
+
 
   
 
