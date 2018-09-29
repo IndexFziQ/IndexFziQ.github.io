@@ -89,9 +89,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/09/27/MRC/3.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/27/MRC/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/MRC/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/27/MRC/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/27/MRC/4.png">
-<meta property="og:updated_time" content="2018-09-29T10:46:35.109Z">
+<meta property="og:updated_time" content="2018-09-29T13:01:28.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gated-Attention Readers for MRC">
 <meta name="twitter:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
@@ -375,23 +375,23 @@
 <h2 id="Lookup-layer"><a href="#Lookup-layer" class="headerlink" title="Lookup layer"></a>Lookup layer</h2><p>输入：tokens</p>
 <p>输出：tokens的向量表示</p>
 <p>运算关系：这里就是一个Lookup Table，用全连接训练词向量</p>
-<h2 id="Bi-GRU"><a href="#Bi-GRU" class="headerlink" title="Bi-GRU"></a>Bi-GRU</h2><p>输入：</p>
+<h2 id="Bi-GRU"><a href="#Bi-GRU" class="headerlink" title="Bi-GRU"></a>Bi-GRU</h2><p>输入：$X^1$</p>
 <p>输出：</p>
 <ul>
 <li>Document每个词项过Bi-GRU后每个隐藏层状态 E</li>
 <li>Query每个词项过Bi-GRU后每个隐藏层状态串起来 q</li>
 </ul>
 <p>运算关系：见Bi-GRU结构，不详细介绍。</p>
-<h2 id="Gated-Attention"><a href="#Gated-Attention" class="headerlink" title="Gated-Attention"></a>Gated-Attention</h2><p>输入：</p>
-<p>输出：下一层的输入</p>
-<p>运算关系：</p>
-<h2 id="K-th-layer-amp-soft-Max"><a href="#K-th-layer-amp-soft-Max" class="headerlink" title="K-th layer &amp; soft Max"></a>K-th layer &amp; soft Max</h2><p>输入：</p>
-<p>输出：document中tokens的概率分布</p>
-<p>运算关系：</p>
+<h2 id="Gated-Attention"><a href="#Gated-Attention" class="headerlink" title="Gated-Attention"></a>Gated-Attention</h2><p>输入：$E^1$，$q^1$</p>
+<p>输出：下一层的输入$X^2$</p>
+<p>运算关系：$X^2 = E^1 \odot q^1$  </p>
+<h2 id="K-th-layer-amp-soft-Max"><a href="#K-th-layer-amp-soft-Max" class="headerlink" title="K-th layer &amp; soft Max"></a>K-th layer &amp; soft Max</h2><p>输入：$E^K$， $q^K$</p>
+<p>输出：document中tokens的概率分布$s^K$</p>
+<p>运算关系：求soft Max.</p>
 <p>得到概率最大的answer最为最终的输出。</p>
 <h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><p>训练集用的CNN/Daily Mail 和 who did what，详情如下：</p>
 <p><img src="/2018/09/27/MRC/1.png" alt=""></p>
-<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="/2018/09/27/MRC/2.jpg" alt=""></p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p><img src="/2018/09/27/MRC/2.png" alt=""></p>
 <p>在CNN/Daily Mail上，效果比BiDAF提升了一个多点，细粒度的gated-attention取得了一些效果，但是在who did what数据集上并未有多大提升。</p>
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>实验部分给出了一些可视化的attention结果：</p>
 <p><img src="/2018/09/27/MRC/4.png" alt=""></p>
