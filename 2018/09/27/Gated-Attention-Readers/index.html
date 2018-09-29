@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-08-11%2020.47.21.png">
 <meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-08-11%2020.51.57.png">
 <meta property="og:image" content="http://yoursite.com/Users/xyqiang/Hexo/themes/next/source/md/屏幕快照%202018-09-21%2019.45.04.png">
-<meta property="og:updated_time" content="2018-09-29T07:51:27.733Z">
+<meta property="og:updated_time" content="2018-09-29T07:55:14.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gated-Attention-Readers">
 <meta name="twitter:description" content="Inroduction本文是ACL 2017的一篇文章，用更细粒度的gated-attention对背景文章和问题进行计算。作者是CMU的Graduate Research Assistant:  Bhuwan Dhingra。文章的相关工作部分总结的很好，代码实现可以参考[GitHub]。">
@@ -382,10 +382,11 @@
 <li>Query每个词项过Bi-GRU后每个隐藏层状态串起来 q</li>
 </ul>
 <p>运算关系：见Bi-GRU结构，不详细介绍。</p>
-<h2 id="Gated-Attention"><a href="#Gated-Attention" class="headerlink" title="Gated-Attention"></a>Gated-Attention</h2><p>输入：</p>
+<h2 id="Gated-Attention"><a href="#Gated-Attention" class="headerlink" title="Gated-Attention"></a>Gated-Attention</h2><p>输入：Simple inline $a = b + c$</p>
 <p>输出：下一层的输入</p>
 <p>运算关系：</p>
 <h2 id="K-th-layer-amp-soft-Max"><a href="#K-th-layer-amp-soft-Max" class="headerlink" title="K-th layer &amp; soft Max"></a>K-th layer &amp; soft Max</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$$\frac&#123;\partial u&#125;&#123;\partial t&#125;</span><br><span class="line">= h^2 \left( \frac&#123;\partial^2 u&#125;&#123;\partial x^2&#125; +</span><br><span class="line">\frac&#123;\partial^2 u&#125;&#123;\partial y^2&#125; +</span><br><span class="line">\frac&#123;\partial^2 u&#125;&#123;\partial z^2&#125;\right)$$</span><br></pre></td></tr></table></figure>
 <p>输出：document中tokens的概率分布</p>
 <p>运算关系：</p>
 <p>得到概率最大的answer最为最终的输出。</p>
