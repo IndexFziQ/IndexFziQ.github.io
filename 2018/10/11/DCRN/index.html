@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="机器阅读理解,自然语言处理," />
 
 
 
@@ -79,19 +79,25 @@
 
 
 
-<meta name="description" content="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive InformationIntroduction本文出自韩国Naver Corporation和Seoul National University，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉">
+<meta name="description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
+<meta name="keywords" content="机器阅读理解,自然语言处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DCRN">
+<meta property="og:title" content="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information">
 <meta property="og:url" content="http://yoursite.com/2018/10/11/DCRN/index.html">
 <meta property="og:site_name" content="Lewis X">
-<meta property="og:description" content="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive InformationIntroduction本文出自韩国Naver Corporation和Seoul National University，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉">
+<meta property="og:description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
 <meta property="og:locale" content="en-us">
 <meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/whole.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/overview.png">
-<meta property="og:updated_time" content="2018-10-11T10:42:26.972Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/SNLI.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/MultiNLI.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/Ablation.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/entailment.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/contraction.png">
+<meta property="og:updated_time" content="2018-10-29T08:26:29.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DCRN">
-<meta name="twitter:description" content="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive InformationIntroduction本文出自韩国Naver Corporation和Seoul National University，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉">
+<meta name="twitter:title" content="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information">
+<meta name="twitter:description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
 <meta name="twitter:image" content="http://yoursite.com/2018/10/11/DCRN/whole.png">
 
 
@@ -128,7 +134,7 @@
 
 
 
-  <title>DCRN | Lewis X</title>
+  <title>Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information | Lewis X</title>
   
 
 
@@ -316,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DCRN</h1>
+          <h1 class="post-title" itemprop="name headline">Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information</h1>
         
 
         <div class="post-meta">
@@ -338,6 +344,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -366,13 +394,77 @@
       
 
       
-        <h1 id="Semantic-Sentence-Matching-with-Densely-connected-Recurrent-and-Co-attentive-Information"><a href="#Semantic-Sentence-Matching-with-Densely-connected-Recurrent-and-Co-attentive-Information" class="headerlink" title="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information"></a>Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本文出自韩国<em>Naver Corporation</em>和Seoul National University，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似POS的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention算法在刻画两个句子语义关系和对齐句子成分方面有很好的效果，但是也有不足之处。Attention机制仅使用求和操作，这样来自于上层的特征信息就会被破坏，不能完整保留下来。作者借鉴了图像识别中的DenseNet的密集连接操作，旨在更好地利用原始特征信息。</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分方面有很好的效果，但是也有不足之处。Attention 机制仅使用求和操作，这样来自于上层的特征信息就会被破坏，不能完整保留下来。作者借鉴了图像识别中的DenseNet的密集连接操作，旨在更好地利用原始特征信息。</p>
 <a id="more"></a>
 <p>本文提出Densely-connected co-attentive RNN，密集连接stack RNN，这样从最底层到最顶层一直保留原始信息，在stack RNN的每一个block中，用co-attention的方式得到两个句子之间的交互信息，能量函数用的最简单的算cos距离。因为stack RNN会参数量会迅速增加，影响模型训练，因此用自编码器进行压缩表示。</p>
 <p>模型目前在SNLI的排名第一，集成之后，在测试集上破了90%正确率的大关。过去应该也没有人认为句子匹配任务需要把网络做深，当然现在也是，效果没提升多少，我感觉这只是个尝试，企业就喜欢这种简单粗暴不考虑计算力的模型。</p>
 <h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>下面对模型详细介绍：模型整体不复杂，但是我不理解的就是自编码器选择的位置和层数为什么是5，文中也没有指出来，也没有实验。</p>
-<h3 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h3><p><img src="/2018/10/11/DCRN/whole.png" alt=""></p>
-<p><img src="/2018/10/11/DCRN/overview.png" alt=""></p>
+<h3 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h3><p><img src="/2018/10/11/DCRN/whole.png" alt="The Whole Model"></p>
+<p>由上图可以看出，整个模型的输入输出，从左到右。</p>
+<ul>
+<li>最左边的浅绿色是对前提和假设的Embedding；</li>
+<li>之后过5层的Stack RNN ，中间部分是如何运算的？有哪些参数？灰色块为什么只有两个？这些问题在下一张图详细介绍；</li>
+<li>在Stack RNN之后是分别对前提和假设进行pooling，映射到同一个维度，得到两者的new representation；</li>
+<li>蓝色块的作用是对前提和假设做并、相加和相减等运算，一定程度上得到它们之间的距离和相似程度；</li>
+<li>黄色块是最终的输出，与蓝色块之间是全连接。</li>
+</ul>
+<p><img src="/2018/10/11/DCRN/overview.png" alt="Overview"></p>
+<h3 id="Details-in-model"><a href="#Details-in-model" class="headerlink" title="Details in model"></a>Details in model</h3><p><strong>Embedding Layer</strong></p>
+<p>词向量的特征包括四项：</p>
+<ol>
+<li>与模型一起训练的Glove词向量:  $e^{tr}_{p_i}=E^{tr}(p_i)$；</li>
+<li>直接拿来用的，保持不变的Glove词向量: $e^{fix}_{p_i}=E^{fix}(p_i)$；</li>
+<li>用CNN得到的字向量: $c_{p_i}=CharConv(p_i)$；</li>
+<li>Match Flag特征：这是一个0/1特征，表示该词是否在另一句话中出现。</li>
+</ol>
+<p>最终的表示是四部分串在一起: <script type="math/tex">p^w_i = [ e^{tr}_{p_i}, e^{fix}_{p_i}, c_{p_i}, f_{p_i} ]</script>。</p>
+<p><strong>Densely connected recurrent Co-attentive networks</strong></p>
+<p>这部分非常重要，也就是图Overview中的虚线部分。</p>
+<p>蓝色的RNN分别得到前提的表示$h_p$和假设的表示$h_q$，然后就是计算Attention：</p>
+<ul>
+<li>能量函数e选用的暴力的cos函数: $e<em>{i,j}=cos(h</em>{p<em>i},h</em>{q_i})$；</li>
+<li>然后做soft Max得到注意力权重$\alpha$ : $\alpha<em>{i,j}=\frac{exp(e</em>{i,j})}{\sum ^J<em>{k=1}{exp(e</em>{i,k})}}$；</li>
+<li>得到权重化之后的表示$ a<em>{p_i}=\sum ^J</em>{j=1} {\alpha <em>{i,j}  h</em>{q_j}} $。</li>
+</ul>
+<p>在得到<strong>a</strong>之后，作者并没有像之前的工作一样相加。而是部分借鉴了DenseNet的思想，将本层输入保留，与<strong>h</strong> , <strong>a</strong>做<strong>concat</strong>[这部分并不像图像识别的DenseNet，把每层之间都做了连接，所以并没有保留原始的输出]。</p>
+<p>下面是三种得到Stack RNN隐层状态的方式：</p>
+<ol>
+<li>$h^l<em>t=H_l({x^l_t,h^l</em>{t-1}}), x^l_{t}=h^{l-1}_t$—RNN</li>
+<li>$h^l<em>t=H_l({x^l_t,h^l</em>{t-1}}),x^l_t=h^{l-1}_t+x^{l-1}_t$—ResNet</li>
+<li>$h^l<em>t=H_l({x^l_t,h^l</em>{t-1}}),x^l_t=[h^{l-1}_t,x^{l-1}_t]$—DenseNet</li>
+</ol>
+<p>最终作者的结合方式是这样：$x^l_t=[h^{l-1}_t;a^{l-1}_t;x^{l-1}_t]$，权重化表示<strong>a</strong>直接作为特征串在了中间。</p>
+<p><strong>AutoEncoder</strong></p>
+<p>Stack RNN 这样的结构必然会带来参数急速增长的问题，为了解决这个问题，作者使用了AutoEncoder，但是并没有指出用哪种自编码器和为什么只用2次，实验中也没有指明。但是，自编码器无疑是可以减少参数量，在损失尽量小的情况下压缩参数。</p>
+<p><strong>Pooling Layer</strong></p>
+<p>这部分没啥，Max Pooling得到维度相同的P、Q表示。</p>
+<p><strong>Interaction Layer</strong></p>
+<p>最后对P、Q的表示做拼接、相加、相减、绝对值的运算，表示句子之间的匹配：$v=[p;q;p+q,p-q,|p-q|]$ ，然后全连接和soft Max得到P、Q之间的关系。</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="/2018/10/11/DCRN/SNLI.png" alt="Result in SNLI"></p>
+<p>这个模型Ensemble之后的结果目前是SNLI的第一，当然BERT的效果应该是比它好，下图是在MultiNLI和Quora数据集上的结果，也算可以了，比BERT少2-3个点。</p>
+<p><img src="/2018/10/11/DCRN/MultiNLI.png" alt="Result in MultiNLI and Quora"></p>
+<p>最后是在SNLI上的Ablation study，结果发现任务相关的词向量、Attention和dense-connect对模型的影响比较大。</p>
+<p><img src="/2018/10/11/DCRN/Ablation.png" alt="Ablation Study in SNLI"></p>
+<p>文中还最后举了两个例子，一个蕴含一个矛盾，指出DRCN五层后的找到的词比Res net更准确，图有点长，还是放上吧。</p>
+<p><strong>Visualization of</strong> <strong>attentive weights</strong> <strong>on the</strong> <strong>entailment</strong> <strong>example.</strong></p>
+<p>The premise is “two bicyclists in spandex and helmets in a race pedaling uphill.” </p>
+<p>The hypothesis is “A pair of humans are riding their bicycle with tight clothing, competing with each other.” </p>
+<p><img src="/2018/10/11/DCRN/entailment.png" alt="entailment"></p>
+<p><strong>Visualization of attentive weights on the contradiction example.</strong> </p>
+<p>The premise is “Several men in front of a white building.” </p>
+<p>The hypothesis is “Several people in front of a gray building.”. </p>
+<p><img src="/2018/10/11/DCRN/contraction.png" alt="contraction"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>这篇文章主要集中在句子匹配任务上</p>
+<ol>
+<li>借鉴ResNet和DenseNet，运用到stack RNN中;</li>
+<li>将注意力权值作为一个特征并在<strong>h, x</strong>的中间，做法很新颖;</li>
+<li>利用AutoEncoder来压缩向量，减少参数迅速增加的压力。</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>Seonhoon Kim et al. Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information.arXiv: 1805.11360 </li>
+<li>Yichen Gong, Heng Luo, and Jian Zhang. Natural language inference over interaction space. In Interna- tional Conference on Learning Representations, 2018. </li>
+<li>Gao Huang, Zhuang Liu, Kilian Q Weinberger, and Laurens van der Maaten. Densely connected convo- lutional networks. In Proceedings of the IEEE conference on computer vision and pattern recognition, volume 1, page 3, 2017. </li>
+</ol>
 
       
     </div>
@@ -387,6 +479,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器阅读理解/" rel="tag"># 机器阅读理解</a>
+          
+            <a href="/tags/自然语言处理/" rel="tag"># 自然语言处理</a>
+          
+        </div>
       
 
       
@@ -557,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Semantic-Sentence-Matching-with-Densely-connected-Recurrent-and-Co-attentive-Information"><span class="nav-number">1.</span> <span class="nav-text">Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">1.2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overview"><span class="nav-number">1.2.1.</span> <span class="nav-text">overview</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overview"><span class="nav-number">2.1.</span> <span class="nav-text">overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Details-in-model"><span class="nav-number">2.2.</span> <span class="nav-text">Details in model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
