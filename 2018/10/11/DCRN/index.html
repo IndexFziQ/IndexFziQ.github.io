@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/Ablation.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/entailment.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/contraction.png">
-<meta property="og:updated_time" content="2018-10-29T09:02:12.929Z">
+<meta property="og:updated_time" content="2018-10-29T16:08:23.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information">
 <meta name="twitter:description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
@@ -422,16 +422,16 @@
 <p>这部分非常重要，也就是图Overview中的虚线部分。</p>
 <p>蓝色的RNN分别得到前提的表示$h_p$和假设的表示$h_q$，然后就是计算Attention：</p>
 <ul>
-<li>能量函数e选用的暴力的cos函数: $e<em>{i,j}=cos(h</em>{p<em>i},h</em>{q_i})$；</li>
-<li>然后做soft Max得到注意力权重$\alpha$ : $\alpha<em>{i,j}=\frac{exp(e</em>{i,j})}{\sum ^J<em>{k=1}{exp(e</em>{i,k})}}$；</li>
-<li>得到权重化之后的表示$ a<em>{p_i}=\sum ^J</em>{j=1} {\alpha <em>{i,j}  h</em>{q_j}} $。</li>
+<li>能量函数e选用的暴力的cos函数: <script type="math/tex">e_{i,j}=cos(h_{p_i},h_{q_i})</script>；</li>
+<li>然后做soft Max得到注意力权重$\alpha$ : <script type="math/tex">\alpha_{i,j}=\frac{exp(e_{i,j})}{\sum ^J_{k=1}{exp(e_{i,k})}}</script>；</li>
+<li>得到权重化之后的表示<script type="math/tex">a_{p_i}=\sum ^J_{j=1} {\alpha _{i,j}  h_{q_j}}</script>。</li>
 </ul>
 <p>在得到<strong>a</strong>之后，作者并没有像之前的工作一样相加。而是部分借鉴了DenseNet的思想，将本层输入保留，与<strong>h</strong> , <strong>a</strong>做<strong>concat</strong>[这部分并不像图像识别的DenseNet，把每层之间都做了连接，所以并没有保留原始的输出]。</p>
 <p>下面是三种得到Stack RNN隐层状态的方式：</p>
 <ol>
-<li>$h^l<em>t=H_l({x^l_t,h^l</em>{t-1}}), x^l_{t}=h^{l-1}_t$—RNN</li>
-<li>$h^l<em>t=H_l({x^l_t,h^l</em>{t-1}}),x^l_t=h^{l-1}_t+x^{l-1}_t$—ResNet</li>
-<li>$h^l<em>t=H_l({x^l_t,h^l</em>{t-1}}),x^l_t=[h^{l-1}_t,x^{l-1}_t]$—DenseNet</li>
+<li><script type="math/tex">h^l_t=H_l({x^l_t,h^l_{t-1}}), x^l_{t}=h^{l-1}_t</script>—RNN</li>
+<li><script type="math/tex">h^l_t=H_l({x^l_t,h^l_{t-1}}),x^l_t=h^{l-1}_t+x^{l-1}_t</script>—ResNet</li>
+<li><script type="math/tex">h^l_t=H_l({x^l_t,h^l_{t-1}}),x^l_t=[h^{l-1}_t,x^{l-1}_t]</script>—DenseNet</li>
 </ol>
 <p>最终作者的结合方式是这样：$x^l_t=[h^{l-1}_t;a^{l-1}_t;x^{l-1}_t]$，权重化表示<strong>a</strong>直接作为特征串在了中间。</p>
 <p><strong>AutoEncoder</strong></p>
