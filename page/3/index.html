@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,16 @@
 
 
 
-<meta name="description" content="Lesson 9 Booleans就是常说的布尔运算，True or False？计算机用1和0来隐形地表示，python中布尔变量是如何表达的呢。">
-<meta name="keywords" content="python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 7- Python Booleans">
-<meta property="og:url" content="http://yoursite.com/2018/11/01/07_Booleans/index.html">
+<meta name="description" content="Less is More!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lewis X&#39; Blog">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Lewis X&#39; Blog">
-<meta property="og:description" content="Lesson 9 Booleans就是常说的布尔运算，True or False？计算机用1和0来隐形地表示，python中布尔变量是如何表达的呢。">
+<meta property="og:description" content="Less is More!">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-11-02T01:42:38.764Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 7- Python Booleans">
-<meta name="twitter:description" content="Lesson 9 Booleans就是常说的布尔运算，True or False？计算机用1和0来隐形地表示，python中布尔变量是如何表达的呢。">
+<meta name="twitter:title" content="Lewis X&#39; Blog">
+<meta name="twitter:description" content="Less is More!">
 
 
 
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/01/07_Booleans/"/>
+  <link rel="canonical" href="http://yoursite.com/page/3/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 7- Python Booleans | Lewis X' Blog</title>
+  <title>Lewis X' Blog</title>
   
 
 
@@ -155,7 +153,8 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,9 +281,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -297,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/07_Booleans/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/《把时间当作朋友》-第零章读后感/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -314,7 +313,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 7- Python Booleans</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/20/《把时间当作朋友》-第零章读后感/" itemprop="url">《把时间当作朋友》--第零章读后感</a></h1>
         
 
         <div class="post-meta">
@@ -326,8 +327,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-01T13:06:01+08:00">
-                2018-11-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-20T15:51:22+08:00">
+                2018-09-20
               </time>
             
 
@@ -349,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learn-python-with-socratica/" itemprop="url" rel="index">
-                    <span itemprop="name">Learn python with socratica</span>
+                  <a href="/categories/感想/" itemprop="url" rel="index">
+                    <span itemprop="name">感想</span>
                   </a>
                 </span>
 
@@ -386,30 +387,16 @@
       
 
       
-        <p><strong>Lesson 9</strong></p>
-<p>Booleans就是常说的布尔运算，True or False？计算机用1和0来隐形地表示，python中布尔变量是如何表达的呢。</p>
-<a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Booleans Value: True and False.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">True</span></span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>true</span><br><span class="line">&gt; ---------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">NameError                                 Traceback (most recent call last)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input<span class="number">-2</span><span class="number">-724</span>ba28f4a9a&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 true</span><br><span class="line">NameError: name <span class="string">'true'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure>
-<p>如果之间键入True，python会直接返回True。但是如果你键入true，python是不会识别的，所以需要注意大小写，表示布尔变量的只有第一个字母大写的情况。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># similarly</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">False</span></span><br><span class="line">&gt; <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>false</span><br><span class="line">&gt;---------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">NameError                                 Traceback (most recent call last)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input<span class="number">-4</span>-b73d74fcede9&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 false</span><br><span class="line">NameError: name <span class="string">'false'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure>
-<p>布尔变量一般用于比较，举个例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a == b</span><br><span class="line">&gt; <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<p>上面这个例子中，我们用一个等号来赋值，用两个等号来比较二值是否相等，其返回值就是布尔变量。如果想要返回True也很简单，这些只要在python数值运算的部分找表格。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a!=b</span><br><span class="line">&gt; <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-<p>！=表示不等于，类似的还有&gt;，&lt;等等，做一下实验看看吧。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt; b</span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt; b</span><br><span class="line">&gt; <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="keyword">True</span>)</span><br><span class="line">&gt; bool</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="keyword">False</span>)</span><br><span class="line">&gt; bool</span><br></pre></td></tr></table></figure>
-<p>当我们用type去看它们的类型时，可以看出它们在python中并不是字符串。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="number">20</span>)</span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="number">-2.78</span>)</span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="number">0</span>)</span><br><span class="line">&gt; <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="number">2.3</span>+<span class="number">0.7j</span>)</span><br><span class="line">&gt; <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-<p>在python中，bool其他类型的数字，0转换成False，其他的都转换成True。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="string">'Turing'</span>)</span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="string">' '</span>)</span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bool(<span class="string">''</span>)</span><br><span class="line">&gt; <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<p>对字符串做bool强制类型转换的话，挺有意思。空字符串转换成False，其他的都是True。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># you can convert bool values like this</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="keyword">True</span>)</span><br><span class="line">&gt; <span class="string">'True'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str(<span class="keyword">False</span>)</span><br><span class="line">&gt; <span class="string">'False'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="keyword">True</span>)</span><br><span class="line">&gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="keyword">False</span>)</span><br><span class="line">&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>不仅如此，你还可以直接用True和False进行算术运算，比如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">5</span> + <span class="keyword">True</span></span><br><span class="line">&gt; <span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> * <span class="keyword">False</span></span><br><span class="line">&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>python内核中 bool[True] -&gt;1 [int]</p>
-<p>python中的booleans就是这样啦。</p>
-<p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
-
+        
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>时间，大约是在大四的那个寒假。保研结果出来以后，自己想着要做时间的主人，以后的博士生涯要好好地学习，发论文，顺利毕业，过得精彩纷呈。于是在知乎上搜了“如何很好地管理时间”，有幸看到了对这本书的推荐，让我明白什么才是真正地“管理”时间，之后的一段时间是认认真真地去规划自己的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/20/《把时间当作朋友》-第零章读后感/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -424,40 +411,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/10/30/06-interactive-help/" rel="next" title="Learn python with socratica [My notes] - part 6- Interactive Help">
-                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 6- Interactive Help
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/01/08_Datetimes_Module/" rel="prev" title="Learn python with socratica [My notes] - part 8- Datetiems Module">
-                Learn python with socratica [My notes] - part 8- Datetiems Module <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -467,11 +428,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -479,10 +443,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -717,10 +677,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lewis X&#39; Blog">
 <meta property="og:description" content="Lesson 6 &amp;amp; 7 Experiments in python2算术运算是编程中非常基础的部分，那么python中是怎么实现的呢？python2和python3在这个方面又有什么样的区别？">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-10-29T16:03:28.315Z">
+<meta property="og:updated_time" content="2018-11-02T01:44:00.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learn python with socratica [My notes] - part 5 - Arithmetic">
 <meta name="twitter:description" content="Lesson 6 &amp;amp; 7 Experiments in python2算术运算是编程中非常基础的部分，那么python中是怎么实现的呢？python2和python3在这个方面又有什么样的区别？">
@@ -390,51 +390,12 @@
 <h3 id="Experiments-in-python2"><a href="#Experiments-in-python2" class="headerlink" title="Experiments in python2"></a>Experiments in python2</h3><p>算术运算是编程中非常基础的部分，那么python中是怎么实现的呢？python2和python3在这个方面又有什么样的区别？</p>
 <a id="more"></a>
 <p>首先介绍的是算术运算的基础：</p>
-<pre><code># Let&#39;s begin.
-
-# Numbers: int, long, float, complex
-# operation: + - * /
-
-# the first thing to operate numbers is that
-# both of the numbers are the same type
-
-# for example
-x = 5  #int
-y = 5L #long
-
-# you can also get long number in this way
-long(5)
-5L
-
-# ints are narrower than longs
-# longs are wider than ints
-
-# also, floats are wider than longs
-# all longs can be converted to floats
-x = 28L
-y = 28.0
-float(28)
-28.0
-
-# however, not all floats can be converted to longs
-# for example
-a = 3.14 # float
-
-# try to convert to long, and you will find:
-long(a)
-3L
-</code></pre><p>用long强制转换3.14这个float类型的数，得到的并不是同一个数。</p>
-<pre><code># similarly
-x = 1.721 # float
-
-1.721 + 0j
-(1.721+0j)
-</code></pre><p>同样的，复数也是包含所有浮点数的。</p>
-<pre><code>complex(1.721+0j)
-(1.721+0j)
-
-
-float(1.721+0j)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Let's begin.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Numbers: int, long, float, complex</span></span><br><span class="line"><span class="comment"># operation: + - * /</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the first thing to operate numbers is that</span></span><br><span class="line"><span class="comment"># both of the numbers are the same type</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for example</span></span><br><span class="line">x = <span class="number">5</span>  <span class="comment">#int</span></span><br><span class="line">y = <span class="number">5L</span> <span class="comment">#long</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># you can also get long number in this way</span></span><br><span class="line">long(<span class="number">5</span>)</span><br><span class="line"><span class="number">5L</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ints are narrower than longs</span></span><br><span class="line"><span class="comment"># longs are wider than ints</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># also, floats are wider than longs</span></span><br><span class="line"><span class="comment"># all longs can be converted to floats</span></span><br><span class="line">x = <span class="number">28L</span></span><br><span class="line">y = <span class="number">28.0</span></span><br><span class="line">float(<span class="number">28</span>)</span><br><span class="line"><span class="number">28.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># however, not all floats can be converted to longs</span></span><br><span class="line"><span class="comment"># for example</span></span><br><span class="line">a = <span class="number">3.14</span> <span class="comment"># float</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># try to convert to long, and you will find:</span></span><br><span class="line">long(a)</span><br><span class="line"><span class="number">3L</span></span><br></pre></td></tr></table></figure>
+<p>用long强制转换3.14这个float类型的数，得到的并不是同一个数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># similarly</span></span><br><span class="line">x = <span class="number">1.721</span> <span class="comment"># float</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.721</span> + <span class="number">0j</span></span><br><span class="line">(<span class="number">1.721</span>+<span class="number">0j</span>)</span><br></pre></td></tr></table></figure>
+<p>同样的，复数也是包含所有浮点数的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(<span class="number">1.721</span>+<span class="number">0j</span>)</span><br><span class="line">(<span class="number">1.721</span>+<span class="number">0j</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>float(1.721+0j)
 
 TypeErrorTraceback (most recent call last)
 
@@ -443,68 +404,16 @@ TypeErrorTraceback (most recent call last)
 
 TypeError: can&#39;t convert complex to float
 </code></pre><p>现在，我们可以得出结论，ints&lt;longs&lt;floats&lt;complex，这在python算术运算中，也起到决定性的作用。在python中，如果是两个类型不同的数做运算，结果是什么类型呢？我们做个实验一探究竟：</p>
-<pre><code>a = 6 # int
-b = 3L # long
-c = 4.5 # float
-d = 2.1 + 0j # complex
-
-# Rule: widen numbers so they are the same type
-
-# Addition
-a + b # int + long
-9L
-
-# Subtraction
-c - b # float - long
-1.5
-
-# Multiplication
-a * c # int * float
-27.0
-
-# Division
-d / c # complex / float
-(0.4666666666666667+0j)
-
-# integer division
-16 / 5 # get the quotient
-3
-
-# get the Reminder
-16 % 5
-1
-
-# want the accurate result
-print(float(16)/5)
-print(16/float(5))
-3.2
-3.2
-
-# error -&gt; 0
-2/0
-
-
-ZeroDivisionErrorTraceback (most recent call last)
-
-&lt;ipython-input-17-e8326a161779&gt; in &lt;module&gt;()
-----&gt; 1 2/0
-
-ZeroDivisionError: integer division or modulo by zero
-</code></pre><p>总结一下，在python中算术运算会以wider number为基准，运算结果以wider number的类型为准。在除法运算中，有两个注意点：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">6</span> <span class="comment"># int</span></span><br><span class="line">b = <span class="number">3L</span> <span class="comment"># long</span></span><br><span class="line">c = <span class="number">4.5</span> <span class="comment"># float</span></span><br><span class="line">d = <span class="number">2.1</span> + <span class="number">0j</span> <span class="comment"># complex</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Rule: widen numbers so they are the same type</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Addition</span></span><br><span class="line">a + b <span class="comment"># int + long</span></span><br><span class="line"><span class="number">9L</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Subtraction</span></span><br><span class="line">c - b <span class="comment"># float - long</span></span><br><span class="line"><span class="number">1.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Multiplication</span></span><br><span class="line">a * c <span class="comment"># int * float</span></span><br><span class="line"><span class="number">27.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Division</span></span><br><span class="line">d / c <span class="comment"># complex / float</span></span><br><span class="line">(<span class="number">0.4666666666666667</span>+<span class="number">0j</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># integer division</span></span><br><span class="line"><span class="number">16</span> / <span class="number">5</span> <span class="comment"># get the quotient</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get the Reminder</span></span><br><span class="line"><span class="number">16</span> % <span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># want the accurate result</span></span><br><span class="line">print(float(<span class="number">16</span>)/<span class="number">5</span>)</span><br><span class="line">print(<span class="number">16</span>/float(<span class="number">5</span>))</span><br><span class="line"><span class="number">3.2</span></span><br><span class="line"><span class="number">3.2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># error -&gt; 0</span></span><br><span class="line"><span class="number">2</span>/<span class="number">0</span></span><br><span class="line"></span><br><span class="line">ZeroDivisionErrorTraceback (most recent call last)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input<span class="number">-17</span>-e8326a161779&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 2/0</span><br><span class="line"></span><br><span class="line">ZeroDivisionError: integer division <span class="keyword">or</span> modulo by zero</span><br></pre></td></tr></table></figure>
+<p>总结一下，在python中算术运算会以wider number为基准，运算结果以wider number的类型为准。在除法运算中，有两个注意点：</p>
 <ol>
 <li>如果分数线两侧都是int型，那么运算得到的是整除后quotient部分，想得到余数，使用取余%操作得到，先得到准确结果，可以把分母或者分子做float类型的强制转换。</li>
 <li>分母不可以为0。</li>
 </ol>
-<h3 id="Differences-in-python3"><a href="#Differences-in-python3" class="headerlink" title="Differences in python3"></a>Differences in python3</h3><pre><code>16 /5
-3.2
-</code></pre><p>算术运算在python3中就这一点不同，分数线两边默认是float类型，如果想要得到整除结果，使用一下的运算符号：</p>
-<pre><code># no differnce
-16%5
-1
-
-16 // 5 # 整除
-3
-</code></pre><p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
+<h3 id="Differences-in-python3"><a href="#Differences-in-python3" class="headerlink" title="Differences in python3"></a>Differences in python3</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">16</span> /<span class="number">5</span></span><br><span class="line"><span class="number">3.2</span></span><br></pre></td></tr></table></figure>
+<p>算术运算在python3中就这一点不同，分数线两边默认是float类型，如果想要得到整除结果，使用一下的运算符号：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no differnce</span></span><br><span class="line"><span class="number">16</span>%<span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">16</span> // <span class="number">5</span> <span class="comment"># 整除</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
 
       
     </div>
@@ -628,7 +537,7 @@ ZeroDivisionError: integer division or modulo by zero
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
