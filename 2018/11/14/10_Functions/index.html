@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Lesson 11 写代码当时候，避免不了的就是循环结构，如果到flag条件，则执行，如果到跳转条件，则跳转到另一个块继续执行。关键词：if,else,then。">
+<meta name="description" content="Lesson 12 编程是会遇到逻辑重复的情况，通俗的讲，就是一个代码块可能会有多处要用到。这个时候，就需要函数了。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 9- If&#x2F;Then&#x2F;Else">
-<meta property="og:url" content="http://yoursite.com/2018/11/14/09_If_Then_Else/index.html">
+<meta property="og:title" content="Learn python with socratica [My notes] - part 10- Functions">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/10_Functions/index.html">
 <meta property="og:site_name" content="Lewis X&#39; Blog">
-<meta property="og:description" content="Lesson 11 写代码当时候，避免不了的就是循环结构，如果到flag条件，则执行，如果到跳转条件，则跳转到另一个块继续执行。关键词：if,else,then。">
+<meta property="og:description" content="Lesson 12 编程是会遇到逻辑重复的情况，通俗的讲，就是一个代码块可能会有多处要用到。这个时候，就需要函数了。">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-11-14T01:09:23.407Z">
+<meta property="og:updated_time" content="2018-11-14T04:17:15.176Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 9- If&#x2F;Then&#x2F;Else">
-<meta name="twitter:description" content="Lesson 11 写代码当时候，避免不了的就是循环结构，如果到flag条件，则执行，如果到跳转条件，则跳转到另一个块继续执行。关键词：if,else,then。">
+<meta name="twitter:title" content="Learn python with socratica [My notes] - part 10- Functions">
+<meta name="twitter:description" content="Lesson 12 编程是会遇到逻辑重复的情况，通俗的讲，就是一个代码块可能会有多处要用到。这个时候，就需要函数了。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/14/09_If_Then_Else/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/10_Functions/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 9- If/Then/Else | Lewis X' Blog</title>
+  <title>Learn python with socratica [My notes] - part 10- Functions | Lewis X' Blog</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/09_If_Then_Else/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/10_Functions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 9- If/Then/Else</h1>
+          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 10- Functions</h1>
         
 
         <div class="post-meta">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T09:06:01+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T11:06:01+08:00">
                 2018-11-14
               </time>
             
@@ -386,21 +386,218 @@
       
 
       
-        <p><strong>Lesson 11</strong></p>
-<p>写代码当时候，避免不了的就是循环结构，如果到flag条件，则执行，如果到跳转条件，则跳转到另一个块继续执行。关键词：if,else,then。<a id="more"></a>下面举一个if-then的例子[ipython 不能运行整个代码文件，所以没有输入输出的实验效果，建议在]：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># collect string / test length</span></span><br><span class="line"></span><br><span class="line">input = raw_input(<span class="string">"Please enter a test string: "</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> len(input)&lt;<span class="number">6</span>: <span class="comment">#注意冒号和缩紧</span></span><br><span class="line">    print(<span class="string">"Your string is really short."</span>)</span><br><span class="line">    print(<span class="string">"please enter a string with at least 6 characters"</span>)</span><br></pre></td></tr></table></figure>
-<p>将代码保存为python 文件if_then.py，使用命令行执行：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python if_then.py</span><br><span class="line">&gt;Please enter a test string:ace <span class="comment"># for example</span></span><br><span class="line">    Your string <span class="keyword">is</span> too short.</span><br><span class="line">    Please enter a string <span class="keyword">with</span> at least <span class="number">6</span> characters.</span><br><span class="line">    </span><br><span class="line">&gt;Please enter a test string:mission <span class="comment"># this will return true, so no if.</span></span><br></pre></td></tr></table></figure>
-<p>下面我们开始一段新的代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Prompt user to enter number / test if even or odd</span></span><br><span class="line"></span><br><span class="line">input = raw_input(<span class="string">"Please enter an integer:"</span>)</span><br><span class="line">number = int(input)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">"Your number is even."</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"Your number is odd."</span>)</span><br></pre></td></tr></table></figure>
-<p>将代码保存为python 文件if_then_2.py，使用命令行执行：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python if_then_2.py</span><br><span class="line">&gt; Please enter an integer: <span class="number">17</span></span><br><span class="line">    Your number <span class="keyword">is</span> odd.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>python if_then_2.py</span><br><span class="line">&gt; Please enter an integer: <span class="number">50</span></span><br><span class="line">    Yout number <span class="keyword">is</span> even.</span><br></pre></td></tr></table></figure>
-<p>下面我们做一个小实验：三角形的判断。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Scalene triangle: All sides have different lengths.</span></span><br><span class="line"><span class="comment"># Isosceles triangle: Two sides have the same length.</span></span><br><span class="line"><span class="comment"># Equilateral triangle: All sides are equal.</span></span><br><span class="line"></span><br><span class="line">a = int(raw_input(<span class="string">"The length of side a = "</span>))</span><br><span class="line">b = int(raw_input(<span class="string">"The length of side b = "</span>))</span><br><span class="line">c = int(raw_input(<span class="string">"The length of side c = "</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a != b <span class="keyword">and</span> b != c <span class="keyword">and</span> a != c:</span><br><span class="line">    print(<span class="string">"This is a scalene triangle."</span>)</span><br><span class="line"><span class="keyword">elif</span> a == b <span class="keyword">and</span> b == c: <span class="comment"># elif = else if</span></span><br><span class="line">    print(<span class="string">"This is an equilateral triangle."</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This is an isosceles triangle."</span>)</span><br></pre></td></tr></table></figure>
-<p>将代码保存为python 文件if_then_3.py，使用命令行执行：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python if_then_3.py</span><br><span class="line">&gt; The length of side a = <span class="number">3</span></span><br><span class="line">&gt; The length of side b = <span class="number">4</span></span><br><span class="line">&gt; The length of side c = <span class="number">5</span></span><br><span class="line">This <span class="keyword">is</span> a scalene triangle.</span><br></pre></td></tr></table></figure>
-<p>这个实验就是已知三条边的长度，判断三角型的类型：等边三角形，等腰三角形。if/then/else的这种循环结构，需要在实际使用中慢慢掌握。</p>
-<p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
+        <p><strong>Lesson 12</strong></p>
+<p>编程是会遇到逻辑重复的情况，通俗的讲，就是一个代码块可能会有多处要用到。这个时候，就需要函数了。<a id="more"></a></p>
+<ul>
+<li>用def作为函数体的开头</li>
+<li>其后是函数名（参数）：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir() <span class="comment"># inner functions in python</span></span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;In&#39;,
+ &#39;Out&#39;,
+ &#39;_&#39;,
+ &#39;_2&#39;,
+ &#39;__&#39;,
+ &#39;___&#39;,
+ &#39;__builtin__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;_dh&#39;,
+ &#39;_i&#39;,
+ &#39;_i1&#39;,
+ &#39;_i2&#39;,
+ &#39;_i3&#39;,
+ &#39;_ih&#39;,
+ &#39;_ii&#39;,
+ &#39;_iii&#39;,
+ &#39;_oh&#39;,
+ &#39;_sh&#39;,
+ &#39;exit&#39;,
+ &#39;f&#39;,
+ &#39;get_ipython&#39;,
+ &#39;quit&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># a simple example</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span> <span class="comment"># 函数内容需要缩紧，4个空格。pass表示直接略过。</span></span><br><span class="line"></span><br><span class="line">f() <span class="comment"># function 'f' did nothing</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># by the way, 'f' is really a function</span></span><br><span class="line">f <span class="comment"># you can get its memory location, but in ipython it just return like this</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;function __main__.f&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># type in dir(), you will find that function 'f' has been in dir()</span></span><br><span class="line">dir()</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;In&#39;,
+ &#39;Out&#39;,
+ &#39;_&#39;,
+ &#39;_2&#39;,
+ &#39;_3&#39;,
+ &#39;__&#39;,
+ &#39;___&#39;,
+ &#39;__builtin__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;_dh&#39;,
+ &#39;_i&#39;,
+ &#39;_i1&#39;,
+ &#39;_i2&#39;,
+ &#39;_i3&#39;,
+ &#39;_i4&#39;,
+ &#39;_ih&#39;,
+ &#39;_ii&#39;,
+ &#39;_iii&#39;,
+ &#39;_oh&#39;,
+ &#39;_sh&#39;,
+ &#39;exit&#39;,
+ &#39;f&#39;,
+ &#39;get_ipython&#39;,
+ &#39;quit&#39;]
+</code></pre><p>可以发现，刚刚定义的函数f已经被放入来dir()中。下面，我们来构造一个有具体意义的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ping</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Ping!'</span> <span class="comment"># a simple funtion which return the string: "Ping!"</span></span><br><span class="line"></span><br><span class="line">ping() <span class="comment"># use function's name to use it</span></span><br></pre></td></tr></table></figure>
+<pre><code>&#39;Ping!&#39;
+</code></pre><p>下面介绍一个有意思的现象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = ping()</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<pre><code>Ping!
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir()</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;In&#39;,
+ &#39;Out&#39;,
+ &#39;_&#39;,
+ &#39;_2&#39;,
+ &#39;_3&#39;,
+ &#39;_4&#39;,
+ &#39;_6&#39;,
+ &#39;__&#39;,
+ &#39;___&#39;,
+ &#39;__builtin__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;_dh&#39;,
+ &#39;_i&#39;,
+ &#39;_i1&#39;,
+ &#39;_i2&#39;,
+ &#39;_i3&#39;,
+ &#39;_i4&#39;,
+ &#39;_i5&#39;,
+ &#39;_i6&#39;,
+ &#39;_i7&#39;,
+ &#39;_i8&#39;,
+ &#39;_ih&#39;,
+ &#39;_ii&#39;,
+ &#39;_iii&#39;,
+ &#39;_oh&#39;,
+ &#39;_sh&#39;,
+ &#39;exit&#39;,
+ &#39;f&#39;,
+ &#39;get_ipython&#39;,
+ &#39;ping&#39;,
+ &#39;quit&#39;,
+ &#39;x&#39;]
+</code></pre><p>将函数ping()指向x，你会发现，ping和x都被加入到dir()中去了。因此，函数可以通过等号来做映射。用print()等方法将函数的返回值直接打印出来，或者直接使用。这也从另一个方面说明了函数需要有输入输出运算关系的重要性，下面举例说明。</p>
+<p>函数：计算球体体积 $V = \frac {4}{3} {\pi} r^3$</p>
+<p>其中，$\pi$ 是python中math内建库里有的，$r$是我们需要自己定义的变量。<br>输入是半径，输出是球的体积，运算关系就是这个公式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">dir(math) <span class="comment"># you will see pi in it.</span></span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;acos&#39;,
+ &#39;acosh&#39;,
+ &#39;asin&#39;,
+ &#39;asinh&#39;,
+ &#39;atan&#39;,
+ &#39;atan2&#39;,
+ &#39;atanh&#39;,
+ &#39;ceil&#39;,
+ &#39;copysign&#39;,
+ &#39;cos&#39;,
+ &#39;cosh&#39;,
+ &#39;degrees&#39;,
+ &#39;e&#39;,
+ &#39;erf&#39;,
+ &#39;erfc&#39;,
+ &#39;exp&#39;,
+ &#39;expm1&#39;,
+ &#39;fabs&#39;,
+ &#39;factorial&#39;,
+ &#39;floor&#39;,
+ &#39;fmod&#39;,
+ &#39;frexp&#39;,
+ &#39;fsum&#39;,
+ &#39;gamma&#39;,
+ &#39;gcd&#39;,
+ &#39;hypot&#39;,
+ &#39;inf&#39;,
+ &#39;isclose&#39;,
+ &#39;isfinite&#39;,
+ &#39;isinf&#39;,
+ &#39;isnan&#39;,
+ &#39;ldexp&#39;,
+ &#39;lgamma&#39;,
+ &#39;log&#39;,
+ &#39;log10&#39;,
+ &#39;log1p&#39;,
+ &#39;log2&#39;,
+ &#39;modf&#39;,
+ &#39;nan&#39;,
+ &#39;pi&#39;,
+ &#39;pow&#39;,
+ &#39;radians&#39;,
+ &#39;sin&#39;,
+ &#39;sinh&#39;,
+ &#39;sqrt&#39;,
+ &#39;tan&#39;,
+ &#39;tanh&#39;,
+ &#39;tau&#39;,
+ &#39;trunc&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math.pi</span><br></pre></td></tr></table></figure>
+<pre><code>3.141592653589793
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">volume</span><span class="params">(r)</span>:</span></span><br><span class="line">    <span class="string">'''Return the volume of a sphere with radius r'''</span></span><br><span class="line">    v = (<span class="number">4.0</span>/<span class="number">3.0</span>) * math.pi * r ** <span class="number">3</span> <span class="comment"># note that the priority</span></span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line">volume(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>33.510321638291124
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volume()</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-12-2e3c3020f7da&gt; in &lt;module&gt;()
+----&gt; 1 volume()
+TypeError: volume() missing 1 required positional argument: &#39;r&#39;
+</code></pre><p>此时，你就会发现，该函数如果不给输入变量$r$，就会报错。</p>
+<p>下面举个升级版的例子：计算三角形的面积（输入：长、高；输出：三角形的面积；运算关系：$A=\frac {1}{2}  b \cdot h$）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">triangle_area</span><span class="params">(b, h)</span>:</span></span><br><span class="line">    <span class="string">'''Return the area of a triangle with base b and height h.'''</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * b * h</span><br><span class="line"></span><br><span class="line">triangle_area(<span class="number">3</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>9.0
+</code></pre><p>在python有一类函数中的变量被称为keyword arguments。<br>比如：1 inch = 2.54 cm, 1 foot = 12 inches。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cm</span><span class="params">(feet = <span class="number">0</span>, inches = <span class="number">0</span>)</span>:</span> <span class="comment"># default arguments</span></span><br><span class="line">    <span class="string">'''Convert a length from feet and inches to centimeters'''</span></span><br><span class="line">    inches_to_cm = <span class="number">2.54</span> * inches</span><br><span class="line">    feet_to_cm = <span class="number">12</span> * <span class="number">2.54</span> * feet</span><br><span class="line">    <span class="keyword">return</span> inches_to_cm + feet_to_cm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面是对该函数的具体用法</span></span><br><span class="line">cm(feet = <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>152.4
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cm(inches = <span class="number">70</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>177.8
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cm(feet = <span class="number">5</span>, inches = <span class="number">70</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>330.20000000000005
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cm(inches = <span class="number">70</span>, feet = <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>330.20000000000005
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cm(<span class="number">5</span>, <span class="number">70</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>330.20000000000005
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cm(<span class="number">70</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>2146.2999999999997
+</code></pre><p>这里就会发现，在使用该函数的时候，因为设定了变量的默认值，因此可以只给部分变量赋值。<br>其次，赋值的顺序并没有很大关系。最后是，如果不指定变量名，直接赋值，那么是按照函数声明时的变量顺序。</p>
+<p>函数中的变量类型分两种：Keyword，Required。下面举个例子，直观的看它们的不同：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">(x=<span class="number">0</span>,y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br></pre></td></tr></table></figure>
+<pre><code>  File &quot;&lt;ipython-input-28-76756415651c&gt;&quot;, line 1
+    def g(x=0,y):
+         ^
+SyntaxError: non-default argument follows default argument
+</code></pre><p>我们会得到“non-default argument follows default argument”这个错误，keyword argument也叫default argument，变量y也叫required argument。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">(y,x=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"></span><br><span class="line">g(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>5
+</code></pre><p>如果将required argument放在前面，那么就不会报错，函数就能用了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g(<span class="number">5</span>,x=<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>12
+</code></pre><p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
 
       
     </div>
@@ -431,8 +628,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/08_Datetimes_Module/" rel="next" title="Learn python with socratica [My notes] - part 8- Datetiems Module">
-                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 8- Datetiems Module
+              <a href="/2018/11/14/09_If_Then_Else/" rel="next" title="Learn python with socratica [My notes] - part 9- If/Then/Else">
+                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 9- If/Then/Else
               </a>
             
           </div>
@@ -440,10 +637,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/14/10_Functions/" rel="prev" title="Learn python with socratica [My notes] - part 10- Functions">
-                Learn python with socratica [My notes] - part 10- Functions <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
