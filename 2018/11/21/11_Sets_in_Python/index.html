@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Lesson 10 Datetime是一个很实用的模块，通常在我们写程序的时候，一般会用到系统时间来计算模型的效果，或者记录模型训练的过程。本节详细介绍python的这个模块。">
+<meta name="description" content="Lesson 13 在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 8- Datetiems Module">
-<meta property="og:url" content="http://yoursite.com/2018/11/08/08_Datetimes_Module/index.html">
+<meta property="og:title" content="Learn python with socratica [My notes] - part 11- Sets in Python">
+<meta property="og:url" content="http://yoursite.com/2018/11/21/11_Sets_in_Python/index.html">
 <meta property="og:site_name" content="Lewis X&#39; Blog">
-<meta property="og:description" content="Lesson 10 Datetime是一个很实用的模块，通常在我们写程序的时候，一般会用到系统时间来计算模型的效果，或者记录模型训练的过程。本节详细介绍python的这个模块。">
+<meta property="og:description" content="Lesson 13 在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-11-14T01:11:44.188Z">
+<meta property="og:updated_time" content="2018-11-21T12:00:59.484Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 8- Datetiems Module">
-<meta name="twitter:description" content="Lesson 10 Datetime是一个很实用的模块，通常在我们写程序的时候，一般会用到系统时间来计算模型的效果，或者记录模型训练的过程。本节详细介绍python的这个模块。">
+<meta name="twitter:title" content="Learn python with socratica [My notes] - part 11- Sets in Python">
+<meta name="twitter:description" content="Lesson 13 在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/08/08_Datetimes_Module/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/21/11_Sets_in_Python/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 8- Datetiems Module | Lewis X' Blog</title>
+  <title>Learn python with socratica [My notes] - part 11- Sets in Python | Lewis X' Blog</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/08_Datetimes_Module/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/21/11_Sets_in_Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 8- Datetiems Module</h1>
+          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 11- Sets in Python</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T12:06:01+08:00">
-                2018-11-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-21T20:00:01+08:00">
+                2018-11-21
               </time>
             
 
@@ -386,178 +386,114 @@
       
 
       
-        <p><strong>Lesson 10</strong></p>
-<p>Datetime是一个很实用的模块，通常在我们写程序的时候，一般会用到系统时间来计算模型的效果，或者记录模型训练的过程。本节详细介绍python的这个模块。</p>
-<a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first thing: import module</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="comment"># Let's look at its dir</span></span><br><span class="line">dir(datetime)</span><br></pre></td></tr></table></figure>
-<pre><code>[&#39;MAXYEAR&#39;,
- &#39;MINYEAR&#39;,
- &#39;__builtins__&#39;,
- &#39;__cached__&#39;,
+        <p><strong>Lesson 13</strong></p>
+<p>在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。<a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example = set()</span><br><span class="line">dir(example) <span class="comment"># the following functions is what 'set()' can use</span></span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;__and__&#39;,
+ &#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
  &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__loader__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;__spec__&#39;,
- &#39;date&#39;,
- &#39;datetime&#39;,
- &#39;datetime_CAPI&#39;,
- &#39;time&#39;,
- &#39;timedelta&#39;,
- &#39;timezone&#39;,
- &#39;tzinfo&#39;]
-</code></pre><p>我们可以看到，其中有date，time，datetime三个子方法。其中，date是关于日期的，time是关于时间的，而datetime是两者的结合。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(datetime.date)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on class date in module datetime:
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__iand__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__ior__&#39;,
+ &#39;__isub__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__ixor__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__or__&#39;,
+ &#39;__rand__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__ror__&#39;,
+ &#39;__rsub__&#39;,
+ &#39;__rxor__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__sub__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__xor__&#39;,
+ &#39;add&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;difference&#39;,
+ &#39;difference_update&#39;,
+ &#39;discard&#39;,
+ &#39;intersection&#39;,
+ &#39;intersection_update&#39;,
+ &#39;isdisjoint&#39;,
+ &#39;issubset&#39;,
+ &#39;issuperset&#39;,
+ &#39;pop&#39;,
+ &#39;remove&#39;,
+ &#39;symmetric_difference&#39;,
+ &#39;symmetric_difference_update&#39;,
+ &#39;union&#39;,
+ &#39;update&#39;]
+</code></pre><p>我们首先尝试给set增加一个元素，从dir中，可以找到具有该功能的add()函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(example.add) <span class="comment"># get help from API document</span></span><br></pre></td></tr></table></figure>
+<pre><code>Help on built-in function add:
 
-class date(builtins.object)
- |  date(year, month, day) --&gt; date object
- |  
- |  Methods defined here:
- |  
- |  __add__(self, value, /)
- |      Return self+value.
- |  
- |  __eq__(self, value, /)
- |      Return self==value.
- |  
- |  __format__(...)
- |      Formats self with strftime.
- |  
- |  __ge__(self, value, /)
- |      Return self&gt;=value.
- |  
- |  __getattribute__(self, name, /)
- |      Return getattr(self, name).
- |  
- |  __gt__(self, value, /)
- |      Return self&gt;value.
- |  
- |  __hash__(self, /)
- |      Return hash(self).
- |  
- |  __le__(self, value, /)
- |      Return self&lt;=value.
- |  
- |  __lt__(self, value, /)
- |      Return self&lt;value.
- |  
- |  __ne__(self, value, /)
- |      Return self!=value.
- |  
- |  __new__(*args, **kwargs) from builtins.type
- |      Create and return a new object.  See help(type) for accurate signature.
- |  
- |  __radd__(self, value, /)
- |      Return value+self.
- |  
- |  __reduce__(...)
- |      __reduce__() -&gt; (cls, state)
- |  
- |  __repr__(self, /)
- |      Return repr(self).
- |  
- |  __rsub__(self, value, /)
- |      Return value-self.
- |  
- |  __str__(self, /)
- |      Return str(self).
- |  
- |  __sub__(self, value, /)
- |      Return self-value.
- |  
- |  ctime(...)
- |      Return ctime() style string.
- |  
- |  fromordinal(...) from builtins.type
- |      int -&gt; date corresponding to a proleptic Gregorian ordinal.
- |  
- |  fromtimestamp(...) from builtins.type
- |      timestamp -&gt; local date from a POSIX timestamp (like time.time()).
- |  
- |  isocalendar(...)
- |      Return a 3-tuple containing ISO year, week number, and weekday.
- |  
- |  isoformat(...)
- |      Return string in ISO 8601 format, YYYY-MM-DD.
- |  
- |  isoweekday(...)
- |      Return the day of the week represented by the date.
- |      Monday == 1 ... Sunday == 7
- |  
- |  replace(...)
- |      Return date with new specified fields.
- |  
- |  strftime(...)
- |      format -&gt; strftime() style string.
- |  
- |  timetuple(...)
- |      Return time tuple, compatible with time.localtime().
- |  
- |  today(...) from builtins.type
- |      Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).
- |  
- |  toordinal(...)
- |      Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.
- |  
- |  weekday(...)
- |      Return the day of the week represented by the date.
- |      Monday == 0 ... Sunday == 6
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
- |  
- |  day
- |  
- |  month
- |  
- |  year
- |  
- |  ----------------------------------------------------------------------
- |  Data and other attributes defined here:
- |  
- |  max = datetime.date(9999, 12, 31)
- |  
- |  min = datetime.date(1, 1, 1)
- |  
- |  resolution = datetime.timedelta(1)
-</code></pre><p>从文档中可以看出，datetime.date已经包含了从(1,1,1)到(9999,12,31)所有的日期，并且也给出了如何创建一个日期的方式。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gvr = datetime.date(<span class="number">1956</span>,<span class="number">1</span>,<span class="number">31</span>)</span><br><span class="line"><span class="comment"># This is the birthday of Guido van Rossum, the creator of python</span></span><br><span class="line">print(gvr) <span class="comment"># you will see the date you built</span></span><br><span class="line"><span class="comment"># And you can print date's year, month and day respectively</span></span><br><span class="line">print(gvr.year)</span><br><span class="line">print(gvr.month)</span><br><span class="line">print(gvr.day)</span><br></pre></td></tr></table></figure>
-<pre><code>1956-01-31
-1956
-1
-31
-</code></pre><p>datetime中还有一个模块timedelta，用来表示天数的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mill = datetime.date(<span class="number">2000</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">dt = datetime.timedelta(<span class="number">100</span>)</span><br><span class="line">print(mill + dt)</span><br></pre></td></tr></table></figure>
-<pre><code>2000-04-10
-</code></pre><p>python中对date有默认的格式：yyyy-mm-dd。如果想要得到自己的日期格式，就需要date提供的指令自由组合。参见：<a href="https://docs.python.org/3/library/datetime.html，文档中有详细解释。" target="_blank" rel="noopener">https://docs.python.org/3/library/datetime.html，文档中有详细解释。</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Day-name, Month-name, Day-#, Year</span></span><br><span class="line">print(gvr.strftime(<span class="string">"%A,%B,%d,%Y"</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>Tuesday,January,31,1956
-</code></pre><p>你会发现，时间直接以字符串的形式给出，那么也就意味着将时间加到指定的字符串中是可行的，这就很方便了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = <span class="string">"GVR was born on &#123;:%A,%B,%d,%Y&#125;"</span></span><br><span class="line">print(message.format(gvr))</span><br></pre></td></tr></table></figure>
-<pre><code>GVR was born on Tuesday,January,31,1956
-</code></pre><p>是不是很酷？下面我们做一个更酷的事情<br>记录事件：SpaceX公司在UTC时区2017年3月30日22:27完成重用了第一级火箭。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">launch_date = datetime.date(<span class="number">2017</span>,<span class="number">3</span>,<span class="number">10</span>)</span><br><span class="line">launch_time = datetime.time(<span class="number">22</span>,<span class="number">27</span>,<span class="number">0</span>)</span><br><span class="line">launch_datetime = datetime.datetime(<span class="number">2017</span>,<span class="number">3</span>,<span class="number">10</span>,<span class="number">22</span>,<span class="number">27</span>,<span class="number">0</span>)</span><br><span class="line">print(launch_date)</span><br><span class="line">print(launch_time)</span><br><span class="line">print(launch_datetime)</span><br></pre></td></tr></table></figure>
-<pre><code>2017-03-10
-22:27:00
-2017-03-10 22:27:00
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># you can also get the hour/minute/second</span></span><br><span class="line">print(launch_time.hour)</span><br><span class="line">print(launch_time.minute)</span><br><span class="line">print(launch_time.second)</span><br></pre></td></tr></table></figure>
-<pre><code>22
-27
-0
-</code></pre><p>同理，你也可以用datetime获取所有的信息。下面介绍如何得到当前时间。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Access current datetime</span></span><br><span class="line">now = datetime.datetime.today()</span><br><span class="line">print(now)</span><br></pre></td></tr></table></figure>
-<pre><code>2018-11-02 01:26:00.741418
-</code></pre><p>741418是微秒—microsecond。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(now.microsecond)</span><br></pre></td></tr></table></figure>
-<pre><code>741418
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># convert string to datetime</span></span><br><span class="line">moon_loading = <span class="string">"7/20/1969"</span></span><br><span class="line"><span class="comment"># use strptime() function</span></span><br><span class="line">moon_loading_datetime = datetime.datetime.strptime(moon_loading,<span class="string">"%m/%d/%Y"</span>)</span><br><span class="line">print(moon_loading_datetime)</span><br></pre></td></tr></table></figure>
-<pre><code>1969-07-20 00:00:00
-</code></pre><p>此时moon_loading的字符串已经转换成datetime的对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(type(moon_loading_datetime))</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;class &#39;datetime.datetime&#39;&gt;
-</code></pre><p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
+add(...) method of builtins.set instance
+    Add an element to a set.
+
+    This has no effect if the element is already present.
+</code></pre><p>从文档我们得知，add()函数可以给set增加一个元素，不管这个元素是否出现过，意思就是说：如果增加的这个元素set里有，不会报错。我们尝试给example增加各种类型的元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">example.add(<span class="number">42</span>)</span><br><span class="line">example.add(<span class="keyword">False</span>)</span><br><span class="line">example.add(<span class="number">3.1415926</span>)</span><br><span class="line">example.add(<span class="string">'String'</span>)</span><br><span class="line">    </span><br><span class="line">print(example)</span><br></pre></td></tr></table></figure>
+<pre><code>{False, 42, 3.1415926, &#39;String&#39;}
+</code></pre><p>set的每一个成分被称为element（元素），每个元素可以是任意类型的数据。</p>
+<p>下面讲一个set与其他数据结构不同的地方：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.add(<span class="number">42</span>)</span><br><span class="line">print(example)</span><br></pre></td></tr></table></figure>
+<pre><code>{False, 42, 3.1415926, &#39;String&#39;}
+</code></pre><p>由这个例子可以得到，set在增加元素的时候会做一个交集的操作，增加的元素如果set里有就不加了。我们也可以用len()函数看一下set此时的长度，证明一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(example)</span><br></pre></td></tr></table></figure>
+<pre><code>4
+</code></pre><p>与增加相对应的是去除，set可以使用remove()进行操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(example.remove)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on built-in function remove:
+
+remove(...) method of builtins.set instance
+    Remove an element from a set; it must be a member.
+
+    If the element is not a member, raise a KeyError.
+</code></pre><p>意思就是说去除set中的一个元素，但是给的变量一定要是set中存在的，否则报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.remove(<span class="number">42</span>)</span><br><span class="line">len(example)</span><br></pre></td></tr></table></figure>
+<pre><code>3
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example</span><br></pre></td></tr></table></figure>
+<pre><code>{3.1415926, False, &#39;String&#39;}
+</code></pre><p>下面介绍另一个去除元素的函数discard：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(example.discard)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on built-in function discard:
+
+discard(...) method of builtins.set instance
+    Remove an element from a set if it is a member.
+
+    If the element is not a member, do nothing.
+</code></pre><p>从文档介绍我们可以找出不同，discard函数在遇到给定变量不是set中元素的时候，不会报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.discard(<span class="number">50</span>) <span class="comment"># 50 is not in example</span></span><br><span class="line">example <span class="comment"># piece and quiet, sometimes it is more convenient than remove()</span></span><br></pre></td></tr></table></figure>
+<pre><code>{3.1415926, False, &#39;String&#39;}
+</code></pre><p>讲到这里，再介绍两个快速建立set和快速清空set的方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">example2 = set([<span class="number">23</span>,<span class="number">34.23</span>,<span class="string">'string2'</span>,<span class="keyword">True</span>])</span><br><span class="line">len(example2)</span><br><span class="line">&gt; <span class="number">4</span></span><br><span class="line"></span><br><span class="line">example2.clear()</span><br><span class="line">len(example2)</span><br><span class="line">&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>到此讲完set增加和删除的全部函数，下面讲一下对set并集[union]交集[intersection]的操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Integers 1 - 10</span></span><br><span class="line">  </span><br><span class="line">  odds = set([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>])</span><br><span class="line">  evens = set([<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>])</span><br><span class="line">  primes = set([<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>])</span><br><span class="line">  composites = set([<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>])</span><br><span class="line">  </span><br><span class="line">  odds.union(evens)</span><br><span class="line">  &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line">  evens.union(odds)</span><br><span class="line">  &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line">  odds <span class="comment"># unchanged</span></span><br><span class="line">  &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line"></span><br><span class="line">  evens <span class="comment"># unchanged</span></span><br><span class="line">  &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line">  odds.intersection(primes)</span><br><span class="line">  &#123;<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>&#125;</span><br><span class="line"></span><br><span class="line">  primes.intersection(evens)</span><br><span class="line">  &#123;<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">  odds.intersection(evens) <span class="comment"># 空</span></span><br><span class="line">  set()</span><br></pre></td></tr></table></figure>
+<p>以上就是并集交集的操作，那么如何去判断一个变量是否在set中呢，这个在循环中是经常用到的，python中使用的 in 和 not in ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="keyword">in</span> primes</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="number">6</span> <span class="keyword">not</span> <span class="keyword">in</span> evens</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>当然，除了以上操作，还有很多需要去发现，用dir()、help() 去探索吧。</p>
+<p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
 
       
     </div>
@@ -588,8 +524,8 @@ class date(builtins.object)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/01/07_Booleans/" rel="next" title="Learn python with socratica [My notes] - part 7- Python Booleans">
-                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 7- Python Booleans
+              <a href="/2018/11/14/10_Functions/" rel="next" title="Learn python with socratica [My notes] - part 10- Functions">
+                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 10- Functions
               </a>
             
           </div>
@@ -597,10 +533,6 @@ class date(builtins.object)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/14/09_If_Then_Else/" rel="prev" title="Learn python with socratica [My notes] - part 9- If/Then/Else">
-                Learn python with socratica [My notes] - part 9- If/Then/Else <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
