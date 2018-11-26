@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Lesson 13 在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。">
+<meta name="description" content="Lesson 14 List[序列]是Python中最基本的数据结构。序列中的每个元素都分配一个数字，即它的位置，或着称为索引，第一个索引是0，第二个索引是1，依此类推。本节讲述如何创建一个List，并且规范化这个过程。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 11- Sets in Python">
-<meta property="og:url" content="http://yoursite.com/2018/11/21/11_Sets_in_Python/index.html">
+<meta property="og:title" content="Learn python with socratica [My notes] - part 12- Lists in Python">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/12_Lists_in_Python/index.html">
 <meta property="og:site_name" content="Lewis X&#39; Blog">
-<meta property="og:description" content="Lesson 13 在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。">
+<meta property="og:description" content="Lesson 14 List[序列]是Python中最基本的数据结构。序列中的每个元素都分配一个数字，即它的位置，或着称为索引，第一个索引是0，第二个索引是1，依此类推。本节讲述如何创建一个List，并且规范化这个过程。">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-11-21T12:00:59.484Z">
+<meta property="og:updated_time" content="2018-11-26T02:45:08.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 11- Sets in Python">
-<meta name="twitter:description" content="Lesson 13 在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。">
+<meta name="twitter:title" content="Learn python with socratica [My notes] - part 12- Lists in Python">
+<meta name="twitter:description" content="Lesson 14 List[序列]是Python中最基本的数据结构。序列中的每个元素都分配一个数字，即它的位置，或着称为索引，第一个索引是0，第二个索引是1，依此类推。本节讲述如何创建一个List，并且规范化这个过程。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/21/11_Sets_in_Python/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/26/12_Lists_in_Python/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 11- Sets in Python | Lewis X' Blog</title>
+  <title>Learn python with socratica [My notes] - part 12- Lists in Python | Lewis X' Blog</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/21/11_Sets_in_Python/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/12_Lists_in_Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 11- Sets in Python</h1>
+          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 12- Lists in Python</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-21T20:00:01+08:00">
-                2018-11-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-26T10:42:01+08:00">
+                2018-11-26
               </time>
             
 
@@ -386,113 +386,104 @@
       
 
       
-        <p><strong>Lesson 13</strong></p>
-<p>在Python中，数据结构形式有很多，包括：Set、List、Tuple和Dictionary。本节详细介绍一下Set，我们先新建一个set集合，用dir()得到它能使用的函数。<a id="more"></a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example = set()</span><br><span class="line">dir(example) <span class="comment"># the following functions is what 'set()' can use</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&#39;__and__&#39;,
+        <p><strong>Lesson 14</strong></p>
+<p>List[序列]是Python中最基本的数据结构。序列中的每个元素都分配一个数字，即它的位置，或着称为索引，第一个索引是0，第二个索引是1，依此类推。本节讲述如何创建一个List，并且规范化这个过程。<a id="more"></a></p>
+<p>有两种创建List的方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># One way is to use the list structure</span></span><br><span class="line">example = list()</span><br><span class="line">example = []</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 当创建一个序列的时候，可以给它初始化一些值</span></span><br><span class="line">primes = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>]</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 你可以使用append方法对该序列添加成员</span></span><br><span class="line"><span class="comment"># 添加 17，19</span></span><br><span class="line">primes.append(<span class="number">17</span>)</span><br><span class="line">primes.append(<span class="number">19</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># display the list and you will see it contains new values.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>primes </span><br><span class="line">&gt; [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>]</span><br></pre></td></tr></table></figure>
+<p>此时，你会发现，list的成员顺序与set是不一样的。在set中，顺序并不重要，但是在list中，顺序是一切。想要得到list中的一个成员，你只要知道它的索引，而不需要把所有成员遍历一次。在计算机中，索引从0开始，而不是1，我们将上面生成的list做个索引的对应。</p>
+<p>比如，我们想得到第一项，该怎么做？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># type the name of the list and the index in brackets</span></span><br><span class="line">primes[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>2
+</code></pre><p>这是按照从左到右的顺序展开，当然你会想到这种情况，如果你输入-1呢？是第一个成员左边的什么神秘数呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primes[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>19
+</code></pre><p>结果是list的最后一项，并不是所想的什么神秘数，也就是python把序列的最后一项提到了第一项的左边。以此类推，倒数第二项就是-2。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primes[<span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-4-71a05b4dcdbd&gt; in &lt;module&gt;()
+----&gt; 1 primes[8]
+
+IndexError: list index out of range
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primes[<span class="number">-9</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-5-b35b831943c2&gt; in &lt;module&gt;()
+----&gt; 1 primes[-9]
+
+IndexError: list index out of range
+</code></pre><p>不管用哪种顺序，越界都会报错。</p>
+<p>另一种得到序列的方式是切片[slicing]：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># retrieve a range of values from your list</span></span><br><span class="line"><span class="comment"># structure: name of list [a starting index : a stopping index]</span></span><br><span class="line">primes[<span class="number">2</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>[5, 7, 11]
+</code></pre><p>注意一下，slicing包含起点，不包含终止点，再比如slicing[0:6]就不包括17。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primes[<span class="number">0</span>:<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>[2, 3, 5, 7, 11, 13]
+</code></pre><p>还有一点和set是一样的，list也可以包含所有的数据类型，并且可以包含子序列。这是python相较于其他编程语言比较方面的地方。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example = [<span class="number">128</span>,<span class="keyword">True</span>,<span class="number">1.23</span>,<span class="string">'hello'</span>,[<span class="number">64</span>,<span class="keyword">False</span>]]</span><br></pre></td></tr></table></figure>
+<p>list还可以包含duplicate value【重复的值】，这是与set的第二点不同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rolls = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">12</span>,<span class="number">4</span>,<span class="number">7</span>] <span class="comment"># no error</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># you can combine two list into a single list - using concatenation</span></span><br><span class="line">numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">letters = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line">numbers + letters</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 3, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># order is everything</span></span><br><span class="line">letters + numbers</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, 1, 2, 3]
+</code></pre><p>对序列的操作有很多，一样的，用dir()，help()去查询：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(numbers)</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;__add__&#39;,
  &#39;__class__&#39;,
  &#39;__contains__&#39;,
  &#39;__delattr__&#39;,
+ &#39;__delitem__&#39;,
  &#39;__dir__&#39;,
  &#39;__doc__&#39;,
  &#39;__eq__&#39;,
  &#39;__format__&#39;,
  &#39;__ge__&#39;,
  &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
  &#39;__gt__&#39;,
  &#39;__hash__&#39;,
- &#39;__iand__&#39;,
+ &#39;__iadd__&#39;,
+ &#39;__imul__&#39;,
  &#39;__init__&#39;,
  &#39;__init_subclass__&#39;,
- &#39;__ior__&#39;,
- &#39;__isub__&#39;,
  &#39;__iter__&#39;,
- &#39;__ixor__&#39;,
  &#39;__le__&#39;,
  &#39;__len__&#39;,
  &#39;__lt__&#39;,
+ &#39;__mul__&#39;,
  &#39;__ne__&#39;,
  &#39;__new__&#39;,
- &#39;__or__&#39;,
- &#39;__rand__&#39;,
  &#39;__reduce__&#39;,
  &#39;__reduce_ex__&#39;,
  &#39;__repr__&#39;,
- &#39;__ror__&#39;,
- &#39;__rsub__&#39;,
- &#39;__rxor__&#39;,
+ &#39;__reversed__&#39;,
+ &#39;__rmul__&#39;,
  &#39;__setattr__&#39;,
+ &#39;__setitem__&#39;,
  &#39;__sizeof__&#39;,
  &#39;__str__&#39;,
- &#39;__sub__&#39;,
  &#39;__subclasshook__&#39;,
- &#39;__xor__&#39;,
- &#39;add&#39;,
+ &#39;append&#39;,
  &#39;clear&#39;,
  &#39;copy&#39;,
- &#39;difference&#39;,
- &#39;difference_update&#39;,
- &#39;discard&#39;,
- &#39;intersection&#39;,
- &#39;intersection_update&#39;,
- &#39;isdisjoint&#39;,
- &#39;issubset&#39;,
- &#39;issuperset&#39;,
+ &#39;count&#39;,
+ &#39;extend&#39;,
+ &#39;index&#39;,
+ &#39;insert&#39;,
  &#39;pop&#39;,
  &#39;remove&#39;,
- &#39;symmetric_difference&#39;,
- &#39;symmetric_difference_update&#39;,
- &#39;union&#39;,
- &#39;update&#39;]
-</code></pre><p>我们首先尝试给set增加一个元素，从dir中，可以找到具有该功能的add()函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(example.add) <span class="comment"># get help from API document</span></span><br></pre></td></tr></table></figure>
-<pre><code>Help on built-in function add:
+ &#39;reverse&#39;,
+ &#39;sort&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for example, reverse function</span></span><br><span class="line">help(numbers.reverse) <span class="comment"># 反转</span></span><br></pre></td></tr></table></figure>
+<pre><code>Help on built-in function reverse:
 
-add(...) method of builtins.set instance
-    Add an element to a set.
-
-    This has no effect if the element is already present.
-</code></pre><p>从文档我们得知，add()函数可以给set增加一个元素，不管这个元素是否出现过，意思就是说：如果增加的这个元素set里有，不会报错。我们尝试给example增加各种类型的元素：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">example.add(<span class="number">42</span>)</span><br><span class="line">example.add(<span class="keyword">False</span>)</span><br><span class="line">example.add(<span class="number">3.1415926</span>)</span><br><span class="line">example.add(<span class="string">'String'</span>)</span><br><span class="line">    </span><br><span class="line">print(example)</span><br></pre></td></tr></table></figure>
-<pre><code>{False, 42, 3.1415926, &#39;String&#39;}
-</code></pre><p>set的每一个成分被称为element（元素），每个元素可以是任意类型的数据。</p>
-<p>下面讲一个set与其他数据结构不同的地方：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.add(<span class="number">42</span>)</span><br><span class="line">print(example)</span><br></pre></td></tr></table></figure>
-<pre><code>{False, 42, 3.1415926, &#39;String&#39;}
-</code></pre><p>由这个例子可以得到，set在增加元素的时候会做一个交集的操作，增加的元素如果set里有就不加了。我们也可以用len()函数看一下set此时的长度，证明一下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(example)</span><br></pre></td></tr></table></figure>
-<pre><code>4
-</code></pre><p>与增加相对应的是去除，set可以使用remove()进行操作：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(example.remove)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on built-in function remove:
-
-remove(...) method of builtins.set instance
-    Remove an element from a set; it must be a member.
-
-    If the element is not a member, raise a KeyError.
-</code></pre><p>意思就是说去除set中的一个元素，但是给的变量一定要是set中存在的，否则报错。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.remove(<span class="number">42</span>)</span><br><span class="line">len(example)</span><br></pre></td></tr></table></figure>
-<pre><code>3
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example</span><br></pre></td></tr></table></figure>
-<pre><code>{3.1415926, False, &#39;String&#39;}
-</code></pre><p>下面介绍另一个去除元素的函数discard：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(example.discard)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on built-in function discard:
-
-discard(...) method of builtins.set instance
-    Remove an element from a set if it is a member.
-
-    If the element is not a member, do nothing.
-</code></pre><p>从文档介绍我们可以找出不同，discard函数在遇到给定变量不是set中元素的时候，不会报错。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.discard(<span class="number">50</span>) <span class="comment"># 50 is not in example</span></span><br><span class="line">example <span class="comment"># piece and quiet, sometimes it is more convenient than remove()</span></span><br></pre></td></tr></table></figure>
-<pre><code>{3.1415926, False, &#39;String&#39;}
-</code></pre><p>讲到这里，再介绍两个快速建立set和快速清空set的方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">example2 = set([<span class="number">23</span>,<span class="number">34.23</span>,<span class="string">'string2'</span>,<span class="keyword">True</span>])</span><br><span class="line">len(example2)</span><br><span class="line">&gt; <span class="number">4</span></span><br><span class="line"></span><br><span class="line">example2.clear()</span><br><span class="line">len(example2)</span><br><span class="line">&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>到此讲完set增加和删除的全部函数，下面讲一下对set并集[union]交集[intersection]的操作：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Integers 1 - 10</span></span><br><span class="line">  </span><br><span class="line">  odds = set([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>])</span><br><span class="line">  evens = set([<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>])</span><br><span class="line">  primes = set([<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>])</span><br><span class="line">  composites = set([<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>])</span><br><span class="line">  </span><br><span class="line">  odds.union(evens)</span><br><span class="line">  &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line">  evens.union(odds)</span><br><span class="line">  &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line">  odds <span class="comment"># unchanged</span></span><br><span class="line">  &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line"></span><br><span class="line">  evens <span class="comment"># unchanged</span></span><br><span class="line">  &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line">  odds.intersection(primes)</span><br><span class="line">  &#123;<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>&#125;</span><br><span class="line"></span><br><span class="line">  primes.intersection(evens)</span><br><span class="line">  &#123;<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">  odds.intersection(evens) <span class="comment"># 空</span></span><br><span class="line">  set()</span><br></pre></td></tr></table></figure>
-<p>以上就是并集交集的操作，那么如何去判断一个变量是否在set中呢，这个在循环中是经常用到的，python中使用的 in 和 not in ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="keyword">in</span> primes</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="number">6</span> <span class="keyword">not</span> <span class="keyword">in</span> evens</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<p>当然，除了以上操作，还有很多需要去发现，用dir()、help() 去探索吧。</p>
+reverse(...) method of builtins.list instance
+    L.reverse() -- reverse *IN PLACE*
+</code></pre><p>总结一下，list的索引从0开始，当序列创建好了，你可以对它进行串联、添加、反转、清空等操作，更详细的List教程就在python的文档中了，用好dir()和help()。</p>
 <p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
 
       
@@ -524,8 +515,8 @@ discard(...) method of builtins.set instance
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/14/10_Functions/" rel="next" title="Learn python with socratica [My notes] - part 10- Functions">
-                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 10- Functions
+              <a href="/2018/11/21/11_Sets_in_Python/" rel="next" title="Learn python with socratica [My notes] - part 11- Sets in Python">
+                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 11- Sets in Python
               </a>
             
           </div>
@@ -533,10 +524,6 @@ discard(...) method of builtins.set instance
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/26/12_Lists_in_Python/" rel="prev" title="Learn python with socratica [My notes] - part 12- Lists in Python">
-                Learn python with socratica [My notes] - part 12- Lists in Python <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
