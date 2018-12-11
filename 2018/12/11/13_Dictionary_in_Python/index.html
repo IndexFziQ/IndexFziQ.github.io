@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Lesson 2 print(&amp;quot;Hello World!&amp;quot;)  Hello World! “你好，世界！”就是这么简单。">
+<meta name="description" content="Lesson 15 Introduction在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&amp;gt; value:output）的格式处理时，就需要字典。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 1 - HelloWorld">
-<meta property="og:url" content="http://yoursite.com/2018/10/29/01-hello-world/index.html">
+<meta property="og:title" content="Learn python with socratica [My notes] - part 13- Dictionary in Python">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/13_Dictionary_in_Python/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Lesson 2 print(&amp;quot;Hello World!&amp;quot;)  Hello World! “你好，世界！”就是这么简单。">
+<meta property="og:description" content="Lesson 15 Introduction在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&amp;gt; value:output）的格式处理时，就需要字典。">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-10-29T15:55:41.454Z">
+<meta property="og:updated_time" content="2018-12-11T09:02:10.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 1 - HelloWorld">
-<meta name="twitter:description" content="Lesson 2 print(&amp;quot;Hello World!&amp;quot;)  Hello World! “你好，世界！”就是这么简单。">
+<meta name="twitter:title" content="Learn python with socratica [My notes] - part 13- Dictionary in Python">
+<meta name="twitter:description" content="Lesson 15 Introduction在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&amp;gt; value:output）的格式处理时，就需要字典。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/29/01-hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/11/13_Dictionary_in_Python/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 1 - HelloWorld | Yuqiang Xie</title>
+  <title>Learn python with socratica [My notes] - part 13- Dictionary in Python | Yuqiang Xie</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/01-hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/13_Dictionary_in_Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 1 - HelloWorld</h1>
+          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 13- Dictionary in Python</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T23:52:48+08:00">
-                2018-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T16:42:01+08:00">
+                2018-12-11
               </time>
             
 
@@ -386,12 +386,103 @@
       
 
       
-        <p><strong>Lesson 2</strong></p>
-<pre><code>print(&quot;Hello World!&quot;)
+        <p><strong>Lesson 15</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&gt; value:output）的格式处理时，就需要字典。<a id="more"></a></p>
+<h2 id="Create-a-New-Dictionary"><a href="#Create-a-New-Dictionary" class="headerlink" title="Create a New Dictionary"></a>Create a New Dictionary</h2><p>假设我们要建立一个新的社交网站，叫做FriendFace。我们要为每一个注册的新用户收集相关的信息，包括用户名、简介、语言、注册时间和地理位置。那么这样的数据该怎么用python处理呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FriendFace Post</span></span><br><span class="line"><span class="comment"># User_id = 209</span></span><br><span class="line"><span class="comment"># message = "D5 E4 F4 C5 G3"</span></span><br><span class="line"><span class="comment"># language = "English"</span></span><br><span class="line"><span class="comment"># datetime = "20181212"</span></span><br><span class="line"><span class="comment"># location = (44.590533,-104.715566)</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># we can use a single object to store all of this date</span></span><br><span class="line">post = &#123;<span class="string">"user_id"</span>:<span class="number">209</span>, <span class="string">"message"</span>:<span class="string">"D5 E4 F4 C5 G3"</span>, <span class="string">"language"</span>:<span class="string">"English"</span>, <span class="string">"datetime"</span>:<span class="string">"20181212"</span>, <span class="string">"location"</span>:(<span class="number">44.590533</span>,<span class="number">-104.715566</span>)&#125; <span class="comment"># format:&#123;"key":"value"...&#125;</span></span><br></pre></td></tr></table></figure>
+<p>我们现在创建了一个包含五个键值对（映射关系）的字典。如果你把它当作映射图，那么也就对应五个输入（key），五个输出（output）。需要注意的是，键和值的数据类型可以是所有的数据类型或者tuple等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type(post) </span><br><span class="line"><span class="comment"># if you use the type function, you will find post belongs to "dict"</span></span><br></pre></td></tr></table></figure>
+<pre><code>dict
+</code></pre><p>这就意味着，我们可以用dict构造字典，注意本节都使用的是python3。接下来，我们使用dict去构造另一个FriendFace的post信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This time, we use dict.</span></span><br><span class="line">post2 = dict(message=<span class="string">"SS Cotopaxi"</span>, language=<span class="string">"English"</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># We can see this made a dictionary</span></span><br><span class="line">print(post2)</span><br></pre></td></tr></table></figure>
+<pre><code>{&#39;message&#39;: &#39;SS Cotopaxi&#39;, &#39;language&#39;: &#39;English&#39;}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># We add additional pieces of data by using brackets.</span></span><br><span class="line">post2[<span class="string">"user_id"</span>] = <span class="number">209</span></span><br><span class="line">post2[<span class="string">"datetime"</span>] = <span class="string">"20181213"</span></span><br><span class="line">print(post2)</span><br></pre></td></tr></table></figure>
+<pre><code>{&#39;message&#39;: &#39;SS Cotopaxi&#39;, &#39;language&#39;: &#39;English&#39;, &#39;user_id&#39;: 209, &#39;datetime&#39;: &#39;20181213&#39;}
+</code></pre><p>从这个实验，我们可以看到两种给字典加信息的方式：第一种方式，对键值不需要引号；第二种方式，使用括号和引号来定义。</p>
+<h2 id="Accessing-Data-in-Dictionaries"><a href="#Accessing-Data-in-Dictionaries" class="headerlink" title="Accessing Data in Dictionaries"></a>Accessing Data in Dictionaries</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To see the message from the first post, use the key name "message"</span></span><br><span class="line">print(post[<span class="string">"message"</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>D5 E4 F4 C5 G3
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># Try to get a info. which is not included by post2</span></span><br><span class="line">print(post2[<span class="string">'location'</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
 
-Hello World!
-</code></pre><p>“你好，世界！”就是这么简单。</p>
-<a id="more"></a>
+KeyError                                  Traceback (most recent call last)
+
+&lt;ipython-input-6-840c4f5feede&gt; in &lt;module&gt;()
+----&gt; 1 print(post2[&#39;location&#39;])
+
+KeyError: &#39;location&#39;
+</code></pre><p>我们会发现，location这个键在post2中没有被定义，这样去找就会出错。那么，怎么去避免这种情况发生呢？【Tips：单引号或者双引号都可以。】我们提供两种方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># First, to check if the key is in the dictionary</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">"location"</span> <span class="keyword">in</span> post2:</span><br><span class="line">     print(post2[<span class="string">'location'</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     print(<span class="string">"The post does not contain a location value."</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>The post does not contain a location value.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Second, try and retrieve the value, but handle the possibility of a KeyError</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(post2[<span class="string">'location'</span>])</span><br><span class="line"><span class="keyword">except</span> KeyError:</span><br><span class="line">    print(<span class="string">"The post does not contain a location value."</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>The post does not contain a location value.
+</code></pre><p>还有一种方式去获取字典中的数据，我们用dir()，help()去寻找吧：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(post2)</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__delitem__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setitem__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;fromkeys&#39;,
+ &#39;get&#39;,
+ &#39;items&#39;,
+ &#39;keys&#39;,
+ &#39;pop&#39;,
+ &#39;popitem&#39;,
+ &#39;setdefault&#39;,
+ &#39;update&#39;,
+ &#39;values&#39;]
+</code></pre><p>我们可以找到“get”这个方法，用help()看看它有什么作用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(post2.get)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on built-in function get:
+
+get(...) method of builtins.dict instance
+    D.get(k[,d]) -&gt; D[k] if k in D, else d.  d defaults to None.
+</code></pre><p>get() 可以试着去获取对应键的值，如果字典中没有值对应该键，你可以指定一个默认值。下面，我们用该方法去给post2加上location的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loc = post2.get(<span class="string">'location'</span>, <span class="keyword">None</span>)</span><br><span class="line">print(loc)</span><br></pre></td></tr></table></figure>
+<pre><code>None
+</code></pre><h2 id="Other-Operations"><a href="#Other-Operations" class="headerlink" title="Other Operations"></a>Other Operations</h2><p>回到一开始的post用户信息，一个常见的任务就是把字典中的键值信息列举出来：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(post)</span><br></pre></td></tr></table></figure>
+<pre><code>{&#39;user_id&#39;: 209, &#39;message&#39;: &#39;D5 E4 F4 C5 G3&#39;, &#39;language&#39;: &#39;English&#39;, &#39;datetime&#39;: &#39;20181212&#39;, &#39;location&#39;: (44.590533, -104.715566)}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A common way: loop over all the keys</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> post.keys():</span><br><span class="line">value = post[key]</span><br><span class="line">print(key, <span class="string">"="</span>, value)</span><br></pre></td></tr></table></figure>
+<pre><code>user_id = 209
+message = D5 E4 F4 C5 G3
+language = English
+datetime = 20181212
+location = (44.590533, -104.715566)
+</code></pre><p>这里我们使用keys()可以得到字典中所有的键。注意python2中的这部分会有所不同，这是因为python3中print方法更强大了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Another way</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> post.items():</span><br><span class="line">     print(key, <span class="string">"="</span>, value)</span><br></pre></td></tr></table></figure>
+<pre><code>user_id = 209
+message = D5 E4 F4 C5 G3
+language = English
+datetime = 20181212
+location = (44.590533, -104.715566)
+</code></pre><p>items()可以获取字典中所有的键值对。当然，对字典的操作还有很多，比如pop()，popitem()就可以去掉字典中的某个键值对；clear()可以直接清空字典。多试试相关的方法，你会有更多发现。</p>
 <p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
 
       
@@ -423,8 +514,8 @@ Hello World!
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/11/DCRN/" rel="next" title="论文笔记--Semantic Sentence Matching with DRCN">
-                <i class="fa fa-chevron-left"></i> 论文笔记--Semantic Sentence Matching with DRCN
+              <a href="/2018/11/26/12_Lists_in_Python/" rel="next" title="Learn python with socratica [My notes] - part 12- Lists in Python">
+                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 12- Lists in Python
               </a>
             
           </div>
@@ -432,10 +523,6 @@ Hello World!
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/29/02-strings/" rel="prev" title="Learn python with socratica [My notes] - part 2 - Strings">
-                Learn python with socratica [My notes] - part 2 - Strings <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +574,17 @@ Hello World!
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -574,6 +670,22 @@ Hello World!
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-New-Dictionary"><span class="nav-number">2.</span> <span class="nav-text">Create a New Dictionary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Data-in-Dictionaries"><span class="nav-number">3.</span> <span class="nav-text">Accessing Data in Dictionaries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Operations"><span class="nav-number">4.</span> <span class="nav-text">Other Operations</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
