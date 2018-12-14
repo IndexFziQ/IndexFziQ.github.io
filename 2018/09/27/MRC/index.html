@@ -375,16 +375,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/27/MRC/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/09/27/MRC/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
           
 
           
@@ -461,24 +451,6 @@
     
 
     
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:</strong>
-    IndexFziQ
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="http://yoursite.com/2018/09/27/MRC/" title="论文笔记--Gated-Attention Readers for Machine Reading Comprehension">http://yoursite.com/2018/09/27/MRC/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
-  </li>
-</ul>
-
-      </div>
-    
 
     <footer class="post-footer">
       
@@ -495,16 +467,13 @@
       
         <div class="post-widgets">
         
-
-        
-
-        
-          
-          <div id="needsharebutton-postbottom">
-            <span class="btn">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </span>
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
           </div>
+        
+
+        
+
         
         </div>
       
@@ -550,16 +519,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div class="fb-comments"
-           data-href="http://yoursite.com/2018/09/27/MRC/"
-           data-numposts="10"
-           data-width="100%"
-           data-colorscheme="light">
-      </div>
-    </div>
 
   
 
@@ -651,19 +610,19 @@
                   <span class="links-of-author-item">
                     <a href="https://github.com/IndexFziQ" target="_blank" title="GitHub">
                       
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                        <i class="fa fa-fw fa-github"></i></a>
                   </span>
                 
                   <span class="links-of-author-item">
                     <a href="mailto:IndexFziQ@gmail.com" target="_blank" title="E-Mail">
                       
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                        <i class="fa fa-fw fa-envelope"></i></a>
                   </span>
                 
                   <span class="links-of-author-item">
                     <a href="https://instagram.com/lewis.xie.128" target="_blank" title="Instagram">
                       
-                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                        <i class="fa fa-fw fa-instagram"></i></a>
                   </span>
                 
             </div>
@@ -752,12 +711,6 @@
       </div>
     
 
-    
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
     
 
   </div>
@@ -1226,43 +1179,23 @@
 
   
   
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-      pbOptions = {};
-      
-          pbOptions.iconStyle = "box";
-      
-          pbOptions.boxForm = "horizontal";
-      
-          pbOptions.position = "bottomCenter";
-      
-          pbOptions.networks = "Weibo,Wechat,Douban,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
   </script>
 
-  
 
   
   
