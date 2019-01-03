@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Lesson 15 Introduction在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&amp;gt; value:output）的格式处理时，就需要字典。">
+<meta name="description" content="Lesson 16 Introduction不是所有的数据都能以pile的形式存储，一般情况下，把数据存储成序列更有用。Python提供了几种处理序列的方式，list就是其中一个常见方法，但是tuple是一种更小更快存储方法。那么，list和tuple有那些不同呢？开始做实验吧。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 13- Dictionary in Python">
-<meta property="og:url" content="http://yoursite.com/2018/12/11/13_Dictionary_in_Python/index.html">
+<meta property="og:title" content="Learn python with socratica [My notes] - part 14- Python Tuples">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/14_Python_Tuples/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Lesson 15 Introduction在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&amp;gt; value:output）的格式处理时，就需要字典。">
+<meta property="og:description" content="Lesson 16 Introduction不是所有的数据都能以pile的形式存储，一般情况下，把数据存储成序列更有用。Python提供了几种处理序列的方式，list就是其中一个常见方法，但是tuple是一种更小更快存储方法。那么，list和tuple有那些不同呢？开始做实验吧。">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2019-01-03T08:55:34.677Z">
+<meta property="og:updated_time" content="2019-01-03T08:55:28.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 13- Dictionary in Python">
-<meta name="twitter:description" content="Lesson 15 Introduction在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&amp;gt; value:output）的格式处理时，就需要字典。">
+<meta name="twitter:title" content="Learn python with socratica [My notes] - part 14- Python Tuples">
+<meta name="twitter:description" content="Lesson 16 Introduction不是所有的数据都能以pile的形式存储，一般情况下，把数据存储成序列更有用。Python提供了几种处理序列的方式，list就是其中一个常见方法，但是tuple是一种更小更快存储方法。那么，list和tuple有那些不同呢？开始做实验吧。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/11/13_Dictionary_in_Python/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/11/14_Python_Tuples/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 13- Dictionary in Python | Yuqiang Xie</title>
+  <title>Learn python with socratica [My notes] - part 14- Python Tuples | Yuqiang Xie</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/13_Dictionary_in_Python/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/14_Python_Tuples/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 13- Dictionary in Python</h1>
+          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 14- Python Tuples</h1>
         
 
         <div class="post-meta">
@@ -394,103 +394,94 @@
       
 
       
-        <p><strong>Lesson 15</strong></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&gt; value:output）的格式处理时，就需要字典。<a id="more"></a></p>
-<h2 id="Create-a-New-Dictionary"><a href="#Create-a-New-Dictionary" class="headerlink" title="Create a New Dictionary"></a>Create a New Dictionary</h2><p>假设我们要建立一个新的社交网站，叫做FriendFace。我们要为每一个注册的新用户收集相关的信息，包括用户名、简介、语言、注册时间和地理位置。那么这样的数据该怎么用python处理呢？</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FriendFace Post</span></span><br><span class="line"><span class="comment"># User_id = 209</span></span><br><span class="line"><span class="comment"># message = "D5 E4 F4 C5 G3"</span></span><br><span class="line"><span class="comment"># language = "English"</span></span><br><span class="line"><span class="comment"># datetime = "20181212"</span></span><br><span class="line"><span class="comment"># location = (44.590533,-104.715566)</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># we can use a single object to store all of this date</span></span><br><span class="line">post = &#123;<span class="string">"user_id"</span>:<span class="number">209</span>, <span class="string">"message"</span>:<span class="string">"D5 E4 F4 C5 G3"</span>, <span class="string">"language"</span>:<span class="string">"English"</span>, <span class="string">"datetime"</span>:<span class="string">"20181212"</span>, <span class="string">"location"</span>:(<span class="number">44.590533</span>,<span class="number">-104.715566</span>)&#125; <span class="comment"># format:&#123;"key":"value"...&#125;</span></span><br></pre></td></tr></table></figure>
-<p>我们现在创建了一个包含五个键值对（映射关系）的字典。如果你把它当作映射图，那么也就对应五个输入（key），五个输出（output）。需要注意的是，键和值的数据类型可以是所有的数据类型或者tuple等。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type(post) </span><br><span class="line"><span class="comment"># if you use the type function, you will find post belongs to "dict"</span></span><br></pre></td></tr></table></figure>
-<pre><code>dict
-</code></pre><p>这就意味着，我们可以用dict构造字典，注意本节都使用的是python3。接下来，我们使用dict去构造另一个FriendFace的post信息：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This time, we use dict.</span></span><br><span class="line">post2 = dict(message=<span class="string">"SS Cotopaxi"</span>, language=<span class="string">"English"</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># We can see this made a dictionary</span></span><br><span class="line">print(post2)</span><br></pre></td></tr></table></figure>
-<pre><code>{&#39;message&#39;: &#39;SS Cotopaxi&#39;, &#39;language&#39;: &#39;English&#39;}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># We add additional pieces of data by using brackets.</span></span><br><span class="line">post2[<span class="string">"user_id"</span>] = <span class="number">209</span></span><br><span class="line">post2[<span class="string">"datetime"</span>] = <span class="string">"20181213"</span></span><br><span class="line">print(post2)</span><br></pre></td></tr></table></figure>
-<pre><code>{&#39;message&#39;: &#39;SS Cotopaxi&#39;, &#39;language&#39;: &#39;English&#39;, &#39;user_id&#39;: 209, &#39;datetime&#39;: &#39;20181213&#39;}
-</code></pre><p>从这个实验，我们可以看到两种给字典加信息的方式：第一种方式，对键值不需要引号；第二种方式，使用括号和引号来定义。</p>
-<h2 id="Accessing-Data-in-Dictionaries"><a href="#Accessing-Data-in-Dictionaries" class="headerlink" title="Accessing Data in Dictionaries"></a>Accessing Data in Dictionaries</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To see the message from the first post, use the key name "message"</span></span><br><span class="line">print(post[<span class="string">"message"</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>D5 E4 F4 C5 G3
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># Try to get a info. which is not included by post2</span></span><br><span class="line">print(post2[<span class="string">'location'</span>])</span><br></pre></td></tr></table></figure>
+        <p><strong>Lesson 16</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>不是所有的数据都能以pile的形式存储，一般情况下，把数据存储成序列更有用。Python提供了几种处理序列的方式，list就是其中一个常见方法，但是tuple是一种更小更快存储方法。那么，list和tuple有那些不同呢？开始做实验吧。<a id="more"></a></p>
+<h2 id="Difference-between-List-and-Tuple"><a href="#Difference-between-List-and-Tuple" class="headerlink" title="Difference between List and Tuple"></a>Difference between List and Tuple</h2><p>第一个小不同，list用方括号定义，而tuple用圆括号定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># List example</span></span><br><span class="line">prime_numbers = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tuple example</span></span><br><span class="line">perfect_squares = (<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">25</span>,<span class="number">36</span>) <span class="comment"># first difference: [],()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Display length</span></span><br><span class="line">print(<span class="string">"# Primes = "</span>, len(prime_numbers))</span><br><span class="line">print(<span class="string">"# Squares = "</span>, len(perfect_squares))</span><br></pre></td></tr></table></figure>
+<pre><code># Primes =  7
+# Squares =  6
+</code></pre><p>我们现在试着打印了list和tuple的序列长度，暂时是没有区别的。下面把元素都打印出来试试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Iterate over both sequences</span></span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> prime_numbers:</span><br><span class="line">    print(<span class="string">"Prime: "</span>, p)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> perfect_squares:</span><br><span class="line">    print(<span class="string">"Squares: "</span>, n)</span><br></pre></td></tr></table></figure>
+<pre><code>Prime:  2
+Prime:  3
+Prime:  5
+Prime:  7
+Prime:  11
+Prime:  13
+Prime:  17
+Squares:  1
+Squares:  4
+Squares:  9
+Squares:  16
+Squares:  25
+Squares:  36
+</code></pre><p>到目前为止，还是看不出来有什么不同。那么我们试着把适用于两个数据结构的内建方法打印出来看看。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"List methods"</span>)</span><br><span class="line">print(dir(prime_numbers))</span><br><span class="line">print(<span class="number">80</span>*<span class="string">"_"</span>)</span><br><span class="line">print(<span class="string">"Tuple methods"</span>)</span><br><span class="line">print(dir(perfect_squares))</span><br></pre></td></tr></table></figure>
+<pre><code>List methods
+[&#39;__add__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__delitem__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__reversed__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__setitem__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;append&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;count&#39;, &#39;extend&#39;, &#39;index&#39;, &#39;insert&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;reverse&#39;, &#39;sort&#39;]
+________________________________________________________________________________
+Tuple methods
+[&#39;__add__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getnewargs__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;count&#39;, &#39;index&#39;]
+</code></pre><p>可以发现，List有’append’, ‘clear’, ‘copy’, ‘count’, ‘extend’, ‘index’, ‘insert’, ‘pop’, ‘remove’, ‘reverse’, ‘sort’这些方法，而Tuple只有’count’, ‘index’。这也就意味着List比Tuple要占用更多的存储空间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># utilize sys.getsizeof to get the memery</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">list_eg = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="keyword">True</span>,<span class="number">3.1415</span>]</span><br><span class="line">tuple_eg = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="keyword">True</span>,<span class="number">3.1415</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"list size = "</span>, sys.getsizeof(list_eg))</span><br><span class="line">print(<span class="string">"tuple_size = "</span>, sys.getsizeof(tuple_eg))</span><br></pre></td></tr></table></figure>
+<pre><code>list size =  128
+tuple_size =  112
+</code></pre><p>终于可以看到他们之间的区别了，这一点在数据量很大的时候就显而易见了，Tuple更适合规模大且只需要简单操作存储的数据。</p>
+<p>当然，从内建函数中也可以得到，List可以增删改，但是Tuple是不能变的，也可以称之为immutable。Python对牺牲了Tuple的功能，赋予它更快的速度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># utilize timeit to test the speed</span></span><br><span class="line"><span class="keyword">import</span> timeit</span><br><span class="line"></span><br><span class="line">list_test = timeit.timeit(stmt=<span class="string">"[1,2,3,4,5]"</span>,</span><br><span class="line">                         number=<span class="number">1000000</span>)</span><br><span class="line">tuple_test = timeit.timeit(stmt=<span class="string">"(1,2,3,4,5)"</span>,</span><br><span class="line">                          number=<span class="number">1000000</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"List time : "</span>, list_test)</span><br><span class="line">print(<span class="string">"Tuple time :"</span>, tuple_test)</span><br></pre></td></tr></table></figure>
+<pre><code>List time :  0.12573448600005577
+Tuple time : 0.02030748099991797
+</code></pre><p>从这个小实验中可以得到，Tuple在速度方面的优势还是很明显的。</p>
+<h2 id="Experiment-on-Tuple"><a href="#Experiment-on-Tuple" class="headerlink" title="Experiment on Tuple"></a>Experiment on Tuple</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">empty_tuple = ()</span><br><span class="line">test1 = (<span class="string">"a"</span>)</span><br><span class="line">test2 = (<span class="string">"a"</span>, <span class="string">"b"</span>)</span><br><span class="line">test3 = (<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>)</span><br><span class="line"></span><br><span class="line">print(empty_tuple)</span><br><span class="line">print(test1)</span><br><span class="line">print(test2)</span><br><span class="line">print(test3)</span><br></pre></td></tr></table></figure>
+<pre><code>()
+a
+(&#39;a&#39;, &#39;b&#39;)
+(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)
+</code></pre><p>为什么test1打印出来是字符串？而不是和其他一样的tuple格式呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(type(test1))</span><br><span class="line">print(type(test2))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;tuple&#39;&gt;
+</code></pre><p>果然是字符串，原因在于当只有一个元素时，需要以逗号结尾。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test1 = (<span class="string">"a"</span>,)</span><br><span class="line">print(test1)</span><br></pre></td></tr></table></figure>
+<pre><code>(&#39;a&#39;,)
+</code></pre><h2 id="Alternative-Construction-of-Tuple"><a href="#Alternative-Construction-of-Tuple" class="headerlink" title="Alternative Construction of Tuple"></a>Alternative Construction of Tuple</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># another way</span></span><br><span class="line">test1 = <span class="number">1</span>,</span><br><span class="line">test2 = <span class="number">1</span>,<span class="number">2</span></span><br><span class="line">test3 = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br><span class="line"></span><br><span class="line">print(test1)</span><br><span class="line">print(test2)</span><br><span class="line">print(test3)</span><br><span class="line"></span><br><span class="line">print(type(test1))</span><br><span class="line">print(type(test2))</span><br><span class="line">print(type(test3))</span><br></pre></td></tr></table></figure>
+<pre><code>(1,)
+(1, 2)
+(1, 2, 3)
+&lt;class &#39;tuple&#39;&gt;
+&lt;class &#39;tuple&#39;&gt;
+&lt;class &#39;tuple&#39;&gt;
+</code></pre><h2 id="Tuple-Assignment"><a href="#Tuple-Assignment" class="headerlink" title="Tuple Assignment"></a>Tuple Assignment</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (age, country, know_python)</span></span><br><span class="line">survey = (<span class="number">23</span>, <span class="string">"China"</span>, <span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">age = survey[<span class="number">0</span>]</span><br><span class="line">country = survey[<span class="number">1</span>]</span><br><span class="line">know_python = survey[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Age = "</span>,age)</span><br><span class="line">print(<span class="string">"Country = "</span>,country)</span><br><span class="line">print(<span class="string">"Know Python? "</span>, know_python)</span><br></pre></td></tr></table></figure>
+<pre><code>Age =  23
+Country =  China
+Know Python?  True
+</code></pre><p>用List同样的方式提取tuple中的元素是有效的，但是tuple提供了更高效的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">survey2 = (<span class="number">24</span>, <span class="string">"America"</span>, <span class="keyword">True</span>)</span><br><span class="line">age, country, know_python = survey2</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Age = "</span>,age)</span><br><span class="line">print(<span class="string">"Country = "</span>,country)</span><br><span class="line">print(<span class="string">"Know Python? "</span>, know_python)</span><br></pre></td></tr></table></figure>
+<pre><code>Age =  24
+Country =  America
+Know Python?  True
+</code></pre><p>同时也要注意一个错误，这种方式去提取tuple中的元素，一定要一一对应，举个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x,y,z = (<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>---------------------------------------------------------------------------
 
-KeyError                                  Traceback (most recent call last)
+ValueError                                Traceback (most recent call last)
 
-&lt;ipython-input-6-840c4f5feede&gt; in &lt;module&gt;()
-----&gt; 1 print(post2[&#39;location&#39;])
+&lt;ipython-input-16-6f419fd02ba5&gt; in &lt;module&gt;()
+----&gt; 1 x,y,z = (1,2)
 
-KeyError: &#39;location&#39;
-</code></pre><p>我们会发现，location这个键在post2中没有被定义，这样去找就会出错。那么，怎么去避免这种情况发生呢？【Tips：单引号或者双引号都可以。】我们提供两种方式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># First, to check if the key is in the dictionary</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">"location"</span> <span class="keyword">in</span> post2:</span><br><span class="line">     print(post2[<span class="string">'location'</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     print(<span class="string">"The post does not contain a location value."</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>The post does not contain a location value.
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Second, try and retrieve the value, but handle the possibility of a KeyError</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(post2[<span class="string">'location'</span>])</span><br><span class="line"><span class="keyword">except</span> KeyError:</span><br><span class="line">    print(<span class="string">"The post does not contain a location value."</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>The post does not contain a location value.
-</code></pre><p>还有一种方式去获取字典中的数据，我们用dir()，help()去寻找吧：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(post2)</span><br></pre></td></tr></table></figure>
-<pre><code>[&#39;__class__&#39;,
- &#39;__contains__&#39;,
- &#39;__delattr__&#39;,
- &#39;__delitem__&#39;,
- &#39;__dir__&#39;,
- &#39;__doc__&#39;,
- &#39;__eq__&#39;,
- &#39;__format__&#39;,
- &#39;__ge__&#39;,
- &#39;__getattribute__&#39;,
- &#39;__getitem__&#39;,
- &#39;__gt__&#39;,
- &#39;__hash__&#39;,
- &#39;__init__&#39;,
- &#39;__init_subclass__&#39;,
- &#39;__iter__&#39;,
- &#39;__le__&#39;,
- &#39;__len__&#39;,
- &#39;__lt__&#39;,
- &#39;__ne__&#39;,
- &#39;__new__&#39;,
- &#39;__reduce__&#39;,
- &#39;__reduce_ex__&#39;,
- &#39;__repr__&#39;,
- &#39;__setattr__&#39;,
- &#39;__setitem__&#39;,
- &#39;__sizeof__&#39;,
- &#39;__str__&#39;,
- &#39;__subclasshook__&#39;,
- &#39;clear&#39;,
- &#39;copy&#39;,
- &#39;fromkeys&#39;,
- &#39;get&#39;,
- &#39;items&#39;,
- &#39;keys&#39;,
- &#39;pop&#39;,
- &#39;popitem&#39;,
- &#39;setdefault&#39;,
- &#39;update&#39;,
- &#39;values&#39;]
-</code></pre><p>我们可以找到“get”这个方法，用help()看看它有什么作用：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(post2.get)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on built-in function get:
 
-get(...) method of builtins.dict instance
-    D.get(k[,d]) -&gt; D[k] if k in D, else d.  d defaults to None.
-</code></pre><p>get() 可以试着去获取对应键的值，如果字典中没有值对应该键，你可以指定一个默认值。下面，我们用该方法去给post2加上location的值。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loc = post2.get(<span class="string">'location'</span>, <span class="keyword">None</span>)</span><br><span class="line">print(loc)</span><br></pre></td></tr></table></figure>
-<pre><code>None
-</code></pre><h2 id="Other-Operations"><a href="#Other-Operations" class="headerlink" title="Other Operations"></a>Other Operations</h2><p>回到一开始的post用户信息，一个常见的任务就是把字典中的键值信息列举出来：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(post)</span><br></pre></td></tr></table></figure>
-<pre><code>{&#39;user_id&#39;: 209, &#39;message&#39;: &#39;D5 E4 F4 C5 G3&#39;, &#39;language&#39;: &#39;English&#39;, &#39;datetime&#39;: &#39;20181212&#39;, &#39;location&#39;: (44.590533, -104.715566)}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A common way: loop over all the keys</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> post.keys():</span><br><span class="line">value = post[key]</span><br><span class="line">print(key, <span class="string">"="</span>, value)</span><br></pre></td></tr></table></figure>
-<pre><code>user_id = 209
-message = D5 E4 F4 C5 G3
-language = English
-datetime = 20181212
-location = (44.590533, -104.715566)
-</code></pre><p>这里我们使用keys()可以得到字典中所有的键。注意python2中的这部分会有所不同，这是因为python3中print方法更强大了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Another way</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> post.items():</span><br><span class="line">     print(key, <span class="string">"="</span>, value)</span><br></pre></td></tr></table></figure>
-<pre><code>user_id = 209
-message = D5 E4 F4 C5 G3
-language = English
-datetime = 20181212
-location = (44.590533, -104.715566)
-</code></pre><p>items()可以获取字典中所有的键值对。当然，对字典的操作还有很多，比如pop()，popitem()就可以去掉字典中的某个键值对；clear()可以直接清空字典。多试试相关的方法，你会有更多发现。</p>
+ValueError: not enough values to unpack (expected 3, got 2)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a,b,c = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+ValueError                                Traceback (most recent call last)
+
+&lt;ipython-input-17-2e0282f2aef3&gt; in &lt;module&gt;()
+----&gt; 1 a,b,c = (1,2,3,4)
+
+
+ValueError: too many values to unpack (expected 3)
+</code></pre><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>以上就是Tuple的内容，与List相比，构建速度很快。需要注意的是如果只有一个元素，要记得以逗号结尾。在用tuple特有的方式提取元素是，注意一一对应，不能多也不能少。总的来说，Tuple是有它的优势的，考虑代码的质量是需要考虑考虑它与List谁更适合自己的子模块。</p>
 <p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
 
       
@@ -534,8 +525,8 @@ location = (44.590533, -104.715566)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/26/12_Lists_in_Python/" rel="next" title="Learn python with socratica [My notes] - part 12- Lists in Python">
-                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 12- Lists in Python
+              <a href="/2018/12/11/13_Dictionary_in_Python/" rel="next" title="Learn python with socratica [My notes] - part 13- Dictionary in Python">
+                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 13- Dictionary in Python
               </a>
             
           </div>
@@ -544,8 +535,8 @@ location = (44.590533, -104.715566)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/11/14_Python_Tuples/" rel="prev" title="Learn python with socratica [My notes] - part 14- Python Tuples">
-                Learn python with socratica [My notes] - part 14- Python Tuples <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/28/ms-marco/" rel="prev" title="Analysis on MS MARCO leaderboard">
+                Analysis on MS MARCO leaderboard <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -704,7 +695,7 @@ location = (44.590533, -104.715566)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-New-Dictionary"><span class="nav-number">2.</span> <span class="nav-text">Create a New Dictionary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Data-in-Dictionaries"><span class="nav-number">3.</span> <span class="nav-text">Accessing Data in Dictionaries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Operations"><span class="nav-number">4.</span> <span class="nav-text">Other Operations</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Difference-between-List-and-Tuple"><span class="nav-number">2.</span> <span class="nav-text">Difference between List and Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment-on-Tuple"><span class="nav-number">3.</span> <span class="nav-text">Experiment on Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alternative-Construction-of-Tuple"><span class="nav-number">4.</span> <span class="nav-text">Alternative Construction of Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuple-Assignment"><span class="nav-number">5.</span> <span class="nav-text">Tuple Assignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
             
 
           </div>
