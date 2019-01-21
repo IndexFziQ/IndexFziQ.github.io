@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="Introduction本文出自MSRA，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用CNTK实现的代码。首次使用了Seq2Seq模型对MS-MARCO阅读理解数据集进行答案生成，比较符合MARCO数据集的本意，同时定义了先抽取在生成的框架，在R-Net的基础上有一定的提升。">
+<meta name="description" content="Introduction本文出自微软亚研院，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用CNTK实现的代码。首次使用了Seq2Seq模型对MS-MARCO阅读理解数据集进行答案生成，比较符合MS-MARCO的本意，同时定义了先抽取再生成的框架，在R-Net的基础上有一定的提升。">
 <meta name="keywords" content="机器阅读理解,自然语言处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记--From Answer Extraction to Answer Generation for Machine Reading Comprehension (S-Net)">
 <meta property="og:url" content="http://yoursite.com/2019/01/17/SNET/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Introduction本文出自MSRA，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用CNTK实现的代码。首次使用了Seq2Seq模型对MS-MARCO阅读理解数据集进行答案生成，比较符合MARCO数据集的本意，同时定义了先抽取在生成的框架，在R-Net的基础上有一定的提升。">
+<meta property="og:description" content="Introduction本文出自微软亚研院，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用CNTK实现的代码。首次使用了Seq2Seq模型对MS-MARCO阅读理解数据集进行答案生成，比较符合MS-MARCO的本意，同时定义了先抽取再生成的框架，在R-Net的基础上有一定的提升。">
 <meta property="og:locale" content="en-us">
 <meta property="og:image" content="http://yoursite.com/2019/01/17/SNET/motivation.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/17/SNET/S-Net-F.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/17/SNET/S-Net-E.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/17/SNET/S-Net-A.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/17/SNET/experiment.png">
-<meta property="og:updated_time" content="2019-01-20T15:07:44.391Z">
+<meta property="og:updated_time" content="2019-01-21T06:13:20.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记--From Answer Extraction to Answer Generation for Machine Reading Comprehension (S-Net)">
-<meta name="twitter:description" content="Introduction本文出自MSRA，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用CNTK实现的代码。首次使用了Seq2Seq模型对MS-MARCO阅读理解数据集进行答案生成，比较符合MARCO数据集的本意，同时定义了先抽取在生成的框架，在R-Net的基础上有一定的提升。">
+<meta name="twitter:description" content="Introduction本文出自微软亚研院，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用CNTK实现的代码。首次使用了Seq2Seq模型对MS-MARCO阅读理解数据集进行答案生成，比较符合MS-MARCO的本意，同时定义了先抽取再生成的框架，在R-Net的基础上有一定的提升。">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/17/SNET/motivation.png">
 
 
@@ -400,7 +400,7 @@
       
 
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本文出自MSRA，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用<em>CNTK</em>实现的代码。首次使用了<em>Seq2Seq</em>模型对<em>MS-MARCO</em>阅读理解数据集进行答案生成，比较符合<em>MARCO</em>数据集的本意，同时定义了先抽取在生成的框架，在<em>R-Net</em>的基础上有一定的提升。</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本文出自微软亚研院，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用<em>CNTK</em>实现的代码。首次使用了<em>Seq2Seq</em>模型对<em>MS-MARCO</em>阅读理解数据集进行答案生成，比较符合<em>MS-MARCO</em>的本意，同时定义了先抽取再生成的框架，在<em>R-Net</em>的基础上有一定的提升。</p>
 <a id="more"></a>
 <p>模型在<em>MS-MARCO V1</em>的排名是第三，效果与抽取式的模型结构并没有太大的提升，这也让人怀疑<em>Seq2Seq</em>的作用到哪里去了。文章有几处疑点，一是<em>Attention Pooling</em>时，公式有些问题；二是<em>Seq2Seq</em>的输入到底是什么，如果出现答案来自于多篇文章的情况，输入还是按照答案-文档对来做的吗？</p>
 <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>这篇文章的动机就是抽取式的网络结构并不适合微软阅读理解数据集，有很多情况下，答案需要根据问题和文档组合或者生成。如图所示，除了第一种情况，其他都不能简单的抽出来。<br>    <div align="center">
@@ -424,7 +424,7 @@
 
 <p>这个模型从本质上讲和<em>R-Net</em>有很大的相似性，只是没有高层的<em>self-attention</em>。</p>
 <p><strong>Embedding Layer</strong></p>
-<p>该层的输入就两个，词级别的表示和字符级别的表示，然后喂给双向GRU得到最终的表示 $U^Q<em>{t}$，$U^P</em>{t}$。</p>
+<p>该层的输入就两个，词级别的表示和字符级别的表示，然后喂给双向GRU得到最终的表示 $U^Q<em>{t},U^P</em>{t}$。</p>
 <p><strong>Question-aware passage representation</strong></p>
 <p>这部分就是<em>passage</em>对<em>query</em>做<em>attention</em>，得到权重化的表示，也就是所谓的<em>Question-aware</em>。这部分较复杂，过程简单来讲就是计算<em>attention</em>，过门控函数，再用GRU得到表示$V^P_t$。</p>
 <p>之后还是一个计算<em>attention</em>的过程，$U^Q_{t}$做一个<em>self-attention</em>，得到最终的表示$r^Q$。然后用得到的问题表示$r^Q$与GRU得到表示$V^P_t$做<em>attention</em>，加权求和得到最终的<em>passage</em>表示$r^P$。</p>
@@ -442,7 +442,7 @@
 
 <p>抽取片段的模型部分得到<em>evidence</em>，之后并不是直接就作为<em>Seq2Seq</em>的输入，中间还有一定的处理过程。</p>
 <p><strong>Initialization</strong></p>
-<p>首先，用<em>BiGRU</em>得到问题和文档的表示，文档的表示是由抽取模块处理好的<em>passage</em>（把起始位置和终止位置作为0，1特征）作为输入。</p>
+<p>首先，用<em>BiGRU</em>得到问题和文档的表示，文档的表示是由抽取模块处理好的<em>passage</em>（把起始位置和终止位置作为特征）作为输入，用0/1表示。</p>
 <script type="math/tex; mode=display">h_t^P = BiGRU(h_{t-1}^P,[e_t^P,f_t^s,f_t^e])</script><script type="math/tex; mode=display">h_t^Q = BiGRU(h_{t-1}^Q,e_t^Q)</script><p>其中，$f$用来表示<em>span</em>的起止位置，然后$d_0$初始化<em>Seq2Seq</em>，其中：</p>
 <script type="math/tex; mode=display">d_0 = tanh(W_d[h_1^P,h_1^Q] + b)</script><p>这里就是取<em>BiGRU</em>的第一个隐藏层状态作为MLP的输入得到<em>Seq2Seq</em>所需要的$d_0$。</p>
 <p><strong>Answer Synthesis</strong></p>
@@ -461,6 +461,7 @@
 <li>使用多任务学习辅助训练主任务;</li>
 <li>第一次将<em>Seq2Seq</em>应用到阅读理解的任务中。</li>
 </ol>
+<p>另外，如有错误或者不对的地方，请您提出宝贵意见！</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li>S-Net: From Answer Extraction to Answer Generation for Machine Reading Comprehension. JChuanqi Tan, Furu Wei, Nan Yang, Bowen Du, Weifeng Lv and Ming Zhou. AAAI 2018. </li>
 <li>MAMARCO leaderboard: <a href="http://www.msmarco.org/leaders.aspx" target="_blank" rel="noopener">http://www.msmarco.org/leaders.aspx</a></li>
