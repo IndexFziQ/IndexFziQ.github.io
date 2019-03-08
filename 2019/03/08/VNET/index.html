@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/experiment-2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/analysis-1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/analysis-2.png">
-<meta property="og:updated_time" content="2019-03-08T06:06:30.834Z">
+<meta property="og:updated_time" content="2019-03-08T06:10:42.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记--Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification (V-Net)">
 <meta name="twitter:description" content="Introduction本文出自Baidu NLP Research，在MS MARCO的V1版本上是第二；V2版本上QA任务是第三，well-formed任务是第二。代码没公开，基本的思想就是提出两个辅助任务，辅助抽取更好的答案片段。">
@@ -461,7 +461,7 @@
 0& \text{if i=j}\\
 {r^{A_i}}\intercal \cdot r^{A_j}& \text{otherwise}
 \end{cases}</script><script type="math/tex; mode=display">a_{i,j}=exp(s_{i,j})/\sum\nolimits_{k=1}^{n}exp(s_{i,k})</script><script type="math/tex; mode=display">\tilde{r}^{A_i}=\sum\nolimits_{j=1}^{n}a_{i,j}{r}^{A_j}</script><p>得到attention权重化的答案内容的表示，和每一个篇章各自的答案内容做点积和串联操作，得到打分，归一化后就得到对每一个抽取的答案的概率分布$p^v_{y_i}$并输出，运算关系如下：</p>
-<script type="math/tex; mode=display">g_i^v={w^v}\intercal [r^{A_j},\tilde{r}^{A_i},r^{A_j}\odot\tilde{r}^{A_i}]$$$$p^v_i=exp(g_{v,i})/\sum\nolimits_{j=1}^{n}exp(g_{v,j})</script><h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>模型的Loss由三部分组成，Model部分也介绍了每部分的输出，Multi-Loss如下：</p>
+<script type="math/tex; mode=display">g_i^v={w^v}\intercal [r^{A_j},\tilde{r}^{A_i},r^{A_j}\odot\tilde{r}^{A_i}]</script><script type="math/tex; mode=display">p^v_i=exp(g_{v,i})/\sum\nolimits_{j=1}^{n}exp(g_{v,j})</script><h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>模型的Loss由三部分组成，Model部分也介绍了每部分的输出，Multi-Loss如下：</p>
 <script type="math/tex; mode=display">L_{boundary}=-\frac{1}{N}\sum_{i=1}^{N}(log{\alpha}^1_{y_i^1}+log{\alpha}^2_{y_i^12})</script><script type="math/tex; mode=display">L_{content}=-\frac{1}{N}\frac{1}{|P|}\sum_{i=1}^{N}\sum_{j=1}^{|P|}(y_k^clog{p}^c_k+(1-y_k^c)log(1-{p}^c_k))</script><script type="math/tex; mode=display">L_{verity}=-\frac{1}{N}\sum_{i=1}^{N}log{p}^v_{y_i^v}</script><p>综上：</p>
 <script type="math/tex; mode=display">L=L_{boundary}+\beta_1{L_{content}}+\beta_2{L_{verity}}</script><p>最后两项损失的系数在实验部分设置的是$0.5$，优化器使用的是Adam。</p>
 <h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>在MAMARCO第一版上很接近人类水平，也就是说抽取式模型对数据集的处理就可以了，也从另一个方面说明有点违背了MARCO的本意，与其他模型的对比，评测指标是BLEU-1和ROUGE-L：</p>
