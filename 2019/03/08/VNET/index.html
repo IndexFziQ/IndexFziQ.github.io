@@ -83,16 +83,21 @@
 <meta name="keywords" content="机器阅读理解,自然语言处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记--Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification (V-Net)">
-<meta property="og:url" content="http://yoursite.com/2019/01/24/VNET/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/VNET/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
 <meta property="og:description" content="Introduction本文出自Baidu NLP Research，在MS MARCO的V1版本上是第二；V2版本上QA任务是第三，well-formed任务是第二。代码没公开，基本的思想就是提出两个辅助任务，辅助抽取更好的答案片段。">
 <meta property="og:locale" content="en-us">
-<meta property="og:image" content="http://yoursite.com/2019/01/24/VNET/V-Net-1.png">
-<meta property="og:updated_time" content="2019-03-06T10:55:00.989Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/V-Net-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/V-Net-2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/experiment-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/experiment-2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/analysis-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/VNET/analysis-2.png">
+<meta property="og:updated_time" content="2019-03-08T06:02:50.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记--Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification (V-Net)">
 <meta name="twitter:description" content="Introduction本文出自Baidu NLP Research，在MS MARCO的V1版本上是第二；V2版本上QA任务是第三，well-formed任务是第二。代码没公开，基本的思想就是提出两个辅助任务，辅助抽取更好的答案片段。">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/24/VNET/V-Net-1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/08/VNET/V-Net-1.png">
 
 
 
@@ -122,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/24/VNET/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/VNET/"/>
 
 
 
@@ -307,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/VNET/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/VNET/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -336,8 +341,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-24T10:37:08+08:00">
-                2019-01-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-08T14:00:00+08:00">
+                2019-03-08
               </time>
             
 
@@ -366,6 +371,28 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文笔记/MS-MARCO/" itemprop="url" rel="index">
+                    <span itemprop="name">MS MARCO</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文笔记/MS-MARCO/Extractive-MRC/" itemprop="url" rel="index">
+                    <span itemprop="name">Extractive MRC</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -376,7 +403,7 @@
 
           
           
-             <span id="/2019/01/24/VNET/" class="leancloud_visitors" data-flag-title="论文笔记--Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification (V-Net)">
+             <span id="/2019/03/08/VNET/" class="leancloud_visitors" data-flag-title="论文笔记--Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification (V-Net)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,12 +438,51 @@
 <a id="more"></a>
 <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>这篇文章的动机很直接，文章对数据进行分析，提出一种假设：正确的答案往往在10个摘要中出现频率高，且具有很大的相似性；然后错误的答案通常和其他答案不一样。</p>
 <div align="center">
-       <img src="/2019/01/24/VNET/V-Net-1.png" height="50%" width="50%">
+       <img src="/2019/03/08/VNET/V-Net-1.png" height="50%" width="50%">
 </div>
 
 <h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h2><p>实现了一个端到端的模型，每篇文章抽取的片段之间相互监督，再算一个相似度作为验证模块，对片段的内容再做一个分析，应用多任务学习使得抽取的片段更好。</p>
 <h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>下面对模型详细介绍，最主要的是Answer Content Modeling和Cross-Passage Answer Verification，其他的地方和其他模型大同小异。</p>
-<h3 id="Question-and-Passage-Modeling"><a href="#Question-and-Passage-Modeling" class="headerlink" title="Question and Passage Modeling"></a>Question and Passage Modeling</h3><p>wait…</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>整个模型是End-to-End的，输入是Question和Passages，输出是Answer，也就是抽取的span，所以说，这应该是抽取式模型里效果最好的了。</p>
+<div align="center">
+       <img src="/2019/03/08/VNET/V-Net-2.png" height="50%" width="50%">
+</div>
+
+<h3 id="Question-and-Passage-Modeling"><a href="#Question-and-Passage-Modeling" class="headerlink" title="Question and Passage Modeling"></a>Question and Passage Modeling</h3><p>把每一个token的Glove word embedding和character embedding串起来，然后过BiLSTM得到每一个sequence的表示，公式如下：<script type="math/tex">U_t^Q = BiLSTM_Q(u_{t-1}^Q,[e^Q_t,c^Q_t])$$$$U_t^{P_i} = BiLSTM_P(u_{t-1}^{P_i},[e^{P_i}_t,c^{P_i}_t])</script>得到表示之后，采用BiDAF计算相似度的方式：$S<em>{t}^{P_i}={u^Q_t}\intercal \cdot u^{P_i}_t$，然后再喂给BiLSTM得到Matching之后的Passages表示$V_t^P$：$$V_t^{P_i} = BiLSTM_Q(v</em>{t-1}^{P<em>i},S</em>{t}^{P_i})$$</p>
+<h3 id="Answer-Boundary-Prediction"><a href="#Answer-Boundary-Prediction" class="headerlink" title="Answer Boundary Prediction"></a>Answer Boundary Prediction</h3><p>该模块对每个Passage都抽取答案片段，具体的就是指针网络，输入是$V<em>t^P$，输出是span两端的概率，公式如下：$$g_k^t = {w^a_1}\intercal tanh(W_2^a[V_t^P,h^a</em>{t-1}])<script type="math/tex">$$a_k^t=exp(g_k^t)/\sum\nolimits_{j=1}^{|p|}exp(g_k^j)$$$$c_t=\sum\nolimits_{j=1}^{|p|}a_k^t V_t^P$$$$h_a^t=LSTM(h_a^{t-1},c_t)</script>这部分的输出是片段起始位置和终止位置的$a_k^t$，对于指针网络的详细计算参见Match-LSTM。</p>
+<h3 id="Answer-Content-Modeling"><a href="#Answer-Content-Modeling" class="headerlink" title="Answer Content Modeling"></a>Answer Content Modeling</h3><p>该模块尝试对Passage的内容进行建模，也就是本文的动机：越正确的答案，出现频率越高，且具有很大的相似性；错误的答案通常和其他答案不一样。因此，输入是$V_t^P$，过ReLU和sigmoid函数，对每个passage的内容加一个门控，算出来的权重$p^c_k$：</p>
+<script type="math/tex; mode=display">p^c_k = sigmoid({W_1^c}\intercal ReLU(W_2^cV_t^P))$$最后该模块会算一个综合考虑所有token的Passage表示（加权求和），增强了内容相似度分数更高的Passage表示，文中称之为Answer Content：$$r^{A_i}=\frac{1}{P_i}\sum\nolimits_{k=1}^{|p_i|}p_k^c[e_k^{P_i},c_k^{P_i}]$$然后将此用于计算下一部分的答案验证。
+
+### Cross-Passage Answer Verification 
+
+该模块输入每个passage的Answer Content，过Attention Pooling，综合考虑所有的passage，相互比较一下，最后用类似于Dual Attention的方式叠加，算出最终的得分：
+$$s_{i,j}=
+\begin{cases}
+0& \text{if i=j}\\
+{r^{A_i}}\intercal \cdot r^{A_j}& \text{otherwise}
+\end{cases}$$$$a_{i,j}=exp(s_{i,j})/\sum\nolimits_{k=1}^{n}exp(s_{i,k})$$$$\tilde{r}^{A_i}=\sum\nolimits_{j=1}^{n}a_{i,j}{r}^{A_j}$$得到attention权重化的答案内容的表示，和每一个篇章各自的答案内容做点积和串联操作，得到打分，归一化后就得到对每一个抽取的答案的概率分布$p^v_{y_i}$并输出，运算关系如下：$$g_i^v={w^v}\intercal [r^{A_j},\tilde{r}^{A_i},r^{A_j}\odot\tilde{r}^{A_i}]$$$$p^v_i=exp(g_{v,i})/\sum\nolimits_{j=1}^{n}exp(g_{v,j})</script><h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>模型的Loss由三部分组成，Model部分也介绍了每部分的输出，Multi-Loss如下：<script type="math/tex">L_{boundary}=-\frac{1}{N}\sum_{i=1}^{N}(log{\alpha}^1_{y_i^1}+log{\alpha}^2_{y_i^12})$$$$L_{content}=-\frac{1}{N}\frac{1}{|P|}\sum_{i=1}^{N}\sum_{j=1}^{|P|}(y_k^clog{p}^c_k+(1-y_k^c)log(1-{p}^c_k))$$$$L_{verity}=-\frac{1}{N}\sum_{i=1}^{N}log{p}^v_{y_i^v}</script>综上：<script type="math/tex">L=L_{boundary}+\beta_1{L_{content}}+\beta_2{L_{verity}}</script>最后两项损失的系数在实验部分设置的是$0.5$，优化器使用的是Adam。</p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>在MAMARCO第一版上很接近人类水平，也就是说抽取式模型对数据集的处理就可以了，也从另一个方面说明有点违背了MARCO的本意，与其他模型的对比，评测指标是BLEU-1和ROUGE-L：</p>
+<div align="center">
+       <img src="/2019/03/08/VNET/experiment-1.png" height="50%" width="50%">
+</div>
+下图是在DuReader上的结果，中文的生成式阅读理解数据集，评测指标是BLEU-4和ROUGE-L：
+<div align="center">
+       <img src="/2019/03/08/VNET/experiment-2.png" height="50%" width="50%">
+</div>
+
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>本文对自己提出的Answer Content和Verify部分进行了分析，发现综合打分的作用对一些case是有效果的，比如：</p>
+<p><div align="center">
+       <img src="/2019/03/08/VNET/analysis-1.png" height="50%" width="50%">
+</div><br>并且从下图也可以看出，span部分的Answer Content概率分布与起止位置的点很吻合：</p>
+<p><div align="center">
+       <img src="/2019/03/08/VNET/analysis-2.png" height="50%" width="50%">
+</div><br>去除实验部分，感觉都同等重要，就没有放上来。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>通过分析，可以发现对抽出来的答案进行进一步的内容计算和验证，然后用Multi-Loss进行联合训练，是有助于抽取的片段更加准确，但是这仍不是MARCO的初衷，还是extrative MRC。因此，多任务学习还是适用性比较强的，未来MARCO的工作应该更多地向生成式发展。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification. Yizhong Wang, Kai Liu, Jing Liu, Wei He, Yajuan Lyu, Hua Wu, Sujian Li and Haifeng Wang. ACL 2018.</li>
+<li>MAMARCO leaderboard: <a href="http://www.msmarco.org/leaders.aspx" target="_blank" rel="noopener">http://www.msmarco.org/leaders.aspx</a></li>
+<li><a href="https://github.com/IndexFziQ/MSMARCO-MRC-Analysis" target="_blank" rel="noopener">https://github.com/IndexFziQ/MSMARCO-MRC-Analysis</a>.</li>
+</ol>
 
       
     </div>
@@ -461,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/17/SNET/" rel="next" title="论文笔记--From Answer Extraction to Answer Generation for Machine Reading Comprehension (S-Net)">
-                <i class="fa fa-chevron-left"></i> 论文笔记--From Answer Extraction to Answer Generation for Machine Reading Comprehension (S-Net)
+              <a href="/2019/03/06/self/" rel="next" title="Research on Self-supervised Learning">
+                <i class="fa fa-chevron-left"></i> Research on Self-supervised Learning
               </a>
             
           </div>
@@ -470,10 +536,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/06/self/" rel="prev" title="Research on Self-supervised Learning">
-                Research on Self-supervised Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +627,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -631,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">2.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contribution"><span class="nav-number">3.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">4.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question-and-Passage-Modeling"><span class="nav-number">4.1.</span> <span class="nav-text">Question and Passage Modeling</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">2.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contribution"><span class="nav-number">3.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">4.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview"><span class="nav-number">4.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question-and-Passage-Modeling"><span class="nav-number">4.2.</span> <span class="nav-text">Question and Passage Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Answer-Boundary-Prediction"><span class="nav-number">4.3.</span> <span class="nav-text">Answer Boundary Prediction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Answer-Content-Modeling"><span class="nav-number">4.4.</span> <span class="nav-text">Answer Content Modeling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training"><span class="nav-number">5.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">6.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">7.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">8.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">9.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
