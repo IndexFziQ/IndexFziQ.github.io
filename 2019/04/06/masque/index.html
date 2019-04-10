@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="Introduction目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用词方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明B">
+<meta name="description" content="Introduction目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用此方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明B">
 <meta name="keywords" content="机器阅读理解,自然语言处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记--Multi-Style Generative Reading Comprehension (Masque)">
 <meta property="og:url" content="http://yoursite.com/2019/04/06/masque/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Introduction目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用词方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明B">
+<meta property="og:description" content="Introduction目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用此方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明B">
 <meta property="og:locale" content="en-us">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/control.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/model.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/analysis.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/case1.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/case2.png">
-<meta property="og:updated_time" content="2019-04-10T08:57:31.928Z">
+<meta property="og:updated_time" content="2019-04-10T11:59:54.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记--Multi-Style Generative Reading Comprehension (Masque)">
-<meta name="twitter:description" content="Introduction目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用词方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明B">
+<meta name="twitter:description" content="Introduction目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用此方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明B">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/06/masque/control.png">
 
 
@@ -426,7 +426,7 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用词方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明BERT在生成式阅读理解上并不是那么的强大。</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>目前，本文是目前MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用此方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了，说明BERT在生成式阅读理解上并不是那么的强大。</p>
 <a id="more"></a>
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>本文针对的是MARCO数据集，简单介绍一下该数据集的特点。用一句话来概括就是——开放域、多文档、生成式的大规模阅读理解数据集，问题和答案都来自于真实数据，所有问题的答案都是人类生成的，有一定的答案还需要额外的人工评估，也就是well-formed的答案，这个在我的另一个MARCO分析上有详细的解释。数据集的质量很好，并且是很符合人类查找答案回答问题的过程，因为这个数据集的眼光是看的很远的，在此数据集上训练的模型应该很好地迁移到真实的用户场景中。</p>
 <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>作者发现，之前在MARCO上刷榜的模型大都是抽取式的模型。S-Net除外，但是先抽取再生成的pipeline框架是有点弱了。并且，现有模型不能根据给定的风格生成相应的答案，论文发现，通常Q&amp;A任务的答案比较简短，NLG任务的答案比较详细。本文想从这两个点入手，提出了两个很新奇的点子：</p>
