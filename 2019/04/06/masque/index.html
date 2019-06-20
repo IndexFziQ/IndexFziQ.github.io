@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/analysis.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/case1.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/masque/case2.png">
-<meta property="og:updated_time" content="2019-04-11T01:53:09.601Z">
+<meta property="og:updated_time" content="2019-06-20T04:57:26.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记--Multi-Style Generative Reading Comprehension (Masque)">
 <meta name="twitter:description" content="Introduction目前，本文是MARCO数据集NLG任务的第一名，作者是NTT公司的Nishina等人。文章突破了抽取式阅读理解模型的束缚，采用摘要的方式生成指定风格的答案，这两个突破算是GMRC的一个里程碑。在此篇文章之后，分析选手榜可以发现，沿用此方法的模型也都取得了比较好的效果。还有一点值得一提，本文没有用BERT，只用了Transformer和ELMo，效果就已经很不错了。MARCO">
@@ -378,7 +378,18 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/Generative-MRC/" itemprop="url" rel="index">
+                  <a href="/categories/论文笔记/MS-MARCO/" itemprop="url" rel="index">
+                    <span itemprop="name">MS MARCO</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文笔记/MS-MARCO/Generative-MRC/" itemprop="url" rel="index">
                     <span itemprop="name">Generative MRC</span>
                   </a>
                 </span>
@@ -447,16 +458,16 @@
 <h2 id="question-passages-reader"><a href="#question-passages-reader" class="headerlink" title="question-passages reader"></a>question-passages reader</h2><p>问题和段落的每个token取其Glove和ELMo词表示串联，因为ELMo是自带位置信息的，因此也就没用Position Embedding，过共享的Highway Net再经过线性映射到$d$维。把最后得到的向量用$x$表示。</p>
 <p>之后，每个$x$过一个blocks=3的共享的Transformer Encoder，分别得到问题和段落的表示$E^q \in {\mathbb R}^{d \times J}$，$E^{p_k}\in {\mathbb R}^{d \times L}$，具体的运算不详细说明了，详见参考文献 [2]。$d$是词表示的维度，$J$和$L$分别是答案和段落的序列长度。这一层作用更多在于语义分析【词法、句法】。</p>
 <p>Dual Attention层的运算比较复杂，不过大致是co-attention的运算，详见参考文献 [4]。首先算每个段落与问题的相似度矩阵，然后用相似度矩阵及其转置对问题和段落进行重表示，得到$G^{q \rightarrow p_k} \in {\mathbb R}^{5d \times J}$，$G^{p_k \rightarrow q}\in {\mathbb R}^{5d \times L}$。这部分更多在于计算交互信息，多角度地观察问题更关注段落的哪些部分。</p>
-<p>最后问题和段落分别过blocks=2、blocks=5的Transformer Encoder，进行融合和降维，最终该模块的输出是问题表示$M^q \in {\mathbb R}^{d \times J}​$，$M^{p_k} \in {\mathbb R}^{d \times L}​$。</p>
-<h2 id="passage-ranker"><a href="#passage-ranker" class="headerlink" title="passage ranker"></a>passage ranker</h2><p>该模块是一个二分类器，输入每个段落初始时刻的隐藏层状态，过一个sigmoid函数得到每个段落与问题的相关程度${\beta}^{p_k}​$。算出来之后，一用来对段落做二分类，二用来加强段落的表示，这个在Decoder部分还要用到。</p>
+<p>最后问题和段落分别过blocks=2、blocks=5的Transformer Encoder，进行融合和降维，最终该模块的输出是问题表示$M^q \in {\mathbb R}^{d \times J}$，$M^{p_k} \in {\mathbb R}^{d \times L}$。</p>
+<h2 id="passage-ranker"><a href="#passage-ranker" class="headerlink" title="passage ranker"></a>passage ranker</h2><p>该模块是一个二分类器，输入每个段落初始时刻的隐藏层状态，过一个sigmoid函数得到每个段落与问题的相关程度${\beta}^{p_k}$。算出来之后，一用来对段落做二分类，二用来加强段落的表示，这个在Decoder部分还要用到。</p>
 <h2 id="answer-possibility-classiﬁer"><a href="#answer-possibility-classiﬁer" class="headerlink" title="answer possibility classiﬁer"></a>answer possibility classiﬁer</h2><p>该模块也是一个二分类器，输入每个段落初始时刻隐藏层状态的串联，过一个sigmoid函数得到问题是否可回答的概率$P(a)$。</p>
 <h2 id="answer-sentence-decoder"><a href="#answer-sentence-decoder" class="headerlink" title="answer sentence decoder"></a>answer sentence decoder</h2><p>核心部分，用Transformer代替Seq2Seq，输入词的表示与Encoder端的唯一区别是用的单向ELMo。</p>
-<p>之后先过Masked多头Attention，接着分别对问题和段落的表示做多头Attention，最后过一个GLEU前馈。在得到Transformer Decoder的t-th时刻隐藏层状态$s_t​$后，分别对Encoder得到的表示做加法式的Attention。</p>
+<p>之后先过Masked多头Attention，接着分别对问题和段落的表示做多头Attention，最后过一个GLEU前馈。在得到Transformer Decoder的t-th时刻隐藏层状态$s_t$后，分别对Encoder得到的表示做加法式的Attention。</p>
 <p><img src="/2019/04/06/masque/pgnet.png" alt=""></p>
 <p>之后的运算稍微有点复杂，还是上公式吧：</p>
-<script type="math/tex; mode=display">P^v(y_t)=softmax(W^{2T}(W^1s_t+b^1))​</script><script type="math/tex; mode=display">P^q(y_t)=\sum_{j:x^q_j=y_t} {\alpha^q_{tj}}</script><script type="math/tex; mode=display">P^p(y_t)=\sum_{l:x^{p_k(l)}_l=y_t} {\alpha^q_{tl}}​</script><p>这里段落的权重还要继续算一下，用passage ranker得到的每个段落与问题的相关程度再一次加强Attention，用的就是简单的标量乘和归一化。</p>
+<script type="math/tex; mode=display">P^v(y_t)=softmax(W^{2T}(W^1s_t+b^1))</script><script type="math/tex; mode=display">P^q(y_t)=\sum_{j:x^q_j=y_t} {\alpha^q_{tj}}</script><script type="math/tex; mode=display">P^p(y_t)=\sum_{l:x^{p_k(l)}_l=y_t} {\alpha^q_{tl}}</script><p>这里段落的权重还要继续算一下，用passage ranker得到的每个段落与问题的相关程度再一次加强Attention，用的就是简单的标量乘和归一化。</p>
 <p>最后得到PG-Net的联合概率分布：</p>
-<script type="math/tex; mode=display">P(y_t)=\lambda_v P^v(y_t)+\lambda_qP^q(y_t)+\lambda_pP^p(y_t)​</script><p>其中$\lambda_v,\lambda_q,\lambda_p=softmax(W^m[s_t;c^q_t;c^p_t]+b^m)$。</p>
+<script type="math/tex; mode=display">P(y_t)=\lambda_v P^v(y_t)+\lambda_qP^q(y_t)+\lambda_pP^p(y_t)</script><p>其中$\lambda_v,\lambda_q,\lambda_p=softmax(W^m[s_t;c^q_t;c^p_t]+b^m)$。</p>
 <h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>模型训练的目标函数包括三个部分，decoder端的负对数似然和两个二分类交叉熵。</p>
 <h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><p>文章把数据集做了处理，分成三种：</p>
 <ol>
