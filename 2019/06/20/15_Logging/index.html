@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Lesson 17 Introductionlogging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。 Functionslogging帮助程序员把重要的信息写入文件或者其他形式的输出，这些信息更多的是代码的执行部分和代码的问题。每个logging都有一个等级，一共">
+<meta name="description" content="Lesson 17 Introductionlogging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yuqiang Xie">
+<meta property="og:title" content="Learn python with socratica [My notes] - part 15- Logging">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/15_Logging/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Lesson 17 Introductionlogging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。 Functionslogging帮助程序员把重要的信息写入文件或者其他形式的输出，这些信息更多的是代码的执行部分和代码的问题。每个logging都有一个等级，一共">
+<meta property="og:description" content="Lesson 17 Introductionlogging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2019-06-20T04:43:51.819Z">
+<meta property="og:updated_time" content="2019-06-20T04:48:56.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuqiang Xie">
-<meta name="twitter:description" content="Lesson 17 Introductionlogging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。 Functionslogging帮助程序员把重要的信息写入文件或者其他形式的输出，这些信息更多的是代码的执行部分和代码的问题。每个logging都有一个等级，一共">
+<meta name="twitter:title" content="Learn python with socratica [My notes] - part 15- Logging">
+<meta name="twitter:description" content="Lesson 17 Introductionlogging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Yuqiang Xie</title>
+  <title>Learn python with socratica [My notes] - part 15- Logging | Yuqiang Xie</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 15- Logging</h1>
         
 
         <div class="post-meta">
@@ -333,7 +334,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-20T12:21:34+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-20T12:42:01+08:00">
                 2019-06-20
               </time>
             
@@ -344,6 +345,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learn-python-with-socratica/" itemprop="url" rel="index">
+                    <span itemprop="name">Learn python with socratica</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -351,7 +374,7 @@
 
           
           
-             <span id="/2019/06/20/15_Logging/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2019/06/20/15_Logging/" class="leancloud_visitors" data-flag-title="Learn python with socratica [My notes] - part 15- Logging">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,7 +406,7 @@
 
       
         <p><strong>Lesson 17</strong></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>logging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>logging就是记录的意思，也就是生成日志的一种方式。在程序运行过程中，logging模块可以记录所有的一切【按需记录】。这对于开发者来说很重要，好的程序是错哪儿都知道直接知道发生什么问题。<a id="more"></a></p>
 <h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><p>logging帮助程序员把重要的信息写入文件或者其他形式的输出，这些信息更多的是代码的执行部分和代码的问题。每个logging都有一个等级，一共5个内建的等级，包括：Debug，Info，Warning，Error，critical。开发者也可以自己创建新的等级。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">import</span> logging</span><br><span class="line">  dir(logging)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">  [<span class="string">'BASIC_FORMAT'</span>,</span><br><span class="line">   <span class="string">'BufferingFormatter'</span>,</span><br><span class="line">   <span class="string">'CRITICAL'</span>,</span><br><span class="line">   <span class="string">'DEBUG'</span>,</span><br><span class="line">   <span class="string">'ERROR'</span>,</span><br><span class="line">   <span class="string">'FATAL'</span>,</span><br><span class="line">   <span class="string">'FileHandler'</span>,</span><br><span class="line">   <span class="string">'Filter'</span>,</span><br><span class="line">   <span class="string">'Filterer'</span>,</span><br><span class="line">   <span class="string">'Formatter'</span>,</span><br><span class="line">   <span class="string">'Handler'</span>,</span><br><span class="line">   <span class="string">'INFO'</span>,</span><br><span class="line">   <span class="string">'LogRecord'</span>,</span><br><span class="line">   <span class="string">'Logger'</span>,</span><br><span class="line">   <span class="string">'LoggerAdapter'</span>,</span><br><span class="line">   <span class="string">'Manager'</span>,</span><br><span class="line">   <span class="string">'NOTSET'</span>,</span><br><span class="line">   <span class="string">'NullHandler'</span>,</span><br><span class="line">   <span class="string">'PercentStyle'</span>,</span><br><span class="line">   <span class="string">'PlaceHolder'</span>,</span><br><span class="line">   <span class="string">'RootLogger'</span>,</span><br><span class="line">   <span class="string">'StrFormatStyle'</span>,</span><br><span class="line">   <span class="string">'StreamHandler'</span>,</span><br><span class="line">   <span class="string">'StringTemplateStyle'</span>,</span><br><span class="line">   <span class="string">'Template'</span>,</span><br><span class="line">   <span class="string">'WARN'</span>,</span><br><span class="line">   <span class="string">'WARNING'</span>,</span><br><span class="line">   <span class="string">'_STYLES'</span>,</span><br><span class="line">   <span class="string">'_StderrHandler'</span>,</span><br><span class="line">   <span class="string">'__all__'</span>,</span><br><span class="line">   <span class="string">'__author__'</span>,</span><br><span class="line">   <span class="string">'__builtins__'</span>,</span><br><span class="line">   <span class="string">'__cached__'</span>,</span><br><span class="line">   <span class="string">'__date__'</span>,</span><br><span class="line">   <span class="string">'__doc__'</span>,</span><br><span class="line">   <span class="string">'__file__'</span>,</span><br><span class="line">   <span class="string">'__loader__'</span>,</span><br><span class="line">   <span class="string">'__name__'</span>,</span><br><span class="line">   <span class="string">'__package__'</span>,</span><br><span class="line">   <span class="string">'__path__'</span>,</span><br><span class="line">   <span class="string">'__spec__'</span>,</span><br><span class="line">   <span class="string">'__status__'</span>,</span><br><span class="line">   <span class="string">'__version__'</span>,</span><br><span class="line">   <span class="string">'_acquireLock'</span>,</span><br><span class="line">   <span class="string">'_addHandlerRef'</span>,</span><br><span class="line">   <span class="string">'_checkLevel'</span>,</span><br><span class="line">   <span class="string">'_defaultFormatter'</span>,</span><br><span class="line">   <span class="string">'_defaultLastResort'</span>,</span><br><span class="line">   <span class="string">'_handlerList'</span>,</span><br><span class="line">   <span class="string">'_handlers'</span>,</span><br><span class="line">   <span class="string">'_levelToName'</span>,</span><br><span class="line">   <span class="string">'_lock'</span>,</span><br><span class="line">   <span class="string">'_logRecordFactory'</span>,</span><br><span class="line">   <span class="string">'_loggerClass'</span>,</span><br><span class="line">   <span class="string">'_nameToLevel'</span>,</span><br><span class="line">   <span class="string">'_releaseLock'</span>,</span><br><span class="line">   <span class="string">'_removeHandlerRef'</span>,</span><br><span class="line">   <span class="string">'_showwarning'</span>,</span><br><span class="line">   <span class="string">'_srcfile'</span>,</span><br><span class="line">   <span class="string">'_startTime'</span>,</span><br><span class="line">   <span class="string">'_warnings_showwarning'</span>,</span><br><span class="line">   <span class="string">'addLevelName'</span>,</span><br><span class="line">   <span class="string">'atexit'</span>,</span><br><span class="line">   <span class="string">'basicConfig'</span>,</span><br><span class="line">   <span class="string">'captureWarnings'</span>,</span><br><span class="line">   <span class="string">'collections'</span>,</span><br><span class="line">   <span class="string">'critical'</span>,</span><br><span class="line">   <span class="string">'currentframe'</span>,</span><br><span class="line">   <span class="string">'debug'</span>,</span><br><span class="line">   <span class="string">'disable'</span>,</span><br><span class="line">   <span class="string">'error'</span>,</span><br><span class="line">   <span class="string">'exception'</span>,</span><br><span class="line">   <span class="string">'fatal'</span>,</span><br><span class="line">   <span class="string">'getLevelName'</span>,</span><br><span class="line">   <span class="string">'getLogRecordFactory'</span>,</span><br><span class="line">   <span class="string">'getLogger'</span>,</span><br><span class="line">   <span class="string">'getLoggerClass'</span>,</span><br><span class="line">   <span class="string">'handlers'</span>,</span><br><span class="line">   <span class="string">'info'</span>,</span><br><span class="line">   <span class="string">'io'</span>,</span><br><span class="line">   <span class="string">'lastResort'</span>,</span><br><span class="line">   <span class="string">'log'</span>,</span><br><span class="line">   <span class="string">'logMultiprocessing'</span>,</span><br><span class="line">   <span class="string">'logProcesses'</span>,</span><br><span class="line">   <span class="string">'logThreads'</span>,</span><br><span class="line">   <span class="string">'makeLogRecord'</span>,</span><br><span class="line">   <span class="string">'os'</span>,</span><br><span class="line">   <span class="string">'raiseExceptions'</span>,</span><br><span class="line">   <span class="string">'root'</span>,</span><br><span class="line">   <span class="string">'setLogRecordFactory'</span>,</span><br><span class="line">   <span class="string">'setLoggerClass'</span>,</span><br><span class="line">   <span class="string">'shutdown'</span>,</span><br><span class="line">   <span class="string">'sys'</span>,</span><br><span class="line">   <span class="string">'threading'</span>,</span><br><span class="line">   <span class="string">'time'</span>,</span><br><span class="line">   <span class="string">'traceback'</span>,</span><br><span class="line">   <span class="string">'warn'</span>,</span><br><span class="line">   <span class="string">'warning'</span>,</span><br><span class="line">   <span class="string">'warnings'</span>,</span><br><span class="line">   <span class="string">'weakref'</span>]</span><br></pre></td></tr></table></figure>
 <p>logging的功能还是比较复杂的，这节课主要以基本的日志为主，其他的形式需要萌新们自己实验。</p>
@@ -433,6 +456,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
       
 
       
