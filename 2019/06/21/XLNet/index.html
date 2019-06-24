@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="机器阅读理解,自然语言处理," />
+  <meta name="keywords" content="自然语言处理,Transformer," />
 
 
 
@@ -79,26 +79,27 @@
 
 
 
-<meta name="description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
-<meta name="keywords" content="机器阅读理解,自然语言处理">
+<meta name="description" content="From Google Brain and CMU. Authors: Zhilin Yang∗, Zihang Dai∗, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le Title: XLNet: Generalized Autoregressive Pretraining for Language Understa">
+<meta name="keywords" content="自然语言处理,Transformer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记--Semantic Sentence Matching with DRCN">
-<meta property="og:url" content="http://yoursite.com/2018/10/11/DCRN/index.html">
+<meta property="og:title" content="论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding">
+<meta property="og:url" content="http://yoursite.com/2019/06/21/XLNet/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
+<meta property="og:description" content="From Google Brain and CMU. Authors: Zhilin Yang∗, Zihang Dai∗, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le Title: XLNet: Generalized Autoregressive Pretraining for Language Understa">
 <meta property="og:locale" content="en-us">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/whole.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/overview.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/SNLI.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/MultiNLI.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/Ablation.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/entailment.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/11/DCRN/contraction.png">
-<meta property="og:updated_time" content="2019-03-08T06:03:09.210Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/PLM.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/Two-Self.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/21/XLNet/6.png">
+<meta property="og:updated_time" content="2019-06-24T01:56:31.406Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文笔记--Semantic Sentence Matching with DRCN">
-<meta name="twitter:description" content="Introduction本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分">
-<meta name="twitter:image" content="http://yoursite.com/2018/10/11/DCRN/whole.png">
+<meta name="twitter:title" content="论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding">
+<meta name="twitter:description" content="From Google Brain and CMU. Authors: Zhilin Yang∗, Zihang Dai∗, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le Title: XLNet: Generalized Autoregressive Pretraining for Language Understa">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/21/XLNet/PLM.png">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/11/DCRN/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/21/XLNet/"/>
 
 
 
 
 
-  <title>论文笔记--Semantic Sentence Matching with DRCN | Yuqiang Xie</title>
+  <title>论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding | Yuqiang Xie</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -313,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/DCRN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/21/XLNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -330,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文笔记--Semantic Sentence Matching with DRCN</h1>
+          <h1 class="post-title" itemprop="name headline">论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding</h1>
         
 
         <div class="post-meta">
@@ -342,8 +343,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T16:41:44+08:00">
-                2018-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-21T14:43:13+08:00">
+                2019-06-21
               </time>
             
 
@@ -376,8 +377,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/Extractive-MRC/" itemprop="url" rel="index">
-                    <span itemprop="name">Extractive MRC</span>
+                  <a href="/categories/论文笔记/Pre-trained-LM/" itemprop="url" rel="index">
+                    <span itemprop="name">Pre-trained LM</span>
                   </a>
                 </span>
 
@@ -393,7 +394,7 @@
 
           
           
-             <span id="/2018/10/11/DCRN/" class="leancloud_visitors" data-flag-title="论文笔记--Semantic Sentence Matching with DRCN">
+             <span id="/2019/06/21/XLNet/" class="leancloud_visitors" data-flag-title="论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -424,77 +425,80 @@
       
 
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本文出自韩国 Naver Corporation 和 Seoul National University ，工作定义在句子匹配任务上。Sentence Matching的关键之处在于如何表示句子语义（目前感觉就是上下文信息和类似 POS 的特征信息，不能说是语义），如何理解句子之间的语义关系。查看相关工作可以得到，Attention 算法在刻画两个句子语义关系和对齐句子成分方面有很好的效果，但是也有不足之处。Attention 机制仅使用求和操作，这样来自于上层的特征信息就会被破坏，不能完整保留下来。作者借鉴了图像识别中的DenseNet的密集连接操作，旨在更好地利用原始特征信息。</p>
-<a id="more"></a>
-<p>本文提出Densely-connected co-attentive RNN，密集连接stack RNN，这样从最底层到最顶层一直保留原始信息，在stack RNN的每一个block中，用co-attention的方式得到两个句子之间的交互信息，能量函数用的最简单的算cos距离。因为stack RNN会参数量会迅速增加，影响模型训练，因此用自编码器进行压缩表示。</p>
-<p>模型目前在SNLI的排名第一，集成之后，在测试集上破了90%正确率的大关。过去应该也没有人认为句子匹配任务需要把网络做深，当然现在也是，效果没提升多少，我感觉这只是个尝试，企业就喜欢这种简单粗暴不考虑计算力的模型。</p>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>下面对模型详细介绍：模型整体不复杂，但是我不理解的就是自编码器选择的位置和层数为什么是5，文中也没有指出来，也没有实验。</p>
-<h3 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h3><p><img src="/2018/10/11/DCRN/whole.png" alt="The Whole Model"></p>
-<p>由上图可以看出，整个模型的输入输出，从左到右。</p>
+        <p><strong>From Google Brain and CMU.</strong></p>
+<p><strong>Authors:</strong> Zhilin Yang∗, Zihang Dai∗, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le</p>
+<p><strong>Title:</strong> XLNet: Generalized Autoregressive Pretraining for Language Understanding.</p>
+<p><strong>Preprint at 2019.6.20.</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这篇论文建立在Transformer-XL【作者们ACL2019的工作】的基础之上。看过Transformer-XL的同学应该知道其编码方式其实已经有了挺大的改进，对长文本的编码优于Vanilla Transformer。本文引入了PLM（Permutation Language Model，排列语言模型【Permutation: a way, especially one of several possible variations, in which a set or number of things can be ordered or arranged.】）而抛弃BERT的Mask LM，然后引入Masked Two-Stream Self-Attention解决PLM出现的目标预测问题【见Motivation】，最后用三倍于BERT的语料进行预训练，刷榜SQuAD、GLUE、RACE等。<a id="more"></a></p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>文章从<strong>AR(autoregressive，自回归)和AE(autoencoding，自编码)</strong>的角度出发，解释论文动机。</p>
+<p><strong>AR LM</strong>，即自回归语言模型。具体而言，给定一个序列，当前token/时刻只知道前面的信息，而不知道后面的信息，即使分成正向和反向计算当前token时刻的概率分布，也是同样的原则，ELMo、GPT是属于这个范畴。对于一些自然语言理解任务而言，是给定上下文的，即使ELMo把两个的方向计算的信息concat，但也是独立计算，对上下文的编码是有缺陷的。</p>
+<p><strong>AE LM</strong>，即自编码语言模型。BERT通过预测原始数据里MASK掉的token来预训练语言模型，预测[MASK]使用了上下文信息，弥补了AR LM的缺陷。但是[MASK]只在预训练的时候用到，finetune的时候是不用的，这使得pretrain/train不一致【这点顶一下BERT，我觉得这样更能体现泛化能力】。并且，BERT假定每个[MASK]与其他[MASK]是相互独立的，不能计算序列、长期依赖的联合概率。即使BERT的NSP预训练任务一定程度上给了模型建模句间关系的能力，但是还是对长文本不敏感。</p>
+<p>本文结合AR LM和AE LM，在Transformer-XL的基础上提出generalized autoregressive method，XLNet。</p>
 <ul>
-<li>最左边的浅绿色是对前提和假设的Embedding；</li>
-<li>之后过5层的Stack RNN ，中间部分是如何运算的？有哪些参数？灰色块为什么只有两个？这些问题在下一张图详细介绍；</li>
-<li>在Stack RNN之后是分别对前提和假设进行pooling，映射到同一个维度，得到两者的new representation；</li>
-<li>蓝色块的作用是对前提和假设做并、相加和相减等运算，一定程度上得到它们之间的距离和相似程度；</li>
-<li>黄色块是最终的输出，与蓝色块之间是全连接。</li>
+<li>所有的分解序列作为一个集合，从中采样一个序列，XLNet按照AR LM的计算方式求对数似然期望的极大值。通常，当前token的上文包含left和right的tokens：比如原始序列为1-2-3-4，分解序列中采样一个为2-4-1-3，那么如果当前token为3，XLNet的方式就可以看到所有的信息，当然这也是理想情况。</li>
+<li>引入Transformer-XL的segment recurrence mechanism和relative encoding scheme。</li>
+<li>引入Masked Two-Stream Self-Attention解决PLM出现的目标预测歧义【the ambiguity in target prediction】问题。举个例子，比如分解序列中采样一个为2-4-6-1-3-5的序列，假设要预测[1]的token，按照经典的Transformer来计算next-token的概率分布，位置[1]token的概率就是通过[2,4,6]位置上的tokens来计算softmax，不会把[1]作为输入来计算的。但是如果以这种方式去预测next-token，这对[3,5]的预测就会产生影响，因为如果[1]的预测出现错误会把错误传给后面。对后面每一个token的预测，需要建立在之前token都已知的条件下。因此本文计算了两个self-attention计算方式，一个mask当前词，attention值记为g；一个已知当前词，attention值记为h。最后假设self-attention一共有M层，用第M层、t时刻的g_t，去预测词x_t。</li>
 </ul>
-<p><img src="/2018/10/11/DCRN/overview.png" alt="Overview"></p>
-<h3 id="Details-in-model"><a href="#Details-in-model" class="headerlink" title="Details in model"></a>Details in model</h3><p><strong>Embedding Layer</strong></p>
-<p>词向量的特征包括四项：</p>
-<ol>
-<li>与模型一起训练的Glove词向量:  $e^{tr}_{p_i}=E^{tr}(p_i)$；</li>
-<li>直接拿来用的，保持不变的Glove词向量: $e^{fix}_{p_i}=E^{fix}(p_i)$；</li>
-<li>用CNN得到的字向量: $c_{p_i}=CharConv(p_i)$；</li>
-<li>Match Flag特征：这是一个0/1特征，表示该词是否在另一句话中出现。</li>
-</ol>
-<p>最终的表示是四部分串在一起: <script type="math/tex">p^w_i = [ e^{tr}_{p_i}, e^{fix}_{p_i}, c_{p_i}, f_{p_i} ]</script>。</p>
-<p><strong>Densely connected recurrent Co-attentive networks</strong></p>
-<p>这部分非常重要，也就是图Overview中的虚线部分。</p>
-<p>蓝色的RNN分别得到前提的表示$h_p$和假设的表示$h_q$，然后就是计算Attention：</p>
-<ul>
-<li>能量函数e选用的暴力的cos函数: <script type="math/tex">e_{i,j}=cos(h_{p_i},h_{q_i})</script>；</li>
-<li>然后做soft Max得到注意力权重$\alpha$ : <script type="math/tex">\alpha_{i,j}=\frac{exp(e_{i,j})}{\sum ^J_{k=1}{exp(e_{i,k})}}</script>；</li>
-<li>得到权重化之后的表示<script type="math/tex">a_{p_i}=\sum ^J_{j=1} {\alpha _{i,j}  h_{q_j}}</script>。</li>
-</ul>
-<p>在得到<strong>a</strong>之后，作者并没有像之前的工作一样相加。而是部分借鉴了DenseNet的思想，将本层输入保留，与<strong>h</strong> , <strong>a</strong>做<strong>concat</strong>[这部分并不像图像识别的DenseNet，把每层之间都做了连接，所以并没有保留原始的输出]。</p>
-<p>下面是三种得到Stack RNN隐层状态的方式：</p>
-<ol>
-<li><script type="math/tex">h^l_t=H_l({x^l_t,h^l_{t-1}}), x^l_{t}=h^{l-1}_t</script>—RNN</li>
-<li><script type="math/tex">h^l_t=H_l({x^l_t,h^l_{t-1}}),x^l_t=h^{l-1}_t+x^{l-1}_t</script>—ResNet</li>
-<li><script type="math/tex">h^l_t=H_l({x^l_t,h^l_{t-1}}),x^l_t=[h^{l-1}_t,x^{l-1}_t]</script>—DenseNet</li>
-</ol>
-<p>最终作者的结合方式是这样：$x^l_t=[h^{l-1}_t;a^{l-1}_t;x^{l-1}_t]$，权重化表示<strong>a</strong>直接作为特征串在了中间。</p>
-<p><strong>AutoEncoder</strong></p>
-<p>Stack RNN 这样的结构必然会带来参数急速增长的问题，为了解决这个问题，作者使用了AutoEncoder，但是并没有指出用哪种自编码器和为什么只用2次，实验中也没有指明。但是，自编码器无疑是可以减少参数量，在损失尽量小的情况下压缩参数。</p>
-<p><strong>Pooling Layer</strong></p>
-<p>这部分没啥，Max Pooling得到维度相同的P、Q表示。</p>
-<p><strong>Interaction Layer</strong></p>
-<p>最后对P、Q的表示做拼接、相加、相减、绝对值的运算，表示句子之间的匹配：$v=[p;q;p+q,p-q,|p-q|]$ ，然后全连接和soft Max得到P、Q之间的关系。</p>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="/2018/10/11/DCRN/SNLI.png" alt="Result in SNLI"></p>
-<p>这个模型Ensemble之后的结果目前是SNLI的第一，当然BERT的效果应该是比它好，下图是在MultiNLI和Quora数据集上的结果，也算可以了，比BERT少2-3个点。</p>
-<p><img src="/2018/10/11/DCRN/MultiNLI.png" alt="Result in MultiNLI and Quora"></p>
-<p>最后是在SNLI上的Ablation study，结果发现任务相关的词向量、Attention和dense-connect对模型的影响比较大。</p>
-<p><img src="/2018/10/11/DCRN/Ablation.png" alt="Ablation Study in SNLI"></p>
-<p>文中还最后举了两个例子，一个蕴含一个矛盾，指出DRCN五层后的找到的词比ResNet更准确，图有点长，还是放上吧。</p>
-<p><strong>Visualization of</strong> <strong>attentive weights</strong> <strong>on the</strong> <strong>entailment</strong> <strong>example.</strong></p>
-<p>The premise is “two bicyclists in spandex and helmets in a race pedaling uphill.” </p>
-<p>The hypothesis is “A pair of humans are riding their bicycle with tight clothing, competing with each other.” </p>
-<p><img src="/2018/10/11/DCRN/entailment.png" alt="entailment"></p>
-<p><strong>Visualization of attentive weights on the contradiction example.</strong> </p>
-<p>The premise is “Several men in front of a white building.” </p>
-<p>The hypothesis is “Several people in front of a gray building.”. </p>
-<p><img src="/2018/10/11/DCRN/contraction.png" alt="contraction"></p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>这篇文章主要集中在句子匹配任务上</p>
-<ol>
-<li>借鉴ResNet和DenseNet，运用到stack RNN中;</li>
-<li>将注意力权值作为一个特征并在<strong>h, x</strong>的中间，做法很新颖;</li>
-<li>利用AutoEncoder来压缩向量，减少参数迅速增加的压力。</li>
-</ol>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li>Seonhoon Kim et al. Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information.arXiv: 1805.11360 </li>
-<li>Yichen Gong, Heng Luo, and Jian Zhang. Natural language inference over interaction space. In International Conference on Learning Representations, 2018. </li>
-<li>Gao Huang, Zhuang Liu, Kilian Q Weinberger, and Laurens van der Maaten. Densely connected convolutional networks. In Proceedings of the IEEE conference on computer vision and pattern recognition, volume 1, page 3, 2017. </li>
-</ol>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="Permutation-Language-Modeling"><a href="#Permutation-Language-Modeling" class="headerlink" title="Permutation Language Modeling"></a>Permutation Language Modeling</h3><p>首先代码会根据输入序列的长度采样一个排列，然后用Transformer中attention mask的方式实现排列，如果原始序列长度为T，那么理论上一共有T的阶乘种情况。PLM的目标函数就是所有排列情况（论文里设定：统共T种）的期望最大：</p>
+<script type="math/tex; mode=display">\max _{\theta} \quad \mathbb{E}_{\mathbf{z} \sim \mathcal{Z}_{T}}\left[\sum_{t=1}^{T} \log p_{\theta}\left(x_{z_{t}} | \mathbf{x}_{\mathbf{z}_{<t}}\right)\right]</script><p>这样pretrain和finetune阶段就一样了，输入都是原始序列，通过attention mask实现随机产生的排列。下图是排列语言模型的表现形式：</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/PLM.png" height="70%" width="70%">
+</div>
+
+<p><em>注：假设要预测t=3的词，按照不同的排列顺序，h_3的上文都不一样，用attention-mask的方式得到t=3的上文。</em></p>
+<h3 id="Two-Stream-Self-Attention-for-Target-Aware-Representations"><a href="#Two-Stream-Self-Attention-for-Target-Aware-Representations" class="headerlink" title="Two-Stream Self-Attention for Target-Aware Representations"></a>Two-Stream Self-Attention for Target-Aware Representations</h3><p>上面是构造输入，这里就是自回归地得到每一时刻的概率分布，示意图如下：</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/Two-Self.png" height="70%" width="70%">
+</div>
+
+<p>动机部分已经介绍过为什么要计算两个self-attention。</p>
+<p>(a)代表context stream self-attention，以[1,t]时刻的词作为K、V，t时刻的词作为Q计算当前词的信息，把排列之后的原始序列信息用h记忆起来。</p>
+<p>(b)代表query stream self-attention，mask掉当前词，以[1,t-1]时刻的词作为K、V，t时刻的词作为Q预测当前词，得到概率分布。</p>
+<p>(c)代表通过多层的masked two-stream attention，最后用t时刻的g_t来预测x_t。</p>
+<p>计算公式如下：</p>
+<script type="math/tex; mode=display">g_{z_{t}}^{(m)} \leftarrow \text { Attention }\left(\mathbf{Q}=g_{z_{t}}^{(m-1)}, \mathbf{K V}=\mathbf{h}_{\mathbf{z}_{<t}}^{(m-1)} ; \theta\right)</script><script type="math/tex; mode=display">h_{z_{t}}^{(m)} \leftarrow \text { Attention }\left(\mathrm{Q}=h_{z_{t}}^{(m-1)}, \mathrm{KV}=\mathbf{h}_{\mathrm{z}_{ \leq t}}^{(m-1)} ; \theta\right)</script><p>其中，<script type="math/tex">g_{i}^{(0)}=w</script>，<script type="math/tex">h_{i}^{(0)}=e\left(x_{i}\right)</script>，分别是随即初始化的向量和词向量。</p>
+<p>t时刻的概率分布如下：</p>
+<script type="math/tex; mode=display">p_{\theta}\left(X_{z_{t}}=x | \mathbf{x}_{z_{<t}}\right)=\frac{\exp \left(e(x)^{\top} g_{\theta}\left(\mathbf{x}_{\mathbf{z}_{<t}}, z_{t}\right)\right)}{\sum_{x^{\prime}} \exp \left(e\left(x^{\prime}\right)^{\top} g_{\theta}\left(\mathbf{x}_{\mathbf{z}<t}, z_{t}\right)\right)}</script><p>其中，z_t表示的是位置向量，作用是：当词的位置不同，但是上文一样时，两个词算出来的概率是一样的。例如2-3-1-4-5和2-3-1-5-4，两个排列中，4和5的上文一样，算概率的时候就会一样【如下公式】，很显然这是错误的，不同位置的概率分布在ground-truth里是不一样的。</p>
+<script type="math/tex; mode=display">\underbrace{p_{\theta}\left(X_{i}=x | \mathbf{x}_{\mathbf{z}_{<}}\right)}_{z_{t}^{(1)}=i, \mathbf{z}_{<t}^{(1)}=\mathbf{z}_{<t}}=\underbrace{p_{\theta}\left(X_{j}=x | \mathbf{x}_{\mathbf{z}_{<t}}\right)}_{z_{t}^{(1)}=j, \mathbf{z}_{<t}^{(2)}=\mathbf{z}_{<t}}=\frac{\exp \left(e(x)^{\top} h\left(\mathbf{x}_{\mathbf{z}<t}\right)\right)}{\sum_{x^{\prime}} \exp \left(e\left(x^{\prime}\right)^{\top} h\left(\mathbf{x}_{\mathbf{z}<t}\right)\right)}</script><p>引入位置向量之后，最终在预训练的时候也没有每一个token都预测，作者设置了一个超参数K，设定只预测序列最后1/K=的词[c+1, |z|]：</p>
+<script type="math/tex; mode=display">\max _{\theta} \quad \mathbb{E}_{\mathbf{z} \sim \mathcal{Z}_{T}}\left[\log p_{\theta}\left(\mathbf{x}_{\mathbf{z}_{\mathbf{Z}}>c} | \mathbf{x}_{\mathbf{z}_{ \leq c}}\right)\right]=\mathbb{E}_{\mathbf{z} \sim \mathcal{Z}_{T}}\left[\sum_{t=c+1}^{|\mathbf{z}|} \log p_{\theta}\left(x_{z_{t}} | \mathbf{x}_{\mathbf{z}_{<t}}\right)\right]</script><h3 id="Transformer-XL"><a href="#Transformer-XL" class="headerlink" title="Transformer-XL"></a>Transformer-XL</h3><p>确定好目标函数之后，框架确定为Transformer=XL自回归语言模型。特点是relative positional encoding scheme和segment recurrence mechanism，更好地处理长文本，提升计算效率。具体不介绍了，详见参考文献[2]。</p>
+<h2 id="Pretraining-and-Implementation"><a href="#Pretraining-and-Implementation" class="headerlink" title="Pretraining and Implementation"></a>Pretraining and Implementation</h2><p>XLNet-Large和BERT-Large的参数量是差不多的，24层的Transformer-XL。经过处理，最终得到Wikipedia-2.78B，BooksCorpus-1.09B，Giga5-4.75B，ClueWeb-4.30B和Common Crawl respectively-19.97B，一共32.89B，近3倍于BERT的语料作为模型输入。序列长度512，memory维度384，batch-size为2048，用512块TPU v3跑了500K step用了2.5天。一般我种子才会设置成2048。</p>
+<p>XLNet-Base和BERT-Base用的语料一样。但是貌似没说参数量一样。更详细的参数设置见论文补充材料[1]A.3。</p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>第一个实验是在RACE多选型阅读理解数据集上，单模型比第二名准确率提高了7.6%。</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/1.png" height="50%" width="50%">
+</div>
+
+<p>第二个实验是在SQuAD抽取式阅读理解数据集上，单模型效果相对于BERT，v1的F1值提高3.6，v2的F1值提高7.0。</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/2.png" height="50%" width="50%">
+</div>
+
+<p>第三个实验是在文本分类数据集上，评价指标是错误率。单模型已经达到SOTA。</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/3.png" height="50%" width="50%">
+</div>
+
+<p>第四个实验是在GLUE，包括9个自然语言理解任务，评价指标是准确率。单模型比BERT在每个任务上都有提升，并且在NLI类任务、MRPC、RTE、STS-B提升显著，只有QQP、CoLA上没有ALICE好。</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/4.png" height="50%" width="50%">
+</div>
+
+<p>第五个实验是文档排序任务，根据query重排序出Top-100的文档，效果比BERT好一些。</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/5.png" height="50%" width="50%">
+</div>
+
+<p>第六个实验是去除实验：2.只用Transformer-XL+DAE效果比BERT（Transformer+DAE）好，说明了Transformer-XL的有效性。3和4说明了PLM的有效性，但是K这个超参数是经验值，也没有与K=1的情况相比。5-8应该是在4的基础上，重要性逐渐减小：5说明了Transformer-XL里memory机制的有效性，6说明了片段预测的有效性，7说明正反向输入数据对结果影响不大，8说明了BERT的NSP任务对XLNet并不是很奏效，影响也不大。</p>
+<div align="center">
+       <img src="/2019/06/21/XLNet/6.png" height="50%" width="50%">
+</div>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>首先文章动机很明确，指出了当前AR LM和AE LM的缺点，在Transformer-XL的基础上结合AE捕获上下文的有点。</p>
+<p><strong>1. </strong>提出了PLM预训练，用mask attention的方法实现factorization order的输入，大概率得到上下文信息。</p>
+<p><strong>2. </strong>用two-stream self-attention，弥补自回归语言模型中目标预测歧义的缺陷。</p>
+<p>本文实现factorization order的方式很巧妙，保证了pretrain/finetune的一致性。XLNet刷榜各大自然语言理解数据集，特别是RACE、SQuAD和RTE，但是用的计算资源真是令人叹为观止，门槛4块V100。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1]. Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov and Quoc V. Le. <a href="https://arxiv.org/abs/1906.08237.pdf" target="_blank" rel="noopener">XLNet: Generalized Autoregressive Pretraining for Language Understanding.](</a>) arXiv preprint arXiv:1906.08237, 2019.</p>
+<p>[2]. Zihang Dai, Zhilin Yang, Yiming Yang, William W Cohen, Jaime Carbonell, Quoc V Le, and Ruslan Salakhutdinov. <a href="https://arxiv.org/abs/1901.02860.pdf" target="_blank" rel="noopener">Transformer-xl: Attentive language models beyond a ﬁxed-length context.](</a>) arXiv preprint arXiv:1901.02860, 2019.</p>
 
       
     </div>
@@ -512,9 +516,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/机器阅读理解/" rel="tag"># 机器阅读理解</a>
-          
             <a href="/tags/自然语言处理/" rel="tag"># 自然语言处理</a>
+          
+            <a href="/tags/Transformer/" rel="tag"># Transformer</a>
           
         </div>
       
@@ -539,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/MRC/" rel="next" title="论文笔记--Gated-Attention Readers for Machine Reading Comprehension">
-                <i class="fa fa-chevron-left"></i> 论文笔记--Gated-Attention Readers for Machine Reading Comprehension
+              <a href="/2019/06/20/15_Logging/" rel="next" title="Learn python with socratica [My notes] - part 15- Logging">
+                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 15- Logging
               </a>
             
           </div>
@@ -548,10 +552,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/29/01-hello-world/" rel="prev" title="Learn python with socratica [My notes] - part 1 - HelloWorld">
-                Learn python with socratica [My notes] - part 1 - HelloWorld <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -709,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overview"><span class="nav-number">2.1.</span> <span class="nav-text">overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Details-in-model"><span class="nav-number">2.2.</span> <span class="nav-text">Details in model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">2.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">3.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutation-Language-Modeling"><span class="nav-number">3.1.</span> <span class="nav-text">Permutation Language Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-Stream-Self-Attention-for-Target-Aware-Representations"><span class="nav-number">3.2.</span> <span class="nav-text">Two-Stream Self-Attention for Target-Aware Representations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer-XL"><span class="nav-number">3.3.</span> <span class="nav-text">Transformer-XL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pretraining-and-Implementation"><span class="nav-number">4.</span> <span class="nav-text">Pretraining and Implementation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">5.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
