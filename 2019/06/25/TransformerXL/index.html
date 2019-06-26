@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="自然语言处理,Transformer," />
 
 
 
@@ -79,16 +79,25 @@
 
 
 
-<meta name="description" content="I&apos;m a PhD student in NLP at IIE, CAS.     I blog about NLP and Python.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuqiang Xie">
-<meta property="og:url" content="https://indexfziq.github.io/page/2/index.html">
+<meta name="description" content="From Google Brain and CMU. Authors: Zihang Dai∗, Zhilin Yang∗, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov Title: TransformerXL: Attentive Language Models Beyond a Fixed-Length Cont">
+<meta name="keywords" content="自然语言处理,Transformer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记 — Transformer XL">
+<meta property="og:url" content="https://indexfziq.github.io/2019/06/25/TransformerXL/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="I&apos;m a PhD student in NLP at IIE, CAS.     I blog about NLP and Python.">
+<meta property="og:description" content="From Google Brain and CMU. Authors: Zihang Dai∗, Zhilin Yang∗, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov Title: TransformerXL: Attentive Language Models Beyond a Fixed-Length Cont">
 <meta property="og:locale" content="en-us">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103440344.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103508233.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103804489.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103815950.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103830153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103839633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-06-26T03:15:16.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuqiang Xie">
-<meta name="twitter:description" content="I&apos;m a PhD student in NLP at IIE, CAS.     I blog about NLP and Python.">
+<meta name="twitter:title" content="论文笔记 — Transformer XL">
+<meta name="twitter:description" content="From Google Brain and CMU. Authors: Zihang Dai∗, Zhilin Yang∗, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov Title: TransformerXL: Attentive Language Models Beyond a Fixed-Length Cont">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190626103440344.gif">
 
 
 
@@ -118,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://indexfziq.github.io/page/2/"/>
+  <link rel="canonical" href="https://indexfziq.github.io/2019/06/25/TransformerXL/"/>
 
 
 
 
 
-  <title>Yuqiang Xie</title>
+  <title>论文笔记 — Transformer XL | Yuqiang Xie</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -161,8 +170,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,9 +297,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -304,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2019/01/17/SNET/">
+    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2019/06/25/TransformerXL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -321,9 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/17/SNET/" itemprop="url">论文笔记--From Answer Extraction to Answer Generation for Machine Reading Comprehension (S-Net)</a></h1>
+          <h1 class="post-title" itemprop="name headline">论文笔记 — Transformer XL</h1>
         
 
         <div class="post-meta">
@@ -335,8 +341,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-17T19:10:44+08:00">
-                2019-01-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T14:09:58+08:00">
+                2019-06-25
               </time>
             
 
@@ -369,19 +375,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/MS-MARCO/" itemprop="url" rel="index">
-                    <span itemprop="name">MS MARCO</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/MS-MARCO/Generative-MRC/" itemprop="url" rel="index">
-                    <span itemprop="name">Generative MRC</span>
+                  <a href="/categories/论文笔记/Pre-trained-LM/" itemprop="url" rel="index">
+                    <span itemprop="name">Pre-trained LM</span>
                   </a>
                 </span>
 
@@ -398,6 +393,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -417,16 +417,50 @@
       
 
       
-        
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本文出自微软亚研院，一作是北航的Chuanqi Tan, 代码没有公开，链接为台湾的一位同学用<em>CNTK</em>实现的代码。首次使用了<em>Seq2Seq</em>模型对<em>MS-MARCO</em>阅读理解数据集进行答案生成，比较符合<em>MS-MARCO</em>的本意，同时定义了先抽取再生成的框架，在<em>R-Net</em>的基础上有一定的提升。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/17/SNET/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p><strong>From Google Brain and CMU.</strong></p>
+<p><strong>Authors:</strong> Zihang Dai∗, Zhilin Yang∗, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov</p>
+<p><strong>Title:</strong> TransformerXL: Attentive Language Models Beyond a Fixed-Length Context.</p>
+<p><strong>In: ACL, 2019</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>为了帮助理解XLNet[4]，本文对其核心框架Transformer-XL作一个解读。本文发表在ACL2019上，论文想要解决的问题：如何赋予编码器捕获长距离依赖的能力。目前在自然语言处理领域，Transformer的编码能力超越了RNN，但是对长距离依赖的建模能力仍然不足。在基于LSTM的模型中，为了建模长距离依赖，提出了门控机制和梯度裁剪，目前可以编码的最长距离在200左右。在基于Transformer的模型中，允许词之间直接self-attention，能够更好地捕获长期依赖关系，但是还是有限制。<a id="more"></a></p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Transformer编码固定长度的上下文，即将一个长的文本序列截断为几百个字符的固定长度片段(segment)，然后分别编码每个片段[1]，片段之间没有任何的信息交互。比如BERT，序列长度的极限一般在512。动机总结如下：</p>
+<ul>
+<li>Transformer无法建模超过固定长度的依赖关系，对长文本编码效果差。</li>
+<li>Transformer把要处理的文本分割成等长的片段，通常不考虑句子（语义）边界，导致上下文碎片化(context fragmentation)。通俗来讲，一个完整的句子在分割后，一半在前面的片段，一半在后面的片段。</li>
+</ul>
+<p>文章围绕建模长距离依赖，提出Transformer-XL【XL是extra long的意思】：</p>
+<ul>
+<li>提出片段级递归机制(segment-level recurrence mechanism)，引入一个记忆(memory)模块（类似于cache或cell），循环用来建模片段之间的联系。<ul>
+<li>使得长距离依赖的建模成为可能；</li>
+<li>使得片段之间产生交互，解决上下文碎片化问题。</li>
+</ul>
+</li>
+<li>提出相对位置编码机制(relative position embedding scheme)，代替绝对位置编码。<ul>
+<li>在memory的循环计算过程中，避免时序混淆【见model部分】，位置编码可重用。</li>
+</ul>
+</li>
+</ul>
+<p>小结一下，片段级递归机制为了解决编码长距离依赖和上下文碎片化，相对位置编码机制为了实现片段级递归机制而提出，解决可能出现的时序混淆问题。</p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="Vanilla-Transformer"><a href="#Vanilla-Transformer" class="headerlink" title="Vanilla Transformer"></a>Vanilla Transformer</h3><p>普通的Transformer是如何编码的？[2]给了动图，很形象，每个segment分别编码，相互之间不产生任何交互。<br><img src="https://img-blog.csdnimg.cn/20190626103440344.gif" alt="在这里插入图片描述"></p>
+<h2 id="segment-level-recurrence-mechanism"><a href="#segment-level-recurrence-mechanism" class="headerlink" title="segment-level recurrence mechanism"></a>segment-level recurrence mechanism</h2><p>公式显示不了，请跳转至：<a href="https://zhuanlan.zhihu.com/p/70745925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/70745925</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20190626103508233.gif" alt="在这里插入图片描述"></p>
+<h3 id="relative-position-embedding-scheme"><a href="#relative-position-embedding-scheme" class="headerlink" title="relative position embedding scheme"></a>relative position embedding scheme</h3><p>公式显示不了，请跳转至：<a href="https://zhuanlan.zhihu.com/p/70745925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/70745925</a></p>
+<h3 id="faster-evaluation"><a href="#faster-evaluation" class="headerlink" title="faster evaluation"></a>faster evaluation</h3><p>在评估时， Transformer-XL比Vanilla Transformer具有更长的有效上下文，并且Transformer-XL能够在不需要重新计算的情况下处理新段中的所有元素，显著提高了速度。下图是评估阶段的对比图：</p>
+<p><strong>Vanilla Transformer</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20190626103804489.gif" alt="在这里插入图片描述"></p>
+<p><strong>Transformer-XL</strong><br><img src="https://img-blog.csdnimg.cn/20190626103815950.gif" alt="在这里插入图片描述"></p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>实验部分是对基于Transformer-XL的语言模型进行评估，分为字符级和词级。评价指标分别是bpc(每字符位数)和PPL(困惑度)，越小越好。enwiki8和text8用的是bpc。Transformer-XL在多个语言模型基准测试中实现了最先进的结果。 Transformer-XL也是第一个在char级语言模型基准enwiki8上突破1.0。 </p>
+<p><img src="https://img-blog.csdnimg.cn/20190626103830153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>去除实验：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190626103839633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>重点是本文设计的相对位置编码优于其他工作，memory的设计也有很大的提升。</p>
+<p>补充材料中Transformer-XL生成的文本也比较有意思，感兴趣可以去跳转page 17 in [1]。</p>
+<p>最后，Transformer-XL在评估阶段的速度也明显快于 vanilla Transformer，特别是对于较长的上下文。例如，对于 800 个字符的上下文长度，Transformer-XL 比 vanilla Transformer 快 363 倍；而对于 3800 字符的上下文，Transformer-XL 快了 1874 倍。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Transformer-XL从提高语言模型的长距离依赖建模能力出发，提出了片段级递归机制，设计了更好的相对位置编码机制，对长文本的编码更有效。不仅如此，在评估阶段速度更快，很巧妙。在此基础上，XLNet[4]从无监督预训练方法出发，对比自回归语言模型和自编码语言模型的优缺点，设计出了排队语言模型，在自然语言处理下游任务中大放异彩。预训练语言模型属于自监督学习的范畴，这两篇论文从语言模型的根本问题出发（建模长距离依赖/更好地编码上下文），提出一个主要方法（片段级递归机制/排列语言模型），在实现过程中发现需要重新设计子模块（相对位置编码/双流注意力机制），最后完成significant work，使得设计的任务很有说服力，理论性强。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1]. Zihang Dai, Zhilin Yang, Yiming Yang, William W Cohen, Jaime Carbonell, Quoc V Le, and Ruslan Salakhutdinov. Transformer-xl: Attentive language models beyond a ﬁxed-length context. arXiv preprint arXiv:1901.02860, 2019.</p>
+<p>[2]. 机器之心报道. <a href="https://zhuanlan.zhihu.com/p/56027916" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/56027916</a>.</p>
+<p>[3]. 官方代码. <a href="https://github.com/kimiyoung/transformer-xl" target="_blank" rel="noopener">https://github.com/kimiyoung/transformer-xl</a>.</p>
+<p>[4]. Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov and Quoc V. Le. XLNet: Generalized Autoregressive Pretraining for Language Understanding. arXiv preprint arXiv:1906.08237, 2019.</p>
+
       
     </div>
     
@@ -438,480 +472,71 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    IndexFziQ
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://indexfziq.github.io/2019/06/25/TransformerXL/" title="论文笔记 — Transformer XL">https://indexfziq.github.io/2019/06/25/TransformerXL/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2019/01/03/14_Python_Tuples/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IndexFziQ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuqiang Xie">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/03/14_Python_Tuples/" itemprop="url">Learn python with socratica [My notes] - part 14- Python Tuples</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T16:42:01+08:00">
-                2019-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learn-python-with-socratica/" itemprop="url" rel="index">
-                    <span itemprop="name">Learn python with socratica</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/自然语言处理/" rel="tag"># 自然语言处理</a>
           
-
+            <a href="/tags/Transformer/" rel="tag"># Transformer</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
+      
+        <div class="post-widgets">
         
-          <p><strong>Lesson 16</strong></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>不是所有的数据都能以pile的形式存储，一般情况下，把数据存储成序列更有用。Python提供了几种处理序列的方式，list就是其中一个常见方法，但是tuple是一种更小更快存储方法。那么，list和tuple有那些不同呢？开始做实验吧。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/03/14_Python_Tuples/#more" rel="contents">
-              Read more &raquo;
-            </a>
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2018/12/28/ms-marco/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IndexFziQ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuqiang Xie">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/28/ms-marco/" itemprop="url">Analysis on MS MARCO leaderboard</a></h1>
         
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T19:30:40+08:00">
-                2018-12-28
-              </time>
-            
+        
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">论文笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/MS-MARCO/" itemprop="url" rel="index">
-                    <span itemprop="name">MS MARCO</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/论文笔记/MS-MARCO/Survey/" itemprop="url" rel="index">
-                    <span itemprop="name">Survey</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+        
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
       
 
       
-        
-          <p>My github project: <a href="https://github.com/IndexFziQ/MSMARCO-MRC-Analysis" target="_blank" rel="noopener">https://github.com/IndexFziQ/MSMARCO-MRC-Analysis</a>. Welcome to star my work!</p>
-<p>Keep updating …<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/28/ms-marco/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/21/XLNet/" rel="next" title="论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding">
+                <i class="fa fa-chevron-left"></i> 论文笔记 — XLNet Generalized Autoregressive Pretraining for Language Understanding
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2018/12/11/13_Dictionary_in_Python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IndexFziQ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuqiang Xie">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/11/13_Dictionary_in_Python/" itemprop="url">Learn python with socratica [My notes] - part 13- Dictionary in Python</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T16:42:01+08:00">
-                2018-12-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learn-python-with-socratica/" itemprop="url" rel="index">
-                    <span itemprop="name">Learn python with socratica</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><strong>Lesson 15</strong></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在计算机科学中，有一种数据结构叫关联数组（associative array），也就做映射（map）。在python中，这个数据结构被定义为字典（dictionary）。当你的数据需要以key-value（key:input -map-&gt; value:output）的格式处理时，就需要字典。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/11/13_Dictionary_in_Python/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -921,161 +546,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2018/11/26/12_Lists_in_Python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IndexFziQ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuqiang Xie">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/26/12_Lists_in_Python/" itemprop="url">Learn python with socratica [My notes] - part 12- Lists in Python</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-26T10:42:01+08:00">
-                2018-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learn-python-with-socratica/" itemprop="url" rel="index">
-                    <span itemprop="name">Learn python with socratica</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>Lesson 14</strong></p>
-<p>List[序列]是Python中最基本的数据结构。序列中的每个元素都分配一个数字，即它的位置，或着称为索引，第一个索引是0，第二个索引是1，依此类推。本节讲述如何创建一个List，并且规范化这个过程。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/26/12_Lists_in_Python/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1083,6 +558,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1103,8 +582,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1190,6 +678,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">2.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">3.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vanilla-Transformer"><span class="nav-number">3.1.</span> <span class="nav-text">Vanilla Transformer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#segment-level-recurrence-mechanism"><span class="nav-number">4.</span> <span class="nav-text">segment-level recurrence mechanism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#relative-position-embedding-scheme"><span class="nav-number">4.1.</span> <span class="nav-text">relative position embedding scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#faster-evaluation"><span class="nav-number">4.2.</span> <span class="nav-text">faster evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">5.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1347,6 +851,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1734,6 +1242,23 @@
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
   
