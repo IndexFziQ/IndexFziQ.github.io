@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190704121229573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190704120559634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190704120607509.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-07-04T04:36:58.204Z">
+<meta property="og:updated_time" content="2019-07-04T09:08:52.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记——COMET Commonsense Transformers for Automatic Knowledge Graph Construction">
 <meta name="twitter:description" content="From Allen Institute for Artiﬁcial Intelligence and Microsoft Research. Authors: Antoine Bosselut, Hannah Rashkin, Maarten Sap, Chaitanya Malaviya, Asli Celikyilmaz, Yejin Choi Title: COMET: Commonsen">
@@ -446,7 +446,7 @@
 <p><img src="https://img-blog.csdnimg.cn/20190704120518388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>实验二选了9个关系做了人工评测，指标是尾实体生成合理的比例。<br><img src="https://img-blog.csdnimg.cn/20190704120527790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>以上两个实验也验证了预训练同样在这个任务上有效。</p>
-<p>论文还给出了一些编码阶段的策略，最后验证beam search在xAttr、xEffect关系上效果较好，其他的关系greedy decoding效果好一些：<br><img src="https://img-blog.csdnimg.cn/2019070412053981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>论文还给出了一些解码阶段的策略，最后验证beam search在xAttr、xEffect关系上效果较好，其他的关系greedy decoding效果好一些：<br><img src="https://img-blog.csdnimg.cn/2019070412053981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>人工评测举例：</p>
 <p><img src="https://img-blog.csdnimg.cn/20190704121229573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="ConceptNet"><a href="#ConceptNet" class="headerlink" title="ConceptNet"></a>ConceptNet</h2><p>在ConceptNet上人工测评很高，PPL也很低：</p>
