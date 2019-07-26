@@ -87,17 +87,17 @@
 <meta property="og:site_name" content="Yuqiang Xie">
 <meta property="og:description" content="From Google Brain and CMU. Authors: Zihang Dai∗, Zhilin Yang∗, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov Title: TransformerXL: Attentive Language Models Beyond a Fixed-Length Cont">
 <meta property="og:locale" content="en-us">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103440344.gif">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103508233.gif">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103804489.gif">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103815950.gif">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103830153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190626103839633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-06-26T03:15:16.426Z">
+<meta property="og:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/vt.gif">
+<meta property="og:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/txl.gif">
+<meta property="og:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/evalvt.gif">
+<meta property="og:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/evaltxl.gif">
+<meta property="og:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/experiment.png">
+<meta property="og:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/ablation.png">
+<meta property="og:updated_time" content="2019-07-26T00:59:44.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记 — Transformer XL">
 <meta name="twitter:description" content="From Google Brain and CMU. Authors: Zihang Dai∗, Zhilin Yang∗, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov Title: TransformerXL: Attentive Language Models Beyond a Fixed-Length Cont">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190626103440344.gif">
+<meta name="twitter:image" content="https://indexfziq.github.io/2019/06/25/TransformerXL/vt.gif">
 
 
 
@@ -440,18 +440,18 @@
 </li>
 </ul>
 <p>小结一下，片段级递归机制为了解决编码长距离依赖和上下文碎片化，相对位置编码机制为了实现片段级递归机制而提出，解决可能出现的时序混淆问题。</p>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="Vanilla-Transformer"><a href="#Vanilla-Transformer" class="headerlink" title="Vanilla Transformer"></a>Vanilla Transformer</h3><p>普通的Transformer是如何编码的？[2]给了动图，很形象，每个segment分别编码，相互之间不产生任何交互。<br><img src="https://img-blog.csdnimg.cn/20190626103440344.gif" alt="在这里插入图片描述"></p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="Vanilla-Transformer"><a href="#Vanilla-Transformer" class="headerlink" title="Vanilla Transformer"></a>Vanilla Transformer</h3><p>普通的Transformer是如何编码的？[2]给了动图，很形象，每个segment分别编码，相互之间不产生任何交互。<br><img src="/2019/06/25/TransformerXL/vt.gif" alt=""></p>
 <h2 id="segment-level-recurrence-mechanism"><a href="#segment-level-recurrence-mechanism" class="headerlink" title="segment-level recurrence mechanism"></a>segment-level recurrence mechanism</h2><p>公式显示不了，请跳转至：<a href="https://zhuanlan.zhihu.com/p/70745925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/70745925</a></p>
-<p><img src="https://img-blog.csdnimg.cn/20190626103508233.gif" alt="在这里插入图片描述"></p>
+<p><img src="/2019/06/25/TransformerXL/txl.gif" alt=""></p>
 <h3 id="relative-position-embedding-scheme"><a href="#relative-position-embedding-scheme" class="headerlink" title="relative position embedding scheme"></a>relative position embedding scheme</h3><p>公式显示不了，请跳转至：<a href="https://zhuanlan.zhihu.com/p/70745925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/70745925</a></p>
 <h3 id="faster-evaluation"><a href="#faster-evaluation" class="headerlink" title="faster evaluation"></a>faster evaluation</h3><p>在评估时， Transformer-XL比Vanilla Transformer具有更长的有效上下文，并且Transformer-XL能够在不需要重新计算的情况下处理新段中的所有元素，显著提高了速度。下图是评估阶段的对比图：</p>
 <p><strong>Vanilla Transformer</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/20190626103804489.gif" alt="在这里插入图片描述"></p>
-<p><strong>Transformer-XL</strong><br><img src="https://img-blog.csdnimg.cn/20190626103815950.gif" alt="在这里插入图片描述"></p>
+<p><img src="/2019/06/25/TransformerXL/evalvt.gif" alt=""></p>
+<p><strong>Transformer-XL</strong><br><img src="/2019/06/25/TransformerXL/evaltxl.gif" alt=""></p>
 <h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>实验部分是对基于Transformer-XL的语言模型进行评估，分为字符级和词级。评价指标分别是bpc(每字符位数)和PPL(困惑度)，越小越好。enwiki8和text8用的是bpc。Transformer-XL在多个语言模型基准测试中实现了最先进的结果。 Transformer-XL也是第一个在char级语言模型基准enwiki8上突破1.0。 </p>
-<p><img src="https://img-blog.csdnimg.cn/20190626103830153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2019/06/25/TransformerXL/experiment.png" alt=""></p>
 <p>去除实验：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190626103839633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2019/06/25/TransformerXL/ablation.png" alt=""></p>
 <p>重点是本文设计的相对位置编码优于其他工作，memory的设计也有很大的提升。</p>
 <p>补充材料中Transformer-XL生成的文本也比较有意思，感兴趣可以去跳转page 17 in [1]。</p>
 <p>最后，Transformer-XL在评估阶段的速度也明显快于 vanilla Transformer，特别是对于较长的上下文。例如，对于 800 个字符的上下文长度，Transformer-XL 比 vanilla Transformer 快 363 倍；而对于 3800 字符的上下文，Transformer-XL 快了 1874 倍。</p>
