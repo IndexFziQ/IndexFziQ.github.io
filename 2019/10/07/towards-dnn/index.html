@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="自然语言处理,可解释性,NLP,BERT," />
 
 
 
@@ -79,18 +79,28 @@
 
 
 
-<meta name="description" content="Lesson 4 python2的数据类型与python3有一些不同，本节课使用python2做一做实验：">
-<meta name="keywords" content="python">
+<meta name="description" content="From SJTU, MSRA and PKU.Authors: Chaoyu Guan, Xiting Wang, Quanshi Zhang, Runjin Chen, Di He, Xing Xie.Title: Towards a Deep and Unified Understanding of Deep Neural Models in NLPIn: ICML 2019.Codes:">
+<meta name="keywords" content="自然语言处理,可解释性,NLP,BERT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn python with socratica [My notes] - part 3 - Numbers_py_2">
-<meta property="og:url" content="https://indexfziq.github.io/2018/10/29/03-numbers-py2/index.html">
+<meta property="og:title" content="论文笔记——对NLP深度神经模型的统一深入理解【神经网络可解释性】">
+<meta property="og:url" content="https://indexfziq.github.io/2019/10/07/towards-dnn/index.html">
 <meta property="og:site_name" content="Yuqiang Xie">
-<meta property="og:description" content="Lesson 4 python2的数据类型与python3有一些不同，本节课使用python2做一做实验：">
+<meta property="og:description" content="From SJTU, MSRA and PKU.Authors: Chaoyu Guan, Xiting Wang, Quanshi Zhang, Runjin Chen, Di He, Xing Xie.Title: Towards a Deep and Unified Understanding of Deep Neural Models in NLPIn: ICML 2019.Codes:">
 <meta property="og:locale" content="en-us">
-<meta property="og:updated_time" content="2018-10-29T16:03:31.457Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164305885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019100716433013.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164341194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164350634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164409129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164418792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164428518.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164444249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164449340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-10-07T08:52:05.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn python with socratica [My notes] - part 3 - Numbers_py_2">
-<meta name="twitter:description" content="Lesson 4 python2的数据类型与python3有一些不同，本节课使用python2做一做实验：">
+<meta name="twitter:title" content="论文笔记——对NLP深度神经模型的统一深入理解【神经网络可解释性】">
+<meta name="twitter:description" content="From SJTU, MSRA and PKU.Authors: Chaoyu Guan, Xiting Wang, Quanshi Zhang, Runjin Chen, Di He, Xing Xie.Title: Towards a Deep and Unified Understanding of Deep Neural Models in NLPIn: ICML 2019.Codes:">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191007164305885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
 
 
 
@@ -120,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://indexfziq.github.io/2018/10/29/03-numbers-py2/"/>
+  <link rel="canonical" href="https://indexfziq.github.io/2019/10/07/towards-dnn/"/>
 
 
 
 
 
-  <title>Learn python with socratica [My notes] - part 3 - Numbers_py_2 | Yuqiang Xie</title>
+  <title>论文笔记——对NLP深度神经模型的统一深入理解【神经网络可解释性】 | Yuqiang Xie</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -305,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2018/10/29/03-numbers-py2/">
+    <link itemprop="mainEntityOfPage" href="https://indexfziq.github.io/2019/10/07/towards-dnn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IndexFziQ">
@@ -322,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learn python with socratica [My notes] - part 3 - Numbers_py_2</h1>
+          <h1 class="post-title" itemprop="name headline">论文笔记——对NLP深度神经模型的统一深入理解【神经网络可解释性】</h1>
         
 
         <div class="post-meta">
@@ -334,8 +344,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T23:57:36+08:00">
-                2018-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-07T16:48:17+08:00">
+                2019-10-07
               </time>
             
 
@@ -357,8 +367,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learn-python-with-socratica/" itemprop="url" rel="index">
-                    <span itemprop="name">Learn python with socratica</span>
+                  <a href="/categories/论文笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文笔记/可解释性/" itemprop="url" rel="index">
+                    <span itemprop="name">可解释性</span>
                   </a>
                 </span>
 
@@ -399,69 +420,55 @@
       
 
       
-        <p><strong>Lesson 4</strong></p>
-<p>python2的数据类型与python3有一些不同，本节课使用python2做一做实验：</p>
+        <blockquote>
+<p><strong>From SJTU, MSRA and PKU.</strong><br><strong>Authors:</strong> Chaoyu Guan, Xiting Wang, Quanshi Zhang, Runjin Chen, Di He, Xing Xie.<br><strong>Title:</strong> Towards a Deep and Unified Understanding of Deep Neural Models in NLP<br><strong>In: ICML 2019.</strong><br><strong>Codes:</strong> <a href="http://icml2019paper2428/Towards-A-Deep-and-Unified-Understanding-of-Deep-Neural-Models-in-NLP" target="_blank" rel="noopener">icml2019paper2428/Towards-A-Deep-and-Unified-Understanding-of-Deep-Neural-Models-in-NLP</a></p>
+</blockquote>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>前段时间看过张拳石老师介绍这篇论文的文章，很感兴趣，自己原来也有这方面的其他想法，但是并没有实践过，这篇论文收获颇丰。</p>
 <a id="more"></a>
-<h2 id="Whole-numbers-int-long"><a href="#Whole-numbers-int-long" class="headerlink" title="Whole numbers: int, long"></a>Whole numbers: int, long</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Types of numbers in python2: int, long, float, complex</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># python 2.7</span></span><br><span class="line"><span class="comment"># Whole numbers: int, long</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">28</span> <span class="comment"># This is a perfect number</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># use type function to get a's type</span></span><br><span class="line">type(a)</span><br><span class="line"></span><br><span class="line">int</span><br></pre></td></tr></table></figure>
-<p>‘a’ 是一个整型数据，不是长整型。如果输入a，python会怎么输出呢？</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line"></span><br><span class="line"><span class="number">28</span></span><br></pre></td></tr></table></figure>
-<p>python直接输出a的值。当然，python也可以使用print function把a的值打印出来：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"><span class="number">28</span></span><br></pre></td></tr></table></figure>
-<p>如果你想知道数据类型的边界，可以调用sys包：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.maxint</span><br><span class="line"></span><br><span class="line"><span class="number">9223372036854775807</span></span><br></pre></td></tr></table></figure>
-<p>下面，我们做一个有趣的实验。如果我们输入这个MaxInt边界会是什么数据类型，如果越界会是什么类型：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="number">9223372036854775807</span></span><br><span class="line">print(<span class="string">'type of b:'</span>)</span><br><span class="line">type(b)</span><br><span class="line"></span><br><span class="line">type of b:</span><br><span class="line"></span><br><span class="line">int</span><br><span class="line"></span><br><span class="line">c = <span class="number">9223372036854775808</span></span><br><span class="line">print(<span class="string">'type of c:'</span>)</span><br><span class="line">type(c)</span><br><span class="line"></span><br><span class="line">type of c:</span><br><span class="line"></span><br><span class="line">long</span><br></pre></td></tr></table></figure>
-<p>如果输入‘c’，python会如何输出c的值呢？试一下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c</span><br><span class="line"></span><br><span class="line"><span class="number">9223372036854775808L</span></span><br></pre></td></tr></table></figure>
-<p>可以发现python在c值的后面加上了L，表示c是一个是长整型。这帮助python去区分整型和长整型的Numbers，但是print function不会对其进行区分，该函数都是将输入处理成字符串输出。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(c)</span><br><span class="line"></span><br><span class="line"><span class="number">9223372036854775808</span></span><br></pre></td></tr></table></figure>
-<p>下面我们来看看int的下界：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">d = - sys.maxint <span class="number">-1</span></span><br><span class="line">type(d)</span><br><span class="line"></span><br><span class="line">int</span><br><span class="line"></span><br><span class="line">d</span><br><span class="line"></span><br><span class="line"><span class="number">-9223372036854775808</span></span><br></pre></td></tr></table></figure>
-<p>当然如果学过C++或者java，这部分应该是了解的。</p>
-<pre><code>e = -9223372036854775809
-type(e)
-
-long
-</code></pre><p>如果想要直接创建一个Long型的数据，直接赋值的时候在后面加上L，python就可以识别出来：</p>
-<pre><code>f = 1L
-type(f)
-
-long
-</code></pre><p>Next: Floats</p>
-<p>下面接着介绍python的下一个数据类型 Floats，也就是我们常说的浮点型。</p>
-<p>得到浮点数的最简单方式就是直接输入：</p>
-<pre><code>e = 2.718281828
-# get the type
-type(e)
-
-float
-</code></pre><p>Another: Complex Numbers</p>
-<p>python复数形式的表达，复数有两个部分，python的表达与数学上有些许的不同：</p>
-<pre><code># python way to create a complex number
-z = 3 + 5.7j
-# you can check the number z using type function
-type(z)
-
-complex
-
-
-# the display is complex, and then
-# you can get z&#39;s real part and imag part
-print(&quot;z&#39;s real part:&quot;)
-z.real
-
-z&#39;s real part:
-
-3.0
-
-print(&quot;z&#39;s imag part:&quot;)
-z.imag
-
-z&#39;s imag part:
-
-5.7
-</code></pre><p>以上就是python2所有数据类型的讲解，下节课我们来看看python3在这个方面有那些不同。</p>
-<p>Youtube source:<br><a href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-</a></p>
+<p>不管是深度学习的哪个方向，深度神经网络（DNN）的可解释性一直是一个困扰我们的问题。基于DNN的NLP模型效果为什么好？貌似没有一个好的解释方法。之前有几个尝试性的工作：</p>
+<ul>
+<li>gradient-based：基于梯度的方法 </li>
+<li>inversion-based：基于反演的方法 </li>
+<li>layer-wise relevance propagation：相关性逐层传播</li>
+</ul>
+<p>这些方法一定程度上定量分析了模型的中间层，虽然可以进一步理解神经网络的内部机制，但是存在not coherency（“普适性”）和not generality（“一贯性”）问题：</p>
+<ul>
+<li>普适性：解释性指标的计算算法尽可能独立于神经网络结构和目标任务的选择。比如，对单个神经元的分析适用，也要对神经元组成的网络层适用，还要对整个模型适用。</li>
+<li>一贯性：解释性指标需要客观地反应特征的表达能力，并实现对不同模型结构和任务的广泛比较，也就是解释性指标的“泛化能力”。</li>
+</ul>
+<p>文章试图找到一个可以定量分析（解释/可视化）NLP神经网络模型的方法，利用互信息[3]这一具有“普适性”特点的信息度量，定义了一种统一的information-based measure，量化NLP深度神经模型中的中间层对每个词编码的信息，研究每个单词的信息遗忘程度。</p>
+<h1 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h1><p>文章想从两个角度解释中间层的隐层状态：word information quantification【词信息定量分析】和fine-grained analysis of word attributes【细粒度词属性分析】。</p>
+<h2 id="Word-Information-Quantification"><a href="#Word-Information-Quantification" class="headerlink" title="Word Information Quantification"></a>Word Information Quantification</h2><p>定量计算隐层状态编码输入词的信息量：</p>
+<p><strong>corpus-level:</strong> </p>
+<script type="math/tex; mode=display">MI(\mathbf{X} ; \mathbf{S})=H(\mathbf{X})-H(\mathbf{X} | \mathbf{S})</script><p>MI是互信息，H是熵。对于同一个输入，H(X)是恒量，模型中每一层每一个神经元对输入X对编码程度不一样，用H(X|S)表示隐层S丢弃X的信息量，MI就是S编码X的信息量。</p>
+<p>其中： <script type="math/tex">H(\mathbf{X} | \mathbf{S})=\int_{\mathbf{s} \in \mathbf{S}} p(\mathbf{s}) H(\mathbf{X} | \mathbf{s}) d \mathbf{s}</script> </p>
+<p><strong>sentence-level:</strong> </p>
+<script type="math/tex; mode=display">H(\mathbf{X} | \mathbf{s})=-\int_{\mathbf{x}^{\prime} \in \mathbf{X}} p\left(\mathbf{x}^{\prime} | \mathbf{s}\right) \log p\left(\mathbf{x}^{\prime} | \mathbf{s}\right) d \mathbf{x}^{\prime}</script><p>其中：<script type="math/tex">\mathbf{s}=\Phi(\mathbf{x})</script> 表示x对应的隐层状态。用H(X|s)表示中间层中对应的隐层状态集s丢弃X的信息量。</p>
+<p><strong>word-level:</strong></p>
+<script type="math/tex; mode=display">H(\mathbf{X} | \mathbf{s})=\sum_{i} H\left(\mathbf{X}_{i} | \mathbf{s}\right)
+H\left(\mathbf{X}_{i} | \mathbf{s}\right)=-\int_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{i}} p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right) \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right) d \mathbf{x}_{i}^{\prime}</script><p>其中$X_i$表示第i个词的向量。</p>
+<p>在计算word-level信息量时，概率 $p\left(\mathbf{x}<em>{i}^{\prime} | \mathbf{s}\right)$ 很难算，这部分详见论文[2]3.2.2节和补充材料。为了便于计算，文章引入了perturbation-based approximation【扰动近似】。核心思想就是给每个词加一个高斯扰动项 $\tilde{\mathbf{x}}</em>{i}=\mathbf{x}<em>{i}+\boldsymbol{\epsilon}</em>{i}$，经过近似之后，目标函数变换成求极值问题：</p>
+<script type="math/tex; mode=display">L(\boldsymbol{\sigma})=\sum_{i=1}^{n}\left(-\log \sigma_{i}\right)+\frac{1}{K \lambda} \mathbb{E}_{\tilde{\mathbf{x}}_{i} \cdot \boldsymbol{\epsilon}_{i} \sim \mathcal{N}\left(\mathbf{0}, \sigma_{i}^{2} \mathbf{I}\right)} \frac{\|\Phi(\tilde{\mathbf{x}})-\mathbf{s}\|^{2}}{\sigma_{\mathbf{S}}^{2}}</script><p>这里把补充材料的例子搬过来，更容易理解，扰动项就是解释指标的关键。<br><img src="https://img-blog.csdnimg.cn/20191007164305885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>目标函数</strong>分为两部分：</p>
+<p>左边部分是给每一个词向量加扰动， $\sigma$ 越大，说明这个词需要丢弃的信息越多【也就是这个词越不重要】；</p>
+<p>右边部分是经过DNN编码之后，加扰动之后输入，经过DNN编码得到的 $\Phi(\tilde{\mathbf{x}})$ 要与原始输入的 s 差距越小越好。</p>
+<p>按照这个最优化目标，学习得到的扰动项可以很好地表示词的重要程度。</p>
+<h2 id="Fine-Grained-Analysis-of-Word-Attributes"><a href="#Fine-Grained-Analysis-of-Word-Attributes" class="headerlink" title="Fine-Grained Analysis of Word Attributes"></a>Fine-Grained Analysis of Word Attributes</h2><p>这部分分析了神经网络中间层的每个输入词内部的细粒度属性信息，属性来自DBpedia和Microsoft Concept Graph，概念 c （例如，情感形容词）由属于该概念的一组词组成（例如，happy，sorrowful，sad，…）。对于每一个词 x<em>i ，通过计算 s 编码当前词相对于随机词的相对置信度，将共同概念 c 中的信息从目标词的所有信息中解放出来。Figure_8对这方面做了实验。<br>近似计算 s 编码当前词 x_i （当前词是概念，在 c 中）相对于随机词 ${x}</em>{i}^{\prime}$ 的相对置信度 A_i 和 A_c ：</p>
+<script type="math/tex; mode=display">A_{i}=\log p\left(\mathbf{x}_{i} | \mathbf{s}\right)-\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{i}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script><script type="math/tex; mode=display">A_{\mathrm{c}}=\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{\mathrm{c}}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)-\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{i}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script><p>然后在将两项做差，表示当前词x_i 去掉共有属性 c 之后的剩余信息：</p>
+<script type="math/tex; mode=display">r_{i, c}=A_{i}-A_{\mathbf{c}}=\log p\left(\mathbf{x}_{i} | \mathbf{s}\right)-\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{\mathrm{c}}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script><h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><p>第一部分实验分别跨时间戳、图层和模型，评价基于信息的解释方法。对比基准有：</p>
+<ul>
+<li>LRP，给任意两个神经元的相关度打分，这里用的是隐层状态与输入词向量的绝对值。</li>
+<li>Perturbation，是CV里的一种方法，这里直接把输入句子当作图像来处理。</li>
+<li>Gradient，使用一阶导数的绝对值来表示每个输入词的重要性，这里将词向量每一维的一阶导数的绝对值求平均，得到词的重要性度量。</li>
+</ul>
+<h3 id="Across-Timestamp-Analysis"><a href="#Across-Timestamp-Analysis" class="headerlink" title="Across Timestamp Analysis"></a>Across Timestamp Analysis</h3><p>实验可视化分析reverse sequence【逆向序列】神经网络中层特征关注点的区别，基于词信息量的方法，可以更加平滑自然的显示神经网络内部信息处理逻辑。其他方法也还可以，LRP方法就难以显示。<br><img src="https://img-blog.csdnimg.cn/2019100716433013.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="Across-Layer-Analysis"><a href="#Across-Layer-Analysis" class="headerlink" title="Across Layer Analysis"></a>Across Layer Analysis</h3><p>实验可视化分析了不同解释方法在SST2任务上神经网络中层特征关注点的区别。基于词信息量的方法，可以更加平滑自然的显示神经网络内部信息处理逻辑。结果表明，LRP和Gradient实效了，Perturbation噪音很大。<br><img src="https://img-blog.csdnimg.cn/20191007164341194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="Across-Model-Analysis"><a href="#Across-Model-Analysis" class="headerlink" title="Across Model Analysis"></a>Across Model Analysis</h3><p>实验研究了超参数的不同选择如何影响模型学习的隐藏状态。结果表明，基于词信息量的方法可以快速识别大学习率的模型包含的信息太少，应该减少学习率来改善性能。相比之下，Gradient方法不能在超参数调整方面提供类似的指导。<br><img src="https://img-blog.csdnimg.cn/20191007164350634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="Understanding-Neural-Models-in-NLP"><a href="#Understanding-Neural-Models-in-NLP" class="headerlink" title="Understanding Neural Models in NLP"></a>Understanding Neural Models in NLP</h3><p>第二组实验分析比较了四种在NLP中常用的深度学习模型，即BERT、Transformer、LSTM和CNN，BERT为什么效果最好呢？文章有了初步解释，相比于LSTM和CNN，BERT和Transformer往往可以更加精确地找到与任务相关的目标单词，而CNN和LSTM往往使用大范围的词去做预测，没有聚焦。<br><img src="https://img-blog.csdnimg.cn/20191007164409129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>并且，BERT模型在预测过程中往往使用具有实际意义的单词作为分类依据，而其他模型把更多的注意力放在了and/the/to/is/that 这类缺少实际意义的单词上。<br><img src="https://img-blog.csdnimg.cn/20191007164418792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在SST-2任务上，BERT模型在L3-L4层就已经遗忘了EOS单词，往往在第5到12层逐渐遗忘其他与情感语义分析无关的单词。相比于其他模型，BERT模型在单词选择上更有针对性，没有预训练的Transformer每次都照顾到所有的词，LSTM更关注前面的词，CNN基本上就是眉毛胡子一把抓。<br><img src="https://img-blog.csdnimg.cn/20191007164428518.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>前面提到的细粒度词属性信息，这里分析了各个单词的概念信息遗忘。BERT模型对各种细粒度概念信息保留得最好，曲线平缓。<br><img src="https://img-blog.csdnimg.cn/20191007164444249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后还有一个实验展示了在LSTM和BERT的所有层的训练过程中，互信息是如何变化的。可以看到，BERT的互信息变化很稳定，最后几层在2500层之前压缩信息，达到稳定状态。LSTM一开始让更多的信息通过，然后再抛弃无用信息以达到更好的效果。<br><img src="https://img-blog.csdnimg.cn/20191007164449340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>本文定义了一种统一的基于词信息量的方法，来定量解释NLP深度神经模型的中间层。与现有方法相比，基于词信息量的方法可以跨时间戳、图层和模型（一贯性）提供一致且忠实的结果。 而且，它可以用最小化假设（普适性）来定义，适用与各个模型结构和任务。 最后，实验展示了如何将基于词信息的度量用作解释模型的工具，并展示了如何丰富理解DNN的能力。</p>
+<p>如有错误，欢迎讨论和指出，万分感谢。</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1]. 神经网络的可解释性，从经验主义到数学建模(一篇icml文)<br>[2]. Towards a Deep and Unified Understanding of Deep Neural Models in NLP<br>[3]. Kinney, J. B. and Atwal, G. S. Equitability, mutual information, and the maximal information coefficient. National Academy of Sciences, pp. 201309933, 2014.</p>
 
       
     </div>
@@ -482,7 +489,7 @@ z&#39;s imag part:
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://indexfziq.github.io/2018/10/29/03-numbers-py2/" title="Learn python with socratica [My notes] - part 3 - Numbers_py_2">https://indexfziq.github.io/2018/10/29/03-numbers-py2/</a>
+    <a href="https://indexfziq.github.io/2019/10/07/towards-dnn/" title="论文笔记——对NLP深度神经模型的统一深入理解【神经网络可解释性】">https://indexfziq.github.io/2019/10/07/towards-dnn/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -497,7 +504,13 @@ z&#39;s imag part:
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/自然语言处理/" rel="tag"># 自然语言处理</a>
+          
+            <a href="/tags/可解释性/" rel="tag"># 可解释性</a>
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/BERT/" rel="tag"># BERT</a>
           
         </div>
       
@@ -522,8 +535,8 @@ z&#39;s imag part:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/29/02-strings/" rel="next" title="Learn python with socratica [My notes] - part 2 - Strings">
-                <i class="fa fa-chevron-left"></i> Learn python with socratica [My notes] - part 2 - Strings
+              <a href="/2019/07/03/COMET/" rel="next" title="论文笔记——COMET Commonsense Transformers for Automatic Knowledge Graph Construction">
+                <i class="fa fa-chevron-left"></i> 论文笔记——COMET Commonsense Transformers for Automatic Knowledge Graph Construction
               </a>
             
           </div>
@@ -531,10 +544,6 @@ z&#39;s imag part:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/30/04-numbers-py3/" rel="prev" title="Learn python with socratica [My notes] - part 4 - Numbers_py_3">
-                Learn python with socratica [My notes] - part 4 - Numbers_py_3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -692,7 +701,7 @@ z&#39;s imag part:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Whole-numbers-int-long"><span class="nav-number">1.</span> <span class="nav-text">Whole numbers: int, long</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Methods"><span class="nav-number">2.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Information-Quantification"><span class="nav-number">2.1.</span> <span class="nav-text">Word Information Quantification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fine-Grained-Analysis-of-Word-Attributes"><span class="nav-number">2.2.</span> <span class="nav-text">Fine-Grained Analysis of Word Attributes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Across-Timestamp-Analysis"><span class="nav-number">3.0.1.</span> <span class="nav-text">Across Timestamp Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Across-Layer-Analysis"><span class="nav-number">3.0.2.</span> <span class="nav-text">Across Layer Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Across-Model-Analysis"><span class="nav-number">3.0.3.</span> <span class="nav-text">Across Model Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-Neural-Models-in-NLP"><span class="nav-number">3.0.4.</span> <span class="nav-text">Understanding Neural Models in NLP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
