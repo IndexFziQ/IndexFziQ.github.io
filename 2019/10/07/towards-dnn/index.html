@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164428518.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164444249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191007164449340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-10-07T08:52:05.789Z">
+<meta property="og:updated_time" content="2019-10-07T13:54:24.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记——对NLP深度神经模型的统一深入理解【神经网络可解释性】">
 <meta name="twitter:description" content="From SJTU, MSRA and PKU.Authors: Chaoyu Guan, Xiting Wang, Quanshi Zhang, Runjin Chen, Di He, Xing Xie.Title: Towards a Deep and Unified Understanding of Deep Neural Models in NLPIn: ICML 2019.Codes:">
@@ -447,12 +447,16 @@
 <p><strong>word-level:</strong></p>
 <script type="math/tex; mode=display">H(\mathbf{X} | \mathbf{s})=\sum_{i} H\left(\mathbf{X}_{i} | \mathbf{s}\right)
 H\left(\mathbf{X}_{i} | \mathbf{s}\right)=-\int_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{i}} p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right) \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right) d \mathbf{x}_{i}^{\prime}</script><p>其中$X_i$表示第i个词的向量。</p>
-<p>在计算word-level信息量时，概率 $p\left(\mathbf{x}<em>{i}^{\prime} | \mathbf{s}\right)$ 很难算，这部分详见论文[2]3.2.2节和补充材料。为了便于计算，文章引入了perturbation-based approximation【扰动近似】。核心思想就是给每个词加一个高斯扰动项 $\tilde{\mathbf{x}}</em>{i}=\mathbf{x}<em>{i}+\boldsymbol{\epsilon}</em>{i}$，经过近似之后，目标函数变换成求极值问题：</p>
+<p>在计算word-level信息量时，概率 <script type="math/tex">p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script> 很难算，这部分详见论文[2]3.2.2节和补充材料。为了便于计算，文章引入了perturbation-based approximation【扰动近似】。核心思想就是给每个词加一个高斯扰动项 <script type="math/tex">\tilde{\mathbf{x}}_{i}=\mathbf{x}_{i}+\boldsymbol{\epsilon}_{i}</script>，经过近似之后，目标函数变换成求极值问题：</p>
 <script type="math/tex; mode=display">L(\boldsymbol{\sigma})=\sum_{i=1}^{n}\left(-\log \sigma_{i}\right)+\frac{1}{K \lambda} \mathbb{E}_{\tilde{\mathbf{x}}_{i} \cdot \boldsymbol{\epsilon}_{i} \sim \mathcal{N}\left(\mathbf{0}, \sigma_{i}^{2} \mathbf{I}\right)} \frac{\|\Phi(\tilde{\mathbf{x}})-\mathbf{s}\|^{2}}{\sigma_{\mathbf{S}}^{2}}</script><p>这里把补充材料的例子搬过来，更容易理解，扰动项就是解释指标的关键。<br><img src="https://img-blog.csdnimg.cn/20191007164305885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0NjExMjI0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>目标函数</strong>分为两部分：</p>
-<p>左边部分是给每一个词向量加扰动， $\sigma$ 越大，说明这个词需要丢弃的信息越多【也就是这个词越不重要】；</p>
-<p>右边部分是经过DNN编码之后，加扰动之后输入，经过DNN编码得到的 $\Phi(\tilde{\mathbf{x}})$ 要与原始输入的 s 差距越小越好。</p>
+<ul>
+<li><p>左边部分是给每一个词向量加扰动， $\sigma$ 越大，说明这个词需要丢弃的信息越多【也就是这个词越不重要】；</p>
+</li>
+<li><p>右边部分是经过DNN编码之后，加扰动之后输入，经过DNN编码得到的 $\Phi(\tilde{\mathbf{x}})$ 要与原始输入的 s 差距越小越好。</p>
+</li>
+</ul>
 <p>按照这个最优化目标，学习得到的扰动项可以很好地表示词的重要程度。</p>
-<h2 id="Fine-Grained-Analysis-of-Word-Attributes"><a href="#Fine-Grained-Analysis-of-Word-Attributes" class="headerlink" title="Fine-Grained Analysis of Word Attributes"></a>Fine-Grained Analysis of Word Attributes</h2><p>这部分分析了神经网络中间层的每个输入词内部的细粒度属性信息，属性来自DBpedia和Microsoft Concept Graph，概念 c （例如，情感形容词）由属于该概念的一组词组成（例如，happy，sorrowful，sad，…）。对于每一个词 x<em>i ，通过计算 s 编码当前词相对于随机词的相对置信度，将共同概念 c 中的信息从目标词的所有信息中解放出来。Figure_8对这方面做了实验。<br>近似计算 s 编码当前词 x_i （当前词是概念，在 c 中）相对于随机词 ${x}</em>{i}^{\prime}$ 的相对置信度 A_i 和 A_c ：</p>
+<h2 id="Fine-Grained-Analysis-of-Word-Attributes"><a href="#Fine-Grained-Analysis-of-Word-Attributes" class="headerlink" title="Fine-Grained Analysis of Word Attributes"></a>Fine-Grained Analysis of Word Attributes</h2><p>这部分分析了神经网络中间层的每个输入词内部的细粒度属性信息，属性来自DBpedia和Microsoft Concept Graph，概念 c （例如，情感形容词）由属于该概念的一组词组成（例如，happy，sorrowful，sad，…）。对于每一个词 x<em>i ，通过计算 s 编码当前词相对于随机词的相对置信度，将共同概念 c 中的信息从目标词的所有信息中解放出来。Figure_8对这方面做了实验。<br>近似计算 s 编码当前词 x_i （当前词是概念，在 c 中）相对于随机词 $${x}</em>{i}^{\prime}$$ 的相对置信度 A_i 和 A_c ：</p>
 <script type="math/tex; mode=display">A_{i}=\log p\left(\mathbf{x}_{i} | \mathbf{s}\right)-\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{i}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script><script type="math/tex; mode=display">A_{\mathrm{c}}=\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{\mathrm{c}}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)-\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{i}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script><p>然后在将两项做差，表示当前词x_i 去掉共有属性 c 之后的剩余信息：</p>
 <script type="math/tex; mode=display">r_{i, c}=A_{i}-A_{\mathbf{c}}=\log p\left(\mathbf{x}_{i} | \mathbf{s}\right)-\mathbb{E}_{\mathbf{x}_{i}^{\prime} \in \mathbf{X}_{\mathrm{c}}} \log p\left(\mathbf{x}_{i}^{\prime} | \mathbf{s}\right)</script><h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><p>第一部分实验分别跨时间戳、图层和模型，评价基于信息的解释方法。对比基准有：</p>
 <ul>
