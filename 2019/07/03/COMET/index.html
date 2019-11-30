@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://indexfziq.github.io/2019/07/03/COMET/5.png">
 <meta property="og:image" content="https://indexfziq.github.io/2019/07/03/COMET/6.png">
 <meta property="og:image" content="https://indexfziq.github.io/2019/07/03/COMET/8.png">
-<meta property="og:updated_time" content="2019-10-08T02:02:51.125Z">
+<meta property="og:updated_time" content="2019-11-30T02:42:00.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记——COMET Commonsense Transformers for Automatic Knowledge Graph Construction">
 <meta name="twitter:description" content="From Allen Institute for Artiﬁcial Intelligence and Microsoft Research. Authors: Antoine Bosselut, Hannah Rashkin, Maarten Sap, Chaitanya Malaviya, Asli Celikyilmaz, Yejin Choi Title: COMET: Commonsen">
@@ -424,7 +424,7 @@
 <p><strong>Authors:</strong> Antoine Bosselut, Hannah Rashkin, Maarten Sap, Chaitanya Malaviya, Asli Celikyilmaz, Yejin Choi</p>
 <p><strong>Title:</strong> COMET: Commonsense Transformers for Automatic Knowledge Graph Construction</p>
 <p><strong>In: ACL, 2019.</strong></p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>本文是Allen实验室发表在ACL2019的一篇关于自动常识知识库构建的文章。作者提出了Commonsense Transformers（COMET）生成模型，主体框架是Transformer语言模型，在ATOMIC和ConceptNet知识库中选取种子知识训练集进行预训练，使得模型可以自动构建常识知识库。Allen实验室也提供了<a href="https://mosaickg.apps. allenai.org/" target="_blank" rel="noopener">Demo</a>和<a href="https://github.com/ atcbosselut/comet-commonsense" target="_blank" rel="noopener">Code</a>，Demo挺有意思的，输入一个event（有参与者），就可以返回一个常识知识图。<a id="more"></a></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>本文是Allen实验室发表在ACL2019的一篇关于自动常识知识库构建的文章。作者提出了Commonsense Transformers（COMET）生成模型，主体框架是Transformer语言模型，在ATOMIC和ConceptNet知识库中选取种子知识训练集进行预训练，使得模型可以自动构建常识知识库。Allen实验室也提供了<a href="https://mosaickg.apps.allenai.org/" target="_blank" rel="noopener">Demo</a>和<a href="https://github.com/atcbosselut/comet-commonsense" target="_blank" rel="noopener">Code</a>，Demo挺有意思的，输入一个event（有参与者），就可以返回一个常识知识图。<a id="more"></a></p>
 <p>COMET与许多使用规范模板存储知识的传统知识库相反，常识知识库仅存储松散结构的开放式知识描述。实验结果表明，COMET能够产生新的人类评价为高质量的知识，高达77.5％（ATOMIC）和91.7％（ConceptNet）精度。使用常识生成模型COMET进行自动构建常识知识库，也许就会成为知识抽取构建知识库的合理替代方案。</p>
 <h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p>在阅读文本时，人类会做出常识性的推理，这些推理对理解叙事性故事（narrative，由具有逻辑、因果等关系的events构成）起支撑作用。想要让机器和人类一样具有这个能力，必须可以无限地获取相关常识，如果获得准确的常识更好。<br><img src="/2019/07/03/COMET/example.png" alt=""><br><strong>针对问题：</strong></p>
 <ol>
